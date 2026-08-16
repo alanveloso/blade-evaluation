@@ -1,0 +1,196 @@
+{
+  "matrix_id": "blade-core-eval-v2-primary",
+  "source": "F0.5 (authoritative if any summary disagrees); generation v2 does not expand the matrix.",
+  "r3_zero_bytes_rule": "REQ-R3-P0 appears once and serves both R-core and R-scale.",
+  "scenario_C": "not an independent quantitative cell",
+  "implementations": [
+    "blade",
+    "manual"
+  ],
+  "conditions": [
+    {
+      "condition_id": "REQ-R1-P0",
+      "protocol": "request",
+      "scenario": null,
+      "path": "R1",
+      "payload_bytes": 0,
+      "participant_count": 1,
+      "active_conversations": 1,
+      "family": "R-core"
+    },
+    {
+      "condition_id": "REQ-R2-P0",
+      "protocol": "request",
+      "scenario": null,
+      "path": "R2",
+      "payload_bytes": 0,
+      "participant_count": 1,
+      "active_conversations": 1,
+      "family": "R-core"
+    },
+    {
+      "condition_id": "REQ-R3-P0",
+      "protocol": "request",
+      "scenario": null,
+      "path": "R3",
+      "payload_bytes": 0,
+      "participant_count": 1,
+      "active_conversations": 1,
+      "family": "R-core+R-scale"
+    },
+    {
+      "condition_id": "REQ-R4-P0",
+      "protocol": "request",
+      "scenario": null,
+      "path": "R4",
+      "payload_bytes": 0,
+      "participant_count": 1,
+      "active_conversations": 1,
+      "family": "R-core"
+    },
+    {
+      "condition_id": "REQ-R3-P32",
+      "protocol": "request",
+      "scenario": null,
+      "path": "R3",
+      "payload_bytes": 32,
+      "participant_count": 1,
+      "active_conversations": 1,
+      "family": "R-scale"
+    },
+    {
+      "condition_id": "REQ-R3-P256",
+      "protocol": "request",
+      "scenario": null,
+      "path": "R3",
+      "payload_bytes": 256,
+      "participant_count": 1,
+      "active_conversations": 1,
+      "family": "R-scale"
+    },
+    {
+      "condition_id": "REQ-R3-P1024",
+      "protocol": "request",
+      "scenario": null,
+      "path": "R3",
+      "payload_bytes": 1024,
+      "participant_count": 1,
+      "active_conversations": 1,
+      "family": "R-scale"
+    },
+    {
+      "condition_id": "CN-A-N1-P0",
+      "protocol": "contract-net",
+      "scenario": "A",
+      "path": "A",
+      "payload_bytes": 0,
+      "participant_count": 1,
+      "active_conversations": 1,
+      "family": "CN-A-N"
+    },
+    {
+      "condition_id": "CN-A-N2-P0",
+      "protocol": "contract-net",
+      "scenario": "A",
+      "path": "A",
+      "payload_bytes": 0,
+      "participant_count": 2,
+      "active_conversations": 1,
+      "family": "CN-A-N+payload"
+    },
+    {
+      "condition_id": "CN-A-N4-P0",
+      "protocol": "contract-net",
+      "scenario": "A",
+      "path": "A",
+      "payload_bytes": 0,
+      "participant_count": 4,
+      "active_conversations": 1,
+      "family": "CN-A-N"
+    },
+    {
+      "condition_id": "CN-A-N8-P0",
+      "protocol": "contract-net",
+      "scenario": "A",
+      "path": "A",
+      "payload_bytes": 0,
+      "participant_count": 8,
+      "active_conversations": 1,
+      "family": "CN-A-N"
+    },
+    {
+      "condition_id": "CN-A-N1-P256",
+      "protocol": "contract-net",
+      "scenario": "A",
+      "path": "A",
+      "payload_bytes": 256,
+      "participant_count": 1,
+      "active_conversations": 1,
+      "family": "CN-A-256"
+    },
+    {
+      "condition_id": "CN-A-N2-P32",
+      "protocol": "contract-net",
+      "scenario": "A",
+      "path": "A",
+      "payload_bytes": 32,
+      "participant_count": 2,
+      "active_conversations": 1,
+      "family": "CN-A-N2-payload"
+    },
+    {
+      "condition_id": "CN-A-N2-P256",
+      "protocol": "contract-net",
+      "scenario": "A",
+      "path": "A",
+      "payload_bytes": 256,
+      "participant_count": 2,
+      "active_conversations": 1,
+      "family": "CN-A-N2-payload"
+    },
+    {
+      "condition_id": "CN-A-N4-P256",
+      "protocol": "contract-net",
+      "scenario": "A",
+      "path": "A",
+      "payload_bytes": 256,
+      "participant_count": 4,
+      "active_conversations": 1,
+      "family": "CN-A-256"
+    },
+    {
+      "condition_id": "CN-A-N2-P1024",
+      "protocol": "contract-net",
+      "scenario": "A",
+      "path": "A",
+      "payload_bytes": 1024,
+      "participant_count": 2,
+      "active_conversations": 1,
+      "family": "CN-A-N2-payload"
+    },
+    {
+      "condition_id": "CN-B-N2-P0",
+      "protocol": "contract-net",
+      "scenario": "B",
+      "path": "B",
+      "payload_bytes": 0,
+      "participant_count": 2,
+      "active_conversations": 1,
+      "family": "CN-B"
+    },
+    {
+      "condition_id": "CN-FAIL-A-N1-P0",
+      "protocol": "contract-net",
+      "scenario": "fail",
+      "path": "fail",
+      "payload_bytes": 0,
+      "participant_count": 1,
+      "active_conversations": 1,
+      "family": "CN-failure"
+    }
+  ],
+  "unique_condition_count": 18,
+  "paired_run_count": 36,
+  "private_original_sha256": "0e3635eea96866896a3cec4a5a7863a097a25c298f6c4f9d7b90e2be0370b916",
+  "note_public": "Public copy of the measured matrix. Historical generation-identity keys omitted; original file hash recorded."
+}

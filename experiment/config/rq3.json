@@ -1,0 +1,33 @@
+{
+  "A": {
+    "core_loc_context": 539
+  },
+  "B": {
+    "total": 82,
+    "protocol": 78,
+    "policy": 2,
+    "neutral": 2,
+    "application_owned_protocol_check_sites": 0,
+    "application_owned_structural_protocol_state": 0
+  },
+  "C": {
+    "total": 344,
+    "protocol": 342,
+    "policy": 0,
+    "neutral": 2,
+    "application_owned_protocol_check_sites": 101,
+    "structural_protocol_state": {
+      "mappings": 3,
+      "nested_mappings": 1,
+      "structs": 4
+    }
+  },
+  "derived": {
+    "application_loc_reduction": "(C.total - B.total) / C.total",
+    "application_loc_reduction_value": 0.7616279069767442,
+    "protocol_loc_reduction": "(C.protocol - B.protocol) / C.protocol",
+    "protocol_loc_reduction_value": 0.7719298245614035
+  },
+  "do_not_rewrite_markers": true,
+  "private_original_sha256": "25e803e28db23809dc19271793d84d51f0f5eee350c04802068db02a6619d5a0"
+}

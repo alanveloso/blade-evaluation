@@ -1,0 +1,49 @@
+{
+  "matrix_id": "blade-core-eval-v2-secondary",
+  "not_in_primary": true,
+  "k1000": "forbidden in F3",
+  "conditions": [
+    {
+      "condition_id": "SEC-ACT-K1",
+      "protocol": "request",
+      "path": "active",
+      "payload_bytes": 0,
+      "participant_count": 1,
+      "active_conversations": 1,
+      "shape": "Request Agreed 0B"
+    },
+    {
+      "condition_id": "SEC-ACT-K10",
+      "protocol": "request",
+      "path": "active",
+      "payload_bytes": 0,
+      "participant_count": 1,
+      "active_conversations": 10,
+      "shape": "Request Agreed 0B"
+    },
+    {
+      "condition_id": "SEC-ACT-K100",
+      "protocol": "request",
+      "path": "active",
+      "payload_bytes": 0,
+      "participant_count": 1,
+      "active_conversations": 100,
+      "shape": "Request Agreed 0B"
+    },
+    {
+      "condition_id": "SEC-CN-A-N16-P0",
+      "protocol": "contract-net",
+      "scenario": "A",
+      "path": "feasibility",
+      "payload_bytes": 0,
+      "participant_count": 16,
+      "active_conversations": 1,
+      "shape": "controlled-environment N=16 boundary; not primary"
+    }
+  ],
+  "unique_condition_count": 4,
+  "paired_run_count": 8,
+  "note": "Do not search for N>16 during F3. F3 is not exploratory. N=16 is not a production or mainnet capacity claim.",
+  "private_original_sha256": "1d0802df91019d39a2eb49b10c92d6a87ca6d9c32a0712f2d7940817383473c0",
+  "note_public": "Public copy of the measured matrix. Historical generation-identity keys omitted; original file hash recorded."
+}

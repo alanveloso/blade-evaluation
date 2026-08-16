@@ -1,0 +1,148 @@
+{
+  "request_r3": [
+    {
+      "implementation": "blade",
+      "path": "R3",
+      "payload_bytes": 0,
+      "active_I": 1,
+      "terminal_I": 0,
+      "active_P": 1,
+      "terminal_P": 0,
+      "payload_in_storage": false,
+      "ok": true
+    },
+    {
+      "implementation": "manual",
+      "path": "R3",
+      "payload_bytes": 0,
+      "active_I": 1,
+      "terminal_I": 0,
+      "active_P": 1,
+      "terminal_P": 0,
+      "payload_in_storage": false,
+      "ok": true
+    },
+    {
+      "implementation": "blade",
+      "path": "R3",
+      "payload_bytes": 32,
+      "active_I": 1,
+      "terminal_I": 0,
+      "active_P": 1,
+      "terminal_P": 0,
+      "payload_in_storage": false,
+      "ok": true
+    },
+    {
+      "implementation": "manual",
+      "path": "R3",
+      "payload_bytes": 32,
+      "active_I": 1,
+      "terminal_I": 0,
+      "active_P": 1,
+      "terminal_P": 0,
+      "payload_in_storage": false,
+      "ok": true
+    },
+    {
+      "implementation": "blade",
+      "path": "R3",
+      "payload_bytes": 256,
+      "active_I": 1,
+      "terminal_I": 0,
+      "active_P": 1,
+      "terminal_P": 0,
+      "payload_in_storage": false,
+      "ok": true
+    },
+    {
+      "implementation": "manual",
+      "path": "R3",
+      "payload_bytes": 256,
+      "active_I": 1,
+      "terminal_I": 0,
+      "active_P": 1,
+      "terminal_P": 0,
+      "payload_in_storage": false,
+      "ok": true
+    },
+    {
+      "implementation": "blade",
+      "path": "R3",
+      "payload_bytes": 1024,
+      "active_I": 1,
+      "terminal_I": 0,
+      "active_P": 1,
+      "terminal_P": 0,
+      "payload_in_storage": false,
+      "ok": true
+    },
+    {
+      "implementation": "manual",
+      "path": "R3",
+      "payload_bytes": 1024,
+      "active_I": 1,
+      "terminal_I": 0,
+      "active_P": 1,
+      "terminal_P": 0,
+      "payload_in_storage": false,
+      "ok": true
+    }
+  ],
+  "cn_a_n2": [
+    {
+      "implementation": "blade",
+      "scenario": "A",
+      "N": 2,
+      "after_propose_M": 3,
+      "after_eval_M": 3,
+      "terminal_M": 0
+    },
+    {
+      "implementation": "manual",
+      "scenario": "A",
+      "N": 2,
+      "after_propose_M": 3,
+      "after_eval_M": 3,
+      "terminal_M": 0
+    }
+  ],
+  "active_k": [
+    {
+      "implementation": "blade",
+      "K": 1,
+      "active_slots_IP": 2,
+      "terminal_slots_IP": 0
+    },
+    {
+      "implementation": "manual",
+      "K": 1,
+      "active_slots_IP": 2,
+      "terminal_slots_IP": 0
+    },
+    {
+      "implementation": "blade",
+      "K": 10,
+      "active_slots_IP": 20,
+      "terminal_slots_IP": 0
+    },
+    {
+      "implementation": "manual",
+      "K": 10,
+      "active_slots_IP": 20,
+      "terminal_slots_IP": 0
+    },
+    {
+      "implementation": "blade",
+      "K": 100,
+      "active_slots_IP": 200,
+      "terminal_slots_IP": 0
+    },
+    {
+      "implementation": "manual",
+      "K": 100,
+      "active_slots_IP": 200,
+      "terminal_slots_IP": 0
+    }
+  ]
+}

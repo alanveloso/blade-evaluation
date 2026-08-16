@@ -1,0 +1,21 @@
+# Foundry profile for semantic A/B tests.
+# Expect the canonical BLADE clone as a sibling directory named `blade`.
+
+[profile.default]
+src = "comparison/src"
+out = "out"
+test = "comparison/test"
+libs = []
+solc = "0.8.26"
+optimizer = true
+optimizer_runs = 200
+via_ir = false
+evm_version = "cancun"
+fs_permissions = [
+  { access = "read", path = "./" },
+  { access = "read-write", path = "./outputs" }
+]
+allow_paths = ["../blade"]
+
+[fmt]
+line_length = 100

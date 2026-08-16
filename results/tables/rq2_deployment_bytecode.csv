@@ -1,0 +1,9 @@
+implementation,protocol,contract,deployment_gas,runtime_bytecode_bytes,initcode_bytes,source_condition
+blade,request,BladeRequester,784420,3386,3449,REQ-R1-P0
+blade,request,BladeParticipant,933714,4078,4148,REQ-R1-P0
+manual,request,ManualInitiator,354070,1391,1419,REQ-R1-P0
+manual,request,ManualParticipant,380131,1512,1540,REQ-R1-P0
+blade,contract-net,BladeManager,1307344,5803,5860,CN-A-N1-P0
+blade,contract-net,BladeCnParticipant,895049,3896,3953,CN-A-N1-P0
+manual,contract-net,ManualManager,1051156,4615,4643,CN-A-N1-P0
+manual,contract-net,ManualCnParticipant,454727,1857,1885,CN-A-N1-P0

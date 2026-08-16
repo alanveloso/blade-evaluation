@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+title: BLADE Evaluation Artifact
+message: If you use this evaluation artifact, please cite it as below.
+type: software
+authors:
+  - family-names: Veloso
+    given-names: Alan
+    orcid: https://orcid.org/0000-0002-0905-0771
+repository-code: https://github.com/alanveloso/blade-evaluation
+url: https://github.com/alanveloso/blade-evaluation
+license: MIT
+references:
+  - type: software
+    title: BLADE
+    repository-code: https://github.com/alanveloso/blade
+    version: "c145305a3ca76f52a64b62a0cb731283dbba9638"

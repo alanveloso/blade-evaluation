@@ -1,0 +1,74 @@
+{
+  "REQ-R1-P0": {
+    "blade": 552,
+    "manual": 232
+  },
+  "REQ-R2-P0": {
+    "blade": 552,
+    "manual": 232
+  },
+  "REQ-R3-P0": {
+    "blade": 908,
+    "manual": 268
+  },
+  "REQ-R4-P0": {
+    "blade": 908,
+    "manual": 268
+  },
+  "REQ-R3-P32": {
+    "blade": 1036,
+    "manual": 332
+  },
+  "REQ-R3-P256": {
+    "blade": 1932,
+    "manual": 780
+  },
+  "REQ-R3-P1024": {
+    "blade": 5004,
+    "manual": 2316
+  },
+  "CN-A-N1-P0": {
+    "blade": 1328,
+    "manual": 688
+  },
+  "CN-A-N2-P0": {
+    "blade": 2232,
+    "manual": 952
+  },
+  "CN-A-N4-P0": {
+    "blade": 4040,
+    "manual": 1480
+  },
+  "CN-A-N8-P0": {
+    "blade": 7656,
+    "manual": 2536
+  },
+  "CN-A-N1-P256": {
+    "blade": 2352,
+    "manual": 1456
+  },
+  "CN-A-N2-P32": {
+    "blade": 2456,
+    "manual": 1112
+  },
+  "CN-A-N2-P256": {
+    "blade": 4024,
+    "manual": 2232
+  },
+  "CN-A-N4-P256": {
+    "blade": 7368,
+    "manual": 3784
+  },
+  "CN-A-N2-P1024": {
+    "blade": 9400,
+    "manual": 6072
+  },
+  "CN-B-N2-P0": {
+    "blade": 1716,
+    "manual": 756
+  },
+  "CN-FAIL-A-N1-P0": {
+    "blade": 1328,
+    "manual": 688
+  }
+}

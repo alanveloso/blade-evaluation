@@ -1,0 +1,63 @@
+{
+  "note": "Structural RQ3 only. Not storage gas. Population A inherited storage is not counted in B.",
+  "B": {
+    "scalar_protocol_fields": 0,
+    "mappings": 0,
+    "nested_mappings": 0,
+    "protocol_structs": 0,
+    "detail": "Blade wrappers declare no new session storage; Request/CN records live in Core (A)."
+  },
+  "C": {
+    "scalar_protocol_fields": 0,
+    "mappings": 3,
+    "nested_mappings": 1,
+    "protocol_structs": 4,
+    "declarations": [
+      {
+        "file": "src/manual/ManualRequest.sol",
+        "struct": "ManualInitiator.Status",
+        "fields": ["phase", "role", "peer"]
+      },
+      {
+        "file": "src/manual/ManualRequest.sol",
+        "mapping": "_live",
+        "type": "mapping(bytes32 => Status)"
+      },
+      {
+        "file": "src/manual/ManualRequest.sol",
+        "struct": "ManualParticipant.Status",
+        "fields": ["phase", "role", "peer"]
+      },
+      {
+        "file": "src/manual/ManualRequest.sol",
+        "mapping": "_live",
+        "type": "mapping(bytes32 => Status)"
+      },
+      {
+        "file": "src/manual/ManualContractNet.sol",
+        "struct": "ManualManager.Conversation",
+        "fields": ["replyBy", "evaluated", "live", "invited"]
+      },
+      {
+        "file": "src/manual/ManualContractNet.sol",
+        "mapping": "_net",
+        "type": "mapping(bytes32 => Conversation)"
+      },
+      {
+        "file": "src/manual/ManualContractNet.sol",
+        "nested_mapping": "_slot",
+        "type": "mapping(bytes32 => mapping(address => uint8))"
+      },
+      {
+        "file": "src/manual/ManualContractNet.sol",
+        "struct": "ManualCnParticipant.Session",
+        "fields": ["phase", "manager", "replyBy"]
+      },
+      {
+        "file": "src/manual/ManualContractNet.sol",
+        "mapping": "_cn",
+        "type": "mapping(bytes32 => Session)"
+      }
+    ]
+  }
+}

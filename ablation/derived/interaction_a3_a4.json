@@ -1,0 +1,35 @@
+[
+  {
+    "N": 2,
+    "cell": "CN-HALF-N2-P0",
+    "gas_A0": 386959,
+    "gas_A3": 389493,
+    "gas_A4": 387223,
+    "gas_A34": 389757,
+    "additive_delta": 2798,
+    "combined_A34_delta": 2798,
+    "interaction": 0
+  },
+  {
+    "N": 4,
+    "cell": "CN-HALF-N4-P0",
+    "gas_A0": 698455,
+    "gas_A3": 706023,
+    "gas_A4": 699325,
+    "gas_A34": 706893,
+    "additive_delta": 8438,
+    "combined_A34_delta": 8438,
+    "interaction": 0
+  },
+  {
+    "N": 8,
+    "cell": "CN-HALF-N8-P0",
+    "gas_A0": 1321463,
+    "gas_A3": 1347997,
+    "gas_A4": 1323545,
+    "gas_A34": 1350079,
+    "additive_delta": 28616,
+    "combined_A34_delta": 28616,
+    "interaction": 0
+  }
+]

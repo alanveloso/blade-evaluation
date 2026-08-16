@@ -1,0 +1,34 @@
+{
+  "BladeRequester": {
+    "runtime_bytecode_bytes": 3386,
+    "initcode_bytes": 3449
+  },
+  "BladeParticipant": {
+    "runtime_bytecode_bytes": 4078,
+    "initcode_bytes": 4148
+  },
+  "BladeManager": {
+    "runtime_bytecode_bytes": 5803,
+    "initcode_bytes": 5860
+  },
+  "BladeCnParticipant": {
+    "runtime_bytecode_bytes": 3896,
+    "initcode_bytes": 3953
+  },
+  "ManualInitiator": {
+    "runtime_bytecode_bytes": 1391,
+    "initcode_bytes": 1419
+  },
+  "ManualParticipant": {
+    "runtime_bytecode_bytes": 1512,
+    "initcode_bytes": 1540
+  },
+  "ManualManager": {
+    "runtime_bytecode_bytes": 4615,
+    "initcode_bytes": 4643
+  },
+  "ManualCnParticipant": {
+    "runtime_bytecode_bytes": 1857,
+    "initcode_bytes": 1885
+  }
+}

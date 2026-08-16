@@ -1,0 +1,28 @@
+{
+  "source": "eval-v2/config/rq3_freeze.json",
+  "A_core_loc": 539,
+  "B": {
+    "total": 82,
+    "protocol": 78,
+    "policy": 2,
+    "neutral": 2,
+    "application_owned_protocol_check_sites": 0,
+    "application_owned_structural_protocol_state": 0
+  },
+  "C": {
+    "total": 344,
+    "protocol": 342,
+    "policy": 0,
+    "neutral": 2,
+    "application_owned_protocol_check_sites": 101,
+    "structural_protocol_state": {
+      "mappings": 3,
+      "nested_mappings": 1,
+      "structs": 4
+    }
+  },
+  "application_loc_reduction": 0.7616279069767442,
+  "protocol_loc_reduction": 0.7719298245614035,
+  "application_loc_reduction_pct": 76.163,
+  "protocol_loc_reduction_pct": 77.193
+}

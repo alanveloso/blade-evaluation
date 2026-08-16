@@ -1,0 +1,158 @@
+{
+  "primary_relative_overhead_min": 0.20338313176823966,
+  "primary_relative_overhead_min_cell": "CN-FAIL-A-N1-P0",
+  "primary_relative_overhead_max": 0.5394812496007155,
+  "primary_relative_overhead_max_cell": "REQ-R3-P1024",
+  "rq3_application_reduction": 0.7616279069767442,
+  "rq3_protocol_reduction": 0.7719298245614035,
+  "storage": {
+    "request_r3": [
+      {
+        "implementation": "blade",
+        "path": "R3",
+        "payload_bytes": 0,
+        "active_I": 1,
+        "terminal_I": 0,
+        "active_P": 1,
+        "terminal_P": 0,
+        "payload_in_storage": false,
+        "ok": true
+      },
+      {
+        "implementation": "manual",
+        "path": "R3",
+        "payload_bytes": 0,
+        "active_I": 1,
+        "terminal_I": 0,
+        "active_P": 1,
+        "terminal_P": 0,
+        "payload_in_storage": false,
+        "ok": true
+      },
+      {
+        "implementation": "blade",
+        "path": "R3",
+        "payload_bytes": 32,
+        "active_I": 1,
+        "terminal_I": 0,
+        "active_P": 1,
+        "terminal_P": 0,
+        "payload_in_storage": false,
+        "ok": true
+      },
+      {
+        "implementation": "manual",
+        "path": "R3",
+        "payload_bytes": 32,
+        "active_I": 1,
+        "terminal_I": 0,
+        "active_P": 1,
+        "terminal_P": 0,
+        "payload_in_storage": false,
+        "ok": true
+      },
+      {
+        "implementation": "blade",
+        "path": "R3",
+        "payload_bytes": 256,
+        "active_I": 1,
+        "terminal_I": 0,
+        "active_P": 1,
+        "terminal_P": 0,
+        "payload_in_storage": false,
+        "ok": true
+      },
+      {
+        "implementation": "manual",
+        "path": "R3",
+        "payload_bytes": 256,
+        "active_I": 1,
+        "terminal_I": 0,
+        "active_P": 1,
+        "terminal_P": 0,
+        "payload_in_storage": false,
+        "ok": true
+      },
+      {
+        "implementation": "blade",
+        "path": "R3",
+        "payload_bytes": 1024,
+        "active_I": 1,
+        "terminal_I": 0,
+        "active_P": 1,
+        "terminal_P": 0,
+        "payload_in_storage": false,
+        "ok": true
+      },
+      {
+        "implementation": "manual",
+        "path": "R3",
+        "payload_bytes": 1024,
+        "active_I": 1,
+        "terminal_I": 0,
+        "active_P": 1,
+        "terminal_P": 0,
+        "payload_in_storage": false,
+        "ok": true
+      }
+    ],
+    "cn_a_n2": [
+      {
+        "implementation": "blade",
+        "scenario": "A",
+        "N": 2,
+        "after_propose_M": 3,
+        "after_eval_M": 3,
+        "terminal_M": 0
+      },
+      {
+        "implementation": "manual",
+        "scenario": "A",
+        "N": 2,
+        "after_propose_M": 3,
+        "after_eval_M": 3,
+        "terminal_M": 0
+      }
+    ],
+    "active_k": [
+      {
+        "implementation": "blade",
+        "K": 1,
+        "active_slots_IP": 2,
+        "terminal_slots_IP": 0
+      },
+      {
+        "implementation": "manual",
+        "K": 1,
+        "active_slots_IP": 2,
+        "terminal_slots_IP": 0
+      },
+      {
+        "implementation": "blade",
+        "K": 10,
+        "active_slots_IP": 20,
+        "terminal_slots_IP": 0
+      },
+      {
+        "implementation": "manual",
+        "K": 10,
+        "active_slots_IP": 20,
+        "terminal_slots_IP": 0
+      },
+      {
+        "implementation": "blade",
+        "K": 100,
+        "active_slots_IP": 200,
+        "terminal_slots_IP": 0
+      },
+      {
+        "implementation": "manual",
+        "K": 100,
+        "active_slots_IP": 200,
+        "terminal_slots_IP": 0
+      }
+    ]
+  },
+  "raw_primary_sha256": "ee00c96b7992de82803a44d6cea3d583979a44be5d4c83fadab728f30a572d5d",
+  "raw_secondary_sha256": "a889e91b13c52739838a36c4c26282c2e2eaff1d100d441f2b86573b0557060c"
+}

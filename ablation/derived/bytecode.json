@@ -1,0 +1,128 @@
+{
+  "A0": {
+    "BladeRequester": {
+      "runtime_bytecode_bytes": 3386,
+      "initcode_bytes": 3449
+    },
+    "BladeParticipant": {
+      "runtime_bytecode_bytes": 4078,
+      "initcode_bytes": 4148
+    },
+    "BladeManager": {
+      "runtime_bytecode_bytes": 5803,
+      "initcode_bytes": 5860
+    },
+    "BladeCnParticipant": {
+      "runtime_bytecode_bytes": 3896,
+      "initcode_bytes": 3953
+    }
+  },
+  "A1": {
+    "BladeRequester": {
+      "runtime_bytecode_bytes": 3983,
+      "initcode_bytes": 4046
+    },
+    "BladeParticipant": {
+      "runtime_bytecode_bytes": 4647,
+      "initcode_bytes": 4718
+    },
+    "BladeManager": {
+      "runtime_bytecode_bytes": 6387,
+      "initcode_bytes": 6444
+    },
+    "BladeCnParticipant": {
+      "runtime_bytecode_bytes": 4474,
+      "initcode_bytes": 4531
+    }
+  },
+  "A2": {
+    "BladeRequester": {
+      "runtime_bytecode_bytes": 3779,
+      "initcode_bytes": 3842
+    },
+    "BladeParticipant": {
+      "runtime_bytecode_bytes": 4449,
+      "initcode_bytes": 4519
+    },
+    "BladeManager": {
+      "runtime_bytecode_bytes": 6178,
+      "initcode_bytes": 6235
+    },
+    "BladeCnParticipant": {
+      "runtime_bytecode_bytes": 4276,
+      "initcode_bytes": 4333
+    }
+  },
+  "A3": {
+    "BladeRequester": {
+      "runtime_bytecode_bytes": 3386,
+      "initcode_bytes": 3449
+    },
+    "BladeParticipant": {
+      "runtime_bytecode_bytes": 4078,
+      "initcode_bytes": 4148
+    },
+    "BladeManager": {
+      "runtime_bytecode_bytes": 6349,
+      "initcode_bytes": 6406
+    },
+    "BladeCnParticipant": {
+      "runtime_bytecode_bytes": 3896,
+      "initcode_bytes": 3953
+    }
+  },
+  "A4": {
+    "BladeRequester": {
+      "runtime_bytecode_bytes": 3386,
+      "initcode_bytes": 3449
+    },
+    "BladeParticipant": {
+      "runtime_bytecode_bytes": 4078,
+      "initcode_bytes": 4148
+    },
+    "BladeManager": {
+      "runtime_bytecode_bytes": 5917,
+      "initcode_bytes": 5974
+    },
+    "BladeCnParticipant": {
+      "runtime_bytecode_bytes": 3896,
+      "initcode_bytes": 3953
+    }
+  },
+  "A5": {
+    "BladeRequester": {
+      "runtime_bytecode_bytes": 4027,
+      "initcode_bytes": 4090
+    },
+    "BladeParticipant": {
+      "runtime_bytecode_bytes": 4687,
+      "initcode_bytes": 4758
+    },
+    "BladeManager": {
+      "runtime_bytecode_bytes": 7085,
+      "initcode_bytes": 7142
+    },
+    "BladeCnParticipant": {
+      "runtime_bytecode_bytes": 4514,
+      "initcode_bytes": 4571
+    }
+  },
+  "A34": {
+    "BladeRequester": {
+      "runtime_bytecode_bytes": 3386,
+      "initcode_bytes": 3449
+    },
+    "BladeParticipant": {
+      "runtime_bytecode_bytes": 4078,
+      "initcode_bytes": 4148
+    },
+    "BladeManager": {
+      "runtime_bytecode_bytes": 6463,
+      "initcode_bytes": 6520
+    },
+    "BladeCnParticipant": {
+      "runtime_bytecode_bytes": 3896,
+      "initcode_bytes": 3953
+    }
+  }
+}

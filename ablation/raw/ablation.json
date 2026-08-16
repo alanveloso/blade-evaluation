@@ -1,0 +1,3886 @@
+{
+  "results": {
+    "A0": {
+      "CN-A-N1-P0": {
+        "complete_interaction_gas": 258810,
+        "deployment_gas": {
+          "deploy_manager": 1307344,
+          "deploy_participant_0": 895049
+        },
+        "interaction_calldata_bytes": 1328,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1307344,
+            "calldata": 5860,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 106615,
+            "calldata": 228,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 55380,
+            "calldata": 260,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 44874,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-A-N1-P0"
+      },
+      "CN-A-N16-P0": {
+        "complete_interaction_gas": 3012846,
+        "deployment_gas": {
+          "deploy_manager": 1307344,
+          "deploy_participant_0": 895049,
+          "deploy_participant_1": 895049,
+          "deploy_participant_2": 895049,
+          "deploy_participant_3": 895049,
+          "deploy_participant_4": 895049,
+          "deploy_participant_5": 895049,
+          "deploy_participant_6": 895049,
+          "deploy_participant_7": 895049,
+          "deploy_participant_8": 895049,
+          "deploy_participant_9": 895049,
+          "deploy_participant_10": 895049,
+          "deploy_participant_11": 895049,
+          "deploy_participant_12": 895049,
+          "deploy_participant_13": 895049,
+          "deploy_participant_14": 895049,
+          "deploy_participant_15": 895049
+        },
+        "interaction_calldata_bytes": 14888,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1307344,
+            "calldata": 5860,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_2",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_3",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_4",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_5",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_6",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_7",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_8",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_9",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_10",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_11",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_12",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_13",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_14",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_15",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 1007395,
+            "calldata": 708,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_2",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_3",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_4",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_5",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_6",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_7",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_8",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_9",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_10",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_11",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_12",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_13",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_14",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_15",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 436416,
+            "calldata": 740,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_1",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_2",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_3",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_4",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_5",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_6",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_7",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_8",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_9",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_10",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_11",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_12",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_13",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_14",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_15",
+            "gas": 44874,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-A-N16-P0"
+      },
+      "CN-A-N2-P0": {
+        "complete_interaction_gas": 442410,
+        "deployment_gas": {
+          "deploy_manager": 1307344,
+          "deploy_participant_0": 895049,
+          "deploy_participant_1": 895049
+        },
+        "interaction_calldata_bytes": 2232,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1307344,
+            "calldata": 5860,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 166667,
+            "calldata": 260,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 80780,
+            "calldata": 292,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_1",
+            "gas": 44874,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-A-N2-P0"
+      },
+      "CN-A-N4-P0": {
+        "complete_interaction_gas": 809622,
+        "deployment_gas": {
+          "deploy_manager": 1307344,
+          "deploy_participant_0": 895049,
+          "deploy_participant_1": 895049,
+          "deploy_participant_2": 895049,
+          "deploy_participant_3": 895049
+        },
+        "interaction_calldata_bytes": 4040,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1307344,
+            "calldata": 5860,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_2",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_3",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 286771,
+            "calldata": 324,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_2",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_3",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 131592,
+            "calldata": 356,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_1",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_2",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_3",
+            "gas": 44874,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-A-N4-P0"
+      },
+      "CN-A-N8-P0": {
+        "complete_interaction_gas": 1543812,
+        "deployment_gas": {
+          "deploy_manager": 1307344,
+          "deploy_participant_0": 895049,
+          "deploy_participant_1": 895049,
+          "deploy_participant_2": 895049,
+          "deploy_participant_3": 895049,
+          "deploy_participant_4": 895049,
+          "deploy_participant_5": 895049,
+          "deploy_participant_6": 895049,
+          "deploy_participant_7": 895049
+        },
+        "interaction_calldata_bytes": 7656,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1307344,
+            "calldata": 5860,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_2",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_3",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_4",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_5",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_6",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_7",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 526967,
+            "calldata": 452,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 51929,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 51929,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_2",
+            "gas": 51929,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_3",
+            "gas": 51929,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_4",
+            "gas": 51929,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_5",
+            "gas": 51929,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_6",
+            "gas": 51929,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_7",
+            "gas": 51929,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 233184,
+            "calldata": 484,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 46195,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_1",
+            "gas": 46195,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_2",
+            "gas": 46195,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_3",
+            "gas": 46195,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_4",
+            "gas": 46195,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_5",
+            "gas": 46195,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_6",
+            "gas": 46195,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_7",
+            "gas": 44864,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-A-N8-P0"
+      },
+      "CN-A-N2-P1024": {
+        "complete_interaction_gas": 638869,
+        "deployment_gas": {
+          "deploy_manager": 1307344,
+          "deploy_participant_0": 895049,
+          "deploy_participant_1": 895049
+        },
+        "interaction_calldata_bytes": 9400,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1307344,
+            "calldata": 5860,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 200331,
+            "calldata": 1284,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 109160,
+            "calldata": 2468,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 109160,
+            "calldata": 2468,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 80780,
+            "calldata": 292,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 71388,
+            "calldata": 1444,
+            "deploy": false
+          },
+          {
+            "step": "inform_1",
+            "gas": 68050,
+            "calldata": 1444,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-A-N2-P1024"
+      },
+      "CN-HALF-N2-P0": {
+        "complete_interaction_gas": 386959,
+        "deployment_gas": {
+          "deploy_manager": 1307344,
+          "deploy_participant_0": 895049,
+          "deploy_participant_1": 895049
+        },
+        "interaction_calldata_bytes": 1812,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1307344,
+            "calldata": 5860,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 166667,
+            "calldata": 260,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 71536,
+            "calldata": 292,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 44874,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-HALF-N2-P0"
+      },
+      "CN-HALF-N4-P0": {
+        "complete_interaction_gas": 698455,
+        "deployment_gas": {
+          "deploy_manager": 1307344,
+          "deploy_participant_0": 895049,
+          "deploy_participant_1": 895049,
+          "deploy_participant_2": 895049,
+          "deploy_participant_3": 895049
+        },
+        "interaction_calldata_bytes": 3200,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1307344,
+            "calldata": 5860,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_2",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_3",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 286771,
+            "calldata": 324,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_2",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_3",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 112839,
+            "calldata": 356,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_1",
+            "gas": 44874,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-HALF-N4-P0"
+      },
+      "CN-HALF-N8-P0": {
+        "complete_interaction_gas": 1321463,
+        "deployment_gas": {
+          "deploy_manager": 1307344,
+          "deploy_participant_0": 895049,
+          "deploy_participant_1": 895049,
+          "deploy_participant_2": 895049,
+          "deploy_participant_3": 895049,
+          "deploy_participant_4": 895049,
+          "deploy_participant_5": 895049,
+          "deploy_participant_6": 895049,
+          "deploy_participant_7": 895049
+        },
+        "interaction_calldata_bytes": 5976,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1307344,
+            "calldata": 5860,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_2",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_3",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_4",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_5",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_6",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_7",
+            "gas": 895049,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 526979,
+            "calldata": 452,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_2",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_3",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_4",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_5",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_6",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_7",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 195461,
+            "calldata": 484,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_1",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_2",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_3",
+            "gas": 44874,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-HALF-N8-P0"
+      },
+      "REQ-R1-P0": {
+        "complete_interaction_gas": 129392,
+        "deployment_gas": {
+          "deploy_initiator": 784420,
+          "deploy_participant": 933714
+        },
+        "interaction_calldata_bytes": 552,
+        "steps": [
+          {
+            "step": "deploy_initiator",
+            "gas": 784420,
+            "calldata": 3449,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant",
+            "gas": 933714,
+            "calldata": 4148,
+            "deploy": true
+          },
+          {
+            "step": "startRequest",
+            "gas": 84946,
+            "calldata": 132,
+            "deploy": false
+          },
+          {
+            "step": "refuse",
+            "gas": 44446,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "REQ-R1-P0"
+      },
+      "REQ-R3-P0": {
+        "complete_interaction_gas": 183082,
+        "deployment_gas": {
+          "deploy_initiator": 784420,
+          "deploy_participant": 933714
+        },
+        "interaction_calldata_bytes": 908,
+        "steps": [
+          {
+            "step": "deploy_initiator",
+            "gas": 784420,
+            "calldata": 3449,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant",
+            "gas": 933714,
+            "calldata": 4148,
+            "deploy": true
+          },
+          {
+            "step": "startRequest",
+            "gas": 84958,
+            "calldata": 132,
+            "deploy": false
+          },
+          {
+            "step": "agree",
+            "gas": 53625,
+            "calldata": 356,
+            "deploy": false
+          },
+          {
+            "step": "inform",
+            "gas": 44499,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "REQ-R3-P0"
+      },
+      "REQ-R3-P1024": {
+        "complete_interaction_gas": 289170,
+        "deployment_gas": {
+          "deploy_initiator": 784420,
+          "deploy_participant": 933714
+        },
+        "interaction_calldata_bytes": 5004,
+        "steps": [
+          {
+            "step": "deploy_initiator",
+            "gas": 784420,
+            "calldata": 3449,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant",
+            "gas": 933714,
+            "calldata": 4148,
+            "deploy": true
+          },
+          {
+            "step": "startRequest",
+            "gas": 110139,
+            "calldata": 1156,
+            "deploy": false
+          },
+          {
+            "step": "agree",
+            "gas": 70021,
+            "calldata": 1380,
+            "deploy": false
+          },
+          {
+            "step": "inform",
+            "gas": 109010,
+            "calldata": 2468,
+            "deploy": false
+          }
+        ],
+        "cell": "REQ-R3-P1024"
+      }
+    },
+    "A1": {
+      "CN-A-N1-P0": {
+        "complete_interaction_gas": 268521,
+        "deployment_gas": {
+          "deploy_manager": 1433562,
+          "deploy_participant_0": 1020026
+        },
+        "interaction_calldata_bytes": 1328,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1433562,
+            "calldata": 6444,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 1020026,
+            "calldata": 4531,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 109310,
+            "calldata": 228,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 54429,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 57935,
+            "calldata": 260,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 46847,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-A-N1-P0"
+      },
+      "CN-A-N2-P0": {
+        "complete_interaction_gas": 462273,
+        "deployment_gas": {
+          "deploy_manager": 1433562,
+          "deploy_participant_0": 1020026,
+          "deploy_participant_1": 1020026
+        },
+        "interaction_calldata_bytes": 2232,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1433562,
+            "calldata": 6444,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 1020026,
+            "calldata": 4531,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 1020026,
+            "calldata": 4531,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 172031,
+            "calldata": 260,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 54429,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 54429,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 85864,
+            "calldata": 292,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 48673,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_1",
+            "gas": 46847,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-A-N2-P0"
+      },
+      "REQ-R1-P0": {
+        "complete_interaction_gas": 134538,
+        "deployment_gas": {
+          "deploy_initiator": 913449,
+          "deploy_participant": 1056739
+        },
+        "interaction_calldata_bytes": 552,
+        "steps": [
+          {
+            "step": "deploy_initiator",
+            "gas": 913449,
+            "calldata": 4046,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant",
+            "gas": 1056739,
+            "calldata": 4718,
+            "deploy": true
+          },
+          {
+            "step": "startRequest",
+            "gas": 87499,
+            "calldata": 132,
+            "deploy": false
+          },
+          {
+            "step": "refuse",
+            "gas": 47039,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "REQ-R1-P0"
+      },
+      "REQ-R3-P0": {
+        "complete_interaction_gas": 190864,
+        "deployment_gas": {
+          "deploy_initiator": 913449,
+          "deploy_participant": 1056739
+        },
+        "interaction_calldata_bytes": 908,
+        "steps": [
+          {
+            "step": "deploy_initiator",
+            "gas": 913449,
+            "calldata": 4046,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant",
+            "gas": 1056739,
+            "calldata": 4718,
+            "deploy": true
+          },
+          {
+            "step": "startRequest",
+            "gas": 87511,
+            "calldata": 132,
+            "deploy": false
+          },
+          {
+            "step": "agree",
+            "gas": 56194,
+            "calldata": 356,
+            "deploy": false
+          },
+          {
+            "step": "inform",
+            "gas": 47159,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "REQ-R3-P0"
+      },
+      "REQ-R3-P1024": {
+        "complete_interaction_gas": 294690,
+        "deployment_gas": {
+          "deploy_initiator": 913449,
+          "deploy_participant": 1056739
+        },
+        "interaction_calldata_bytes": 5004,
+        "steps": [
+          {
+            "step": "deploy_initiator",
+            "gas": 913449,
+            "calldata": 4046,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant",
+            "gas": 1056739,
+            "calldata": 4718,
+            "deploy": true
+          },
+          {
+            "step": "startRequest",
+            "gas": 113090,
+            "calldata": 1156,
+            "deploy": false
+          },
+          {
+            "step": "agree",
+            "gas": 72590,
+            "calldata": 1380,
+            "deploy": false
+          },
+          {
+            "step": "inform",
+            "gas": 109010,
+            "calldata": 2468,
+            "deploy": false
+          }
+        ],
+        "cell": "REQ-R3-P1024"
+      }
+    },
+    "A2": {
+      "CN-A-N2-P0": {
+        "complete_interaction_gas": 452341,
+        "deployment_gas": {
+          "deploy_manager": 1388411,
+          "deploy_participant_0": 977255,
+          "deploy_participant_1": 977255
+        },
+        "interaction_calldata_bytes": 2232,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1388411,
+            "calldata": 6235,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 977255,
+            "calldata": 4333,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 977255,
+            "calldata": 4333,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 170225,
+            "calldata": 260,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 53044,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 53044,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 82962,
+            "calldata": 292,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 47310,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_1",
+            "gas": 45756,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-A-N2-P0"
+      },
+      "CN-A-N2-P1024": {
+        "complete_interaction_gas": 646866,
+        "deployment_gas": {
+          "deploy_manager": 1388411,
+          "deploy_participant_0": 977255,
+          "deploy_participant_1": 977255
+        },
+        "interaction_calldata_bytes": 9400,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1388411,
+            "calldata": 6235,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 977255,
+            "calldata": 4333,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 977255,
+            "calldata": 4333,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 204711,
+            "calldata": 1284,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 109160,
+            "calldata": 2468,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 109160,
+            "calldata": 2468,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 82962,
+            "calldata": 292,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 72694,
+            "calldata": 1444,
+            "deploy": false
+          },
+          {
+            "step": "inform_1",
+            "gas": 68179,
+            "calldata": 1444,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-A-N2-P1024"
+      },
+      "REQ-R1-P0": {
+        "complete_interaction_gas": 131645,
+        "deployment_gas": {
+          "deploy_initiator": 869394,
+          "deploy_participant": 1013940
+        },
+        "interaction_calldata_bytes": 552,
+        "steps": [
+          {
+            "step": "deploy_initiator",
+            "gas": 869394,
+            "calldata": 3842,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant",
+            "gas": 1013940,
+            "calldata": 4519,
+            "deploy": true
+          },
+          {
+            "step": "startRequest",
+            "gas": 86085,
+            "calldata": 132,
+            "deploy": false
+          },
+          {
+            "step": "refuse",
+            "gas": 45560,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "REQ-R1-P0"
+      },
+      "REQ-R3-P0": {
+        "complete_interaction_gas": 186414,
+        "deployment_gas": {
+          "deploy_initiator": 869394,
+          "deploy_participant": 1013940
+        },
+        "interaction_calldata_bytes": 908,
+        "steps": [
+          {
+            "step": "deploy_initiator",
+            "gas": 869394,
+            "calldata": 3842,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant",
+            "gas": 1013940,
+            "calldata": 4519,
+            "deploy": true
+          },
+          {
+            "step": "startRequest",
+            "gas": 86097,
+            "calldata": 132,
+            "deploy": false
+          },
+          {
+            "step": "agree",
+            "gas": 54704,
+            "calldata": 356,
+            "deploy": false
+          },
+          {
+            "step": "inform",
+            "gas": 45613,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "REQ-R3-P0"
+      },
+      "REQ-R3-P1024": {
+        "complete_interaction_gas": 291591,
+        "deployment_gas": {
+          "deploy_initiator": 869394,
+          "deploy_participant": 1013940
+        },
+        "interaction_calldata_bytes": 5004,
+        "steps": [
+          {
+            "step": "deploy_initiator",
+            "gas": 869394,
+            "calldata": 3842,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant",
+            "gas": 1013940,
+            "calldata": 4519,
+            "deploy": true
+          },
+          {
+            "step": "startRequest",
+            "gas": 111481,
+            "calldata": 1156,
+            "deploy": false
+          },
+          {
+            "step": "agree",
+            "gas": 71100,
+            "calldata": 1380,
+            "deploy": false
+          },
+          {
+            "step": "inform",
+            "gas": 109010,
+            "calldata": 2468,
+            "deploy": false
+          }
+        ],
+        "cell": "REQ-R3-P1024"
+      }
+    },
+    "A3": {
+      "CN-A-N1-P0": {
+        "complete_interaction_gas": 260174,
+        "deployment_gas": {
+          "deploy_manager": 1425429,
+          "deploy_participant_0": 895061
+        },
+        "interaction_calldata_bytes": 1328,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1425429,
+            "calldata": 6406,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 106666,
+            "calldata": 228,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 56693,
+            "calldata": 260,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 44874,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-A-N1-P0"
+      },
+      "CN-A-N16-P0": {
+        "complete_interaction_gas": 3129560,
+        "deployment_gas": {
+          "deploy_manager": 1425429,
+          "deploy_participant_0": 895061,
+          "deploy_participant_1": 895061,
+          "deploy_participant_2": 895061,
+          "deploy_participant_3": 895061,
+          "deploy_participant_4": 895061,
+          "deploy_participant_5": 895061,
+          "deploy_participant_6": 895061,
+          "deploy_participant_7": 895061,
+          "deploy_participant_8": 895061,
+          "deploy_participant_9": 895061,
+          "deploy_participant_10": 895061,
+          "deploy_participant_11": 895061,
+          "deploy_participant_12": 895061,
+          "deploy_participant_13": 895061,
+          "deploy_participant_14": 895061,
+          "deploy_participant_15": 895061
+        },
+        "interaction_calldata_bytes": 14888,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1425429,
+            "calldata": 6406,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_2",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_3",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_4",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_5",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_6",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_7",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_8",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_9",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_10",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_11",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_12",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_13",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_14",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_15",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 1045786,
+            "calldata": 708,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_2",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_3",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_4",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_5",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_6",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_7",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_8",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_9",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_10",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_11",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_12",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_13",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_14",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_15",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 514739,
+            "calldata": 740,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_1",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_2",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_3",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_4",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_5",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_6",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_7",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_8",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_9",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_10",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_11",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_12",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_13",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_14",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_15",
+            "gas": 44874,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-A-N16-P0"
+      },
+      "CN-A-N2-P0": {
+        "complete_interaction_gas": 445521,
+        "deployment_gas": {
+          "deploy_manager": 1425429,
+          "deploy_participant_0": 895061,
+          "deploy_participant_1": 895061
+        },
+        "interaction_calldata_bytes": 2232,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1425429,
+            "calldata": 6406,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 167055,
+            "calldata": 260,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 83503,
+            "calldata": 292,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_1",
+            "gas": 44874,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-A-N2-P0"
+      },
+      "CN-A-N4-P0": {
+        "complete_interaction_gas": 818774,
+        "deployment_gas": {
+          "deploy_manager": 1425429,
+          "deploy_participant_0": 895061,
+          "deploy_participant_1": 895061,
+          "deploy_participant_2": 895061,
+          "deploy_participant_3": 895061
+        },
+        "interaction_calldata_bytes": 4040,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1425429,
+            "calldata": 6406,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_2",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_3",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 288784,
+            "calldata": 324,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_2",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_3",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 138731,
+            "calldata": 356,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_1",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_2",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_3",
+            "gas": 44874,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-A-N4-P0"
+      },
+      "CN-A-N8-P0": {
+        "complete_interaction_gas": 1575234,
+        "deployment_gas": {
+          "deploy_manager": 1425429,
+          "deploy_participant_0": 895061,
+          "deploy_participant_1": 895061,
+          "deploy_participant_2": 895061,
+          "deploy_participant_3": 895061,
+          "deploy_participant_4": 895061,
+          "deploy_participant_5": 895061,
+          "deploy_participant_6": 895061,
+          "deploy_participant_7": 895061
+        },
+        "interaction_calldata_bytes": 7656,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1425429,
+            "calldata": 6406,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_2",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_3",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_4",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_5",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_6",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_7",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 536034,
+            "calldata": 452,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 51929,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 51929,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_2",
+            "gas": 51929,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_3",
+            "gas": 51929,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_4",
+            "gas": 51929,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_5",
+            "gas": 51929,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_6",
+            "gas": 51929,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_7",
+            "gas": 51929,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 255539,
+            "calldata": 484,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 46195,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_1",
+            "gas": 46195,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_2",
+            "gas": 46195,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_3",
+            "gas": 46195,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_4",
+            "gas": 46195,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_5",
+            "gas": 46195,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_6",
+            "gas": 46195,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_7",
+            "gas": 44864,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-A-N8-P0"
+      },
+      "CN-HALF-N2-P0": {
+        "complete_interaction_gas": 389493,
+        "deployment_gas": {
+          "deploy_manager": 1425429,
+          "deploy_participant_0": 895061,
+          "deploy_participant_1": 895061
+        },
+        "interaction_calldata_bytes": 1812,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1425429,
+            "calldata": 6406,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 167055,
+            "calldata": 260,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 73682,
+            "calldata": 292,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 44874,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-HALF-N2-P0"
+      },
+      "CN-HALF-N4-P0": {
+        "complete_interaction_gas": 706023,
+        "deployment_gas": {
+          "deploy_manager": 1425429,
+          "deploy_participant_0": 895061,
+          "deploy_participant_1": 895061,
+          "deploy_participant_2": 895061,
+          "deploy_participant_3": 895061
+        },
+        "interaction_calldata_bytes": 3200,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1425429,
+            "calldata": 6406,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_2",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_3",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 288784,
+            "calldata": 324,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_2",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_3",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 118394,
+            "calldata": 356,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_1",
+            "gas": 44874,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-HALF-N4-P0"
+      },
+      "CN-HALF-N8-P0": {
+        "complete_interaction_gas": 1347997,
+        "deployment_gas": {
+          "deploy_manager": 1425429,
+          "deploy_participant_0": 895061,
+          "deploy_participant_1": 895061,
+          "deploy_participant_2": 895061,
+          "deploy_participant_3": 895061,
+          "deploy_participant_4": 895061,
+          "deploy_participant_5": 895061,
+          "deploy_participant_6": 895061,
+          "deploy_participant_7": 895061
+        },
+        "interaction_calldata_bytes": 5976,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1425429,
+            "calldata": 6406,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_2",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_3",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_4",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_5",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_6",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_7",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 536046,
+            "calldata": 452,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_2",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_3",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_4",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_5",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_6",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_7",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 212928,
+            "calldata": 484,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_1",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_2",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_3",
+            "gas": 44874,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-HALF-N8-P0"
+      }
+    },
+    "A4": {
+      "CN-A-N2-P0": {
+        "complete_interaction_gas": 442309,
+        "deployment_gas": {
+          "deploy_manager": 1332078,
+          "deploy_participant_0": 895061,
+          "deploy_participant_1": 895061
+        },
+        "interaction_calldata_bytes": 2232,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1332078,
+            "calldata": 5974,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 166667,
+            "calldata": 260,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 80679,
+            "calldata": 292,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_1",
+            "gas": 44874,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-A-N2-P0"
+      },
+      "CN-HALF-N2-P0": {
+        "complete_interaction_gas": 387223,
+        "deployment_gas": {
+          "deploy_manager": 1332078,
+          "deploy_participant_0": 895061,
+          "deploy_participant_1": 895061
+        },
+        "interaction_calldata_bytes": 1812,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1332078,
+            "calldata": 5974,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 166667,
+            "calldata": 260,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 71800,
+            "calldata": 292,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 44874,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-HALF-N2-P0"
+      },
+      "CN-HALF-N4-P0": {
+        "complete_interaction_gas": 699325,
+        "deployment_gas": {
+          "deploy_manager": 1332078,
+          "deploy_participant_0": 895061,
+          "deploy_participant_1": 895061,
+          "deploy_participant_2": 895061,
+          "deploy_participant_3": 895061
+        },
+        "interaction_calldata_bytes": 3200,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1332078,
+            "calldata": 5974,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_2",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_3",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 286771,
+            "calldata": 324,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_2",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_3",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 113709,
+            "calldata": 356,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_1",
+            "gas": 44874,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-HALF-N4-P0"
+      },
+      "CN-HALF-N8-P0": {
+        "complete_interaction_gas": 1323545,
+        "deployment_gas": {
+          "deploy_manager": 1332078,
+          "deploy_participant_0": 895061,
+          "deploy_participant_1": 895061,
+          "deploy_participant_2": 895061,
+          "deploy_participant_3": 895061,
+          "deploy_participant_4": 895061,
+          "deploy_participant_5": 895061,
+          "deploy_participant_6": 895061,
+          "deploy_participant_7": 895061
+        },
+        "interaction_calldata_bytes": 5976,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1332078,
+            "calldata": 5974,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_2",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_3",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_4",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_5",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_6",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_7",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 526979,
+            "calldata": 452,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_2",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_3",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_4",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_5",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_6",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_7",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 197543,
+            "calldata": 484,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_1",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_2",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_3",
+            "gas": 44874,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-HALF-N8-P0"
+      }
+    },
+    "A5": {
+      "CN-A-N2-P0": {
+        "complete_interaction_gas": 473821,
+        "deployment_gas": {
+          "deploy_manager": 1584632,
+          "deploy_participant_0": 1028681,
+          "deploy_participant_1": 1028681
+        },
+        "interaction_calldata_bytes": 2232,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1584632,
+            "calldata": 7142,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 1028681,
+            "calldata": 4571,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 1028681,
+            "calldata": 4571,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 175483,
+            "calldata": 260,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 55377,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 55377,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 90358,
+            "calldata": 292,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 49621,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_1",
+            "gas": 47605,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-A-N2-P0"
+      },
+      "CN-A-N8-P0": {
+        "complete_interaction_gas": 1690631,
+        "deployment_gas": {
+          "deploy_manager": 1584632,
+          "deploy_participant_0": 1028681,
+          "deploy_participant_1": 1028681,
+          "deploy_participant_2": 1028681,
+          "deploy_participant_3": 1028681,
+          "deploy_participant_4": 1028681,
+          "deploy_participant_5": 1028681,
+          "deploy_participant_6": 1028681,
+          "deploy_participant_7": 1028681
+        },
+        "interaction_calldata_bytes": 7656,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1584632,
+            "calldata": 7142,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 1028681,
+            "calldata": 4571,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 1028681,
+            "calldata": 4571,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_2",
+            "gas": 1028681,
+            "calldata": 4571,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_3",
+            "gas": 1028681,
+            "calldata": 4571,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_4",
+            "gas": 1028681,
+            "calldata": 4571,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_5",
+            "gas": 1028681,
+            "calldata": 4571,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_6",
+            "gas": 1028681,
+            "calldata": 4571,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_7",
+            "gas": 1028681,
+            "calldata": 4571,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 569668,
+            "calldata": 452,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 55365,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 55365,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_2",
+            "gas": 55365,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_3",
+            "gas": 55365,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_4",
+            "gas": 55365,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_5",
+            "gas": 55365,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_6",
+            "gas": 55365,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_7",
+            "gas": 55365,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 283184,
+            "calldata": 484,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 49609,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_1",
+            "gas": 49609,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_2",
+            "gas": 49609,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_3",
+            "gas": 49609,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_4",
+            "gas": 49609,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_5",
+            "gas": 49609,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_6",
+            "gas": 49609,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_7",
+            "gas": 47596,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-A-N8-P0"
+      },
+      "REQ-R1-P0": {
+        "complete_interaction_gas": 136350,
+        "deployment_gas": {
+          "deploy_initiator": 922974,
+          "deploy_participant": 1065412
+        },
+        "interaction_calldata_bytes": 552,
+        "steps": [
+          {
+            "step": "deploy_initiator",
+            "gas": 922974,
+            "calldata": 4090,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant",
+            "gas": 1065412,
+            "calldata": 4758,
+            "deploy": true
+          },
+          {
+            "step": "startRequest",
+            "gas": 88435,
+            "calldata": 132,
+            "deploy": false
+          },
+          {
+            "step": "refuse",
+            "gas": 47915,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "REQ-R1-P0"
+      },
+      "REQ-R3-P0": {
+        "complete_interaction_gas": 193541,
+        "deployment_gas": {
+          "deploy_initiator": 922974,
+          "deploy_participant": 1065412
+        },
+        "interaction_calldata_bytes": 908,
+        "steps": [
+          {
+            "step": "deploy_initiator",
+            "gas": 922974,
+            "calldata": 4090,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant",
+            "gas": 1065412,
+            "calldata": 4758,
+            "deploy": true
+          },
+          {
+            "step": "startRequest",
+            "gas": 88447,
+            "calldata": 132,
+            "deploy": false
+          },
+          {
+            "step": "agree",
+            "gas": 57059,
+            "calldata": 356,
+            "deploy": false
+          },
+          {
+            "step": "inform",
+            "gas": 48035,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "REQ-R3-P0"
+      }
+    },
+    "A34": {
+      "CN-HALF-N2-P0": {
+        "complete_interaction_gas": 389757,
+        "deployment_gas": {
+          "deploy_manager": 1450151,
+          "deploy_participant_0": 895061,
+          "deploy_participant_1": 895061
+        },
+        "interaction_calldata_bytes": 1812,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1450151,
+            "calldata": 6520,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 167055,
+            "calldata": 260,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 73946,
+            "calldata": 292,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 44874,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-HALF-N2-P0"
+      },
+      "CN-HALF-N4-P0": {
+        "complete_interaction_gas": 706893,
+        "deployment_gas": {
+          "deploy_manager": 1450151,
+          "deploy_participant_0": 895061,
+          "deploy_participant_1": 895061,
+          "deploy_participant_2": 895061,
+          "deploy_participant_3": 895061
+        },
+        "interaction_calldata_bytes": 3200,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1450151,
+            "calldata": 6520,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_2",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_3",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 288784,
+            "calldata": 324,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_2",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_3",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 119264,
+            "calldata": 356,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_1",
+            "gas": 44874,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-HALF-N4-P0"
+      },
+      "CN-HALF-N8-P0": {
+        "complete_interaction_gas": 1350079,
+        "deployment_gas": {
+          "deploy_manager": 1450151,
+          "deploy_participant_0": 895061,
+          "deploy_participant_1": 895061,
+          "deploy_participant_2": 895061,
+          "deploy_participant_3": 895061,
+          "deploy_participant_4": 895061,
+          "deploy_participant_5": 895061,
+          "deploy_participant_6": 895061,
+          "deploy_participant_7": 895061
+        },
+        "interaction_calldata_bytes": 5976,
+        "steps": [
+          {
+            "step": "deploy_manager",
+            "gas": 1450151,
+            "calldata": 6520,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_0",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_1",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_2",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_3",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_4",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_5",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_6",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "deploy_participant_7",
+            "gas": 895061,
+            "calldata": 3953,
+            "deploy": true
+          },
+          {
+            "step": "cfp",
+            "gas": 536046,
+            "calldata": 452,
+            "deploy": false
+          },
+          {
+            "step": "propose_0",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_1",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_2",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_3",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_4",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_5",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_6",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "propose_7",
+            "gas": 51941,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "evaluate",
+            "gas": 215010,
+            "calldata": 484,
+            "deploy": false
+          },
+          {
+            "step": "inform_0",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_1",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_2",
+            "gas": 46207,
+            "calldata": 420,
+            "deploy": false
+          },
+          {
+            "step": "inform_3",
+            "gas": 44874,
+            "calldata": 420,
+            "deploy": false
+          }
+        ],
+        "cell": "CN-HALF-N8-P0"
+      }
+    }
+  },
+  "bytecode": {
+    "A0": {
+      "BladeRequester": {
+        "runtime_bytecode_bytes": 3386,
+        "initcode_bytes": 3449
+      },
+      "BladeParticipant": {
+        "runtime_bytecode_bytes": 4078,
+        "initcode_bytes": 4148
+      },
+      "BladeManager": {
+        "runtime_bytecode_bytes": 5803,
+        "initcode_bytes": 5860
+      },
+      "BladeCnParticipant": {
+        "runtime_bytecode_bytes": 3896,
+        "initcode_bytes": 3953
+      }
+    },
+    "A1": {
+      "BladeRequester": {
+        "runtime_bytecode_bytes": 3983,
+        "initcode_bytes": 4046
+      },
+      "BladeParticipant": {
+        "runtime_bytecode_bytes": 4647,
+        "initcode_bytes": 4718
+      },
+      "BladeManager": {
+        "runtime_bytecode_bytes": 6387,
+        "initcode_bytes": 6444
+      },
+      "BladeCnParticipant": {
+        "runtime_bytecode_bytes": 4474,
+        "initcode_bytes": 4531
+      }
+    },
+    "A2": {
+      "BladeRequester": {
+        "runtime_bytecode_bytes": 3779,
+        "initcode_bytes": 3842
+      },
+      "BladeParticipant": {
+        "runtime_bytecode_bytes": 4449,
+        "initcode_bytes": 4519
+      },
+      "BladeManager": {
+        "runtime_bytecode_bytes": 6178,
+        "initcode_bytes": 6235
+      },
+      "BladeCnParticipant": {
+        "runtime_bytecode_bytes": 4276,
+        "initcode_bytes": 4333
+      }
+    },
+    "A3": {
+      "BladeRequester": {
+        "runtime_bytecode_bytes": 3386,
+        "initcode_bytes": 3449
+      },
+      "BladeParticipant": {
+        "runtime_bytecode_bytes": 4078,
+        "initcode_bytes": 4148
+      },
+      "BladeManager": {
+        "runtime_bytecode_bytes": 6349,
+        "initcode_bytes": 6406
+      },
+      "BladeCnParticipant": {
+        "runtime_bytecode_bytes": 3896,
+        "initcode_bytes": 3953
+      }
+    },
+    "A4": {
+      "BladeRequester": {
+        "runtime_bytecode_bytes": 3386,
+        "initcode_bytes": 3449
+      },
+      "BladeParticipant": {
+        "runtime_bytecode_bytes": 4078,
+        "initcode_bytes": 4148
+      },
+      "BladeManager": {
+        "runtime_bytecode_bytes": 5917,
+        "initcode_bytes": 5974
+      },
+      "BladeCnParticipant": {
+        "runtime_bytecode_bytes": 3896,
+        "initcode_bytes": 3953
+      }
+    },
+    "A5": {
+      "BladeRequester": {
+        "runtime_bytecode_bytes": 4027,
+        "initcode_bytes": 4090
+      },
+      "BladeParticipant": {
+        "runtime_bytecode_bytes": 4687,
+        "initcode_bytes": 4758
+      },
+      "BladeManager": {
+        "runtime_bytecode_bytes": 7085,
+        "initcode_bytes": 7142
+      },
+      "BladeCnParticipant": {
+        "runtime_bytecode_bytes": 4514,
+        "initcode_bytes": 4571
+      }
+    },
+    "A34": {
+      "BladeRequester": {
+        "runtime_bytecode_bytes": 3386,
+        "initcode_bytes": 3449
+      },
+      "BladeParticipant": {
+        "runtime_bytecode_bytes": 4078,
+        "initcode_bytes": 4148
+      },
+      "BladeManager": {
+        "runtime_bytecode_bytes": 6463,
+        "initcode_bytes": 6520
+      },
+      "BladeCnParticipant": {
+        "runtime_bytecode_bytes": 3896,
+        "initcode_bytes": 3953
+      }
+    }
+  }
+}

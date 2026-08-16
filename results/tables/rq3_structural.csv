@@ -1,0 +1,4 @@
+population,total_loc,protocol_loc,policy_loc,neutral_loc,check_sites,note
+A Core,539,,,,,reusable framework; not subtracted in B vs C
+B BLADE application,82,78,2,2,0,application-owned protocol state = 0
+C purpose-built Solidity,344,342,0,2,101,mappings=3 nested=1 structs=4
