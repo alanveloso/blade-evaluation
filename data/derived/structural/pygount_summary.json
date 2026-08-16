@@ -1,0 +1,75 @@
+{
+  "A": {
+    "label": "A",
+    "raw": "outputs/structural/pygount_A.json",
+    "pygount_code": 576,
+    "files": [
+      {
+        "path": "/home/alanveloso/C\u00f3digo/blade/src/core/Agent.sol",
+        "codeCount": 60
+      },
+      {
+        "path": "/home/alanveloso/C\u00f3digo/blade/src/core/ContractNetLib.sol",
+        "codeCount": 45
+      },
+      {
+        "path": "/home/alanveloso/C\u00f3digo/blade/src/core/ContractNetManager.sol",
+        "codeCount": 170
+      },
+      {
+        "path": "/home/alanveloso/C\u00f3digo/blade/src/core/ContractNetParticipant.sol",
+        "codeCount": 108
+      },
+      {
+        "path": "/home/alanveloso/C\u00f3digo/blade/src/core/IAgent.sol",
+        "codeCount": 4
+      },
+      {
+        "path": "/home/alanveloso/C\u00f3digo/blade/src/core/Message.sol",
+        "codeCount": 25
+      },
+      {
+        "path": "/home/alanveloso/C\u00f3digo/blade/src/core/Performative.sol",
+        "codeCount": 13
+      },
+      {
+        "path": "/home/alanveloso/C\u00f3digo/blade/src/core/Protocol.sol",
+        "codeCount": 5
+      },
+      {
+        "path": "/home/alanveloso/C\u00f3digo/blade/src/core/RequestAgent.sol",
+        "codeCount": 146
+      }
+    ]
+  },
+  "B": {
+    "label": "B",
+    "raw": "outputs/structural/pygount_B.json",
+    "pygount_code": 84,
+    "files": [
+      {
+        "path": "/home/alanveloso/C\u00f3digo/blade-evaluation/comparison/src/blade-app/BladeContractNet.sol",
+        "codeCount": 49
+      },
+      {
+        "path": "/home/alanveloso/C\u00f3digo/blade-evaluation/comparison/src/blade-app/BladeRequest.sol",
+        "codeCount": 35
+      }
+    ]
+  },
+  "C": {
+    "label": "C",
+    "raw": "outputs/structural/pygount_C.json",
+    "pygount_code": 344,
+    "files": [
+      {
+        "path": "/home/alanveloso/C\u00f3digo/blade-evaluation/comparison/src/manual/ManualContractNet.sol",
+        "codeCount": 223
+      },
+      {
+        "path": "/home/alanveloso/C\u00f3digo/blade-evaluation/comparison/src/manual/ManualRequest.sol",
+        "codeCount": 121
+      }
+    ]
+  }
+}

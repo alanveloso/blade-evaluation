@@ -1,10 +1,10 @@
 {
   "A": {
-    "core_loc_context": 539
+    "core_loc_context": 576
   },
   "B": {
-    "total": 82,
-    "protocol": 78,
+    "total": 84,
+    "protocol": 80,
     "policy": 2,
     "neutral": 2,
     "application_owned_protocol_check_sites": 0,
@@ -24,10 +24,9 @@
   },
   "derived": {
     "application_loc_reduction": "(C.total - B.total) / C.total",
-    "application_loc_reduction_value": 0.7616279069767442,
+    "application_loc_reduction_value": 0.7558139534883721,
     "protocol_loc_reduction": "(C.protocol - B.protocol) / C.protocol",
-    "protocol_loc_reduction_value": 0.7719298245614035
+    "protocol_loc_reduction_value": 0.7660818713450293
   },
-  "do_not_rewrite_markers": true,
-  "private_original_sha256": "25e803e28db23809dc19271793d84d51f0f5eee350c04802068db02a6619d5a0"
+  "do_not_rewrite_markers": true
 }

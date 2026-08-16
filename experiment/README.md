@@ -9,7 +9,7 @@ Place this artifact next to the canonical framework:
 ```text
 parent/
   blade/                 # https://github.com/alanveloso/blade
-                         # commit c145305a3ca76f52a64b62a0cb731283dbba9638
+                         # commit matching experiment/config/experiment_spec.json core_sha
   blade-evaluation/      # this repository
 ```
 
@@ -41,7 +41,7 @@ Host wall-clock (`date`, `time.time`) is not used as an experimental input.
 
 - **18** primary paired conditions (BLADE vs purpose-built): `config/primary_matrix.json`.
 - Secondary cells: Request Agreed active conversations K = 1 / 10 / 100, and Contract Net N=16 under the 30M-gas local Anvil limit: `config/secondary_matrix.json`.
-- RQ3 populations and markers: `config/rq3.json`.
+- Structural populations and markers: `config/structural.json`.
 - Experiment spec identifier (frozen campaign label in raw records): `config/experiment_spec.json`.
 
 Request R3 / 0 B appears once physically and serves both R-core and R-scale analyses (no duplicate row). Scenario C is not an independent quantitative observation. Feasibility / N=16 / active-K are secondary and are not mixed into primary overhead tables.

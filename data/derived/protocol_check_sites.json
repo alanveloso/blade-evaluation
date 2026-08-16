@@ -2,7 +2,7 @@
   "count_rule": "per check site on pygount-code protocol lines",
   "sites": [
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 68,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -10,7 +10,7 @@
       "rationale": "if (conversationId == bytes32(0)) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 69,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -18,7 +18,7 @@
       "rationale": "revert CnZeroConversationId();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 71,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -26,7 +26,7 @@
       "rationale": "if (replyBy == 0) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 72,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -34,7 +34,7 @@
       "rationale": "revert CnReplyByRequired();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 75,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -42,7 +42,7 @@
       "rationale": "if (n == 0) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 76,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -50,7 +50,7 @@
       "rationale": "revert CnEmptyParticipants();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 79,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -58,7 +58,7 @@
       "rationale": "if (c.invited != 0 || c.live != 0) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 80,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -66,7 +66,7 @@
       "rationale": "revert CnInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 84,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -74,7 +74,7 @@
       "rationale": "if (p == address(0) || p.code.length == 0) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 85,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -82,7 +82,7 @@
       "rationale": "revert CnInvalidParticipant(p);"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 88,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -90,7 +90,7 @@
       "rationale": "if (participants[j] == p) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 89,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -98,7 +98,7 @@
       "rationale": "revert CnDuplicateParticipant();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 112,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -106,7 +106,7 @@
       "rationale": "if (c.invited == 0 && c.live == 0) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 113,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -114,7 +114,7 @@
       "rationale": "revert CnInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 115,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -122,7 +122,7 @@
       "rationale": "if (c.evaluated) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 116,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -130,7 +130,7 @@
       "rationale": "revert CnInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 118,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -138,7 +138,7 @@
       "rationale": "if (!(block.timestamp > c.replyBy)) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 119,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -146,7 +146,7 @@
       "rationale": "revert CnEvaluationTooEarly();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 127,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -154,7 +154,7 @@
       "rationale": "if (accept.length + reject.length + silent.length != c.live) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 128,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -162,7 +162,7 @@
       "rationale": "revert CnIncompleteEvaluation();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 131,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -170,7 +170,7 @@
       "rationale": "if (_slot[conversationId][silent[i]] != CN_SLOT_INVITED) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 132,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -178,7 +178,7 @@
       "rationale": "revert CnInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 136,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -186,7 +186,7 @@
       "rationale": "if (_slot[conversationId][reject[i]] != CN_SLOT_PROPOSED) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 137,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -194,7 +194,7 @@
       "rationale": "revert CnInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 141,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -202,7 +202,7 @@
       "rationale": "if (_slot[conversationId][accept[i]] != CN_SLOT_PROPOSED) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 142,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -210,7 +210,7 @@
       "rationale": "revert CnInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 168,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -218,7 +218,7 @@
       "rationale": "if (_slot[conversationId][msg.sender] != CN_SLOT_INVITED) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 169,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -226,7 +226,7 @@
       "rationale": "revert CnUnexpectedPeer();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 177,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -234,7 +234,7 @@
       "rationale": "if (_slot[conversationId][msg.sender] != CN_SLOT_INVITED) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 178,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -242,7 +242,7 @@
       "rationale": "revert CnInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 195,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -250,7 +250,7 @@
       "rationale": "if (_slot[conversationId][msg.sender] != CN_SLOT_ACCEPTED) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 196,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -258,7 +258,7 @@
       "rationale": "revert CnInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 205,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -266,7 +266,7 @@
       "rationale": "if (c.invited == 0 && c.live == 0) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 206,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -274,7 +274,7 @@
       "rationale": "revert CnInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 208,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -282,7 +282,7 @@
       "rationale": "if (_slot[conversationId][msg.sender] == CN_SLOT_NONE) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 209,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -290,7 +290,7 @@
       "rationale": "revert CnUnexpectedPeer();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 215,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -298,7 +298,7 @@
       "rationale": "if (c.live != 0) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 224,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -306,7 +306,7 @@
       "rationale": "if (a[i] == a[j]) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 225,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -314,7 +314,7 @@
       "rationale": "revert CnDuplicateEvaluateEntry();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 234,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -322,7 +322,7 @@
       "rationale": "if (a[i] == b[j]) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 235,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -330,7 +330,7 @@
       "rationale": "revert CnOverlappingEvaluateLists();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 256,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -338,7 +338,7 @@
       "rationale": "if (conversationId == bytes32(0)) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 257,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -346,7 +346,7 @@
       "rationale": "revert CnZeroConversationId();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 259,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -354,7 +354,7 @@
       "rationale": "if (replyBy == 0) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 260,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -362,7 +362,7 @@
       "rationale": "revert CnReplyByRequired();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 263,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -370,7 +370,7 @@
       "rationale": "if (s.phase != CN_PART_NONE) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 264,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -378,7 +378,7 @@
       "rationale": "revert CnInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 273,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -386,7 +386,7 @@
       "rationale": "if (s.phase != CN_PART_CFPED) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 274,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -394,7 +394,7 @@
       "rationale": "revert CnInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 283,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -402,7 +402,7 @@
       "rationale": "if (s.phase != CN_PART_CFPED) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 284,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -410,7 +410,7 @@
       "rationale": "revert CnInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 293,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -418,7 +418,7 @@
       "rationale": "if (s.phase != CN_PART_ACCEPTED) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 294,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -426,7 +426,7 @@
       "rationale": "revert CnInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 303,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -434,7 +434,7 @@
       "rationale": "if (s.phase != CN_PART_ACCEPTED) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 304,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -442,7 +442,7 @@
       "rationale": "revert CnInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 313,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -450,7 +450,7 @@
       "rationale": "if (msg.sender != s.manager) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 314,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -458,7 +458,7 @@
       "rationale": "revert CnUnexpectedPeer();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 316,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -466,7 +466,7 @@
       "rationale": "if (s.phase != CN_PART_PROPOSED) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 317,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -474,7 +474,7 @@
       "rationale": "revert CnInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 324,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -482,7 +482,7 @@
       "rationale": "if (msg.sender != s.manager) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 325,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -490,7 +490,7 @@
       "rationale": "revert CnUnexpectedPeer();"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 327,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -498,7 +498,7 @@
       "rationale": "if (s.phase != CN_PART_PROPOSED) {"
     },
     {
-      "file": "src/manual/ManualContractNet.sol",
+      "file": "comparison/src/manual/ManualContractNet.sol",
       "line": 328,
       "implementation": "manual",
       "protocol": "ContractNet",
@@ -506,7 +506,7 @@
       "rationale": "revert CnInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 44,
       "implementation": "manual",
       "protocol": "Request",
@@ -514,7 +514,7 @@
       "rationale": "if (conversationId == bytes32(0)) {"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 45,
       "implementation": "manual",
       "protocol": "Request",
@@ -522,7 +522,7 @@
       "rationale": "revert ReqZeroConversationId();"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 48,
       "implementation": "manual",
       "protocol": "Request",
@@ -530,7 +530,7 @@
       "rationale": "if (s.phase != REQ_NONE) {"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 49,
       "implementation": "manual",
       "protocol": "Request",
@@ -538,7 +538,7 @@
       "rationale": "revert ReqInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 67,
       "implementation": "manual",
       "protocol": "Request",
@@ -546,7 +546,7 @@
       "rationale": "if (s.role != REQ_ROLE_INITIATOR || s.phase != REQ_REQUESTED) {"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 68,
       "implementation": "manual",
       "protocol": "Request",
@@ -554,7 +554,7 @@
       "rationale": "revert ReqInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 78,
       "implementation": "manual",
       "protocol": "Request",
@@ -562,7 +562,7 @@
       "rationale": "revert ReqInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 83,
       "implementation": "manual",
       "protocol": "Request",
@@ -570,7 +570,7 @@
       "rationale": "if (s.role != REQ_ROLE_INITIATOR) {"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 84,
       "implementation": "manual",
       "protocol": "Request",
@@ -578,7 +578,7 @@
       "rationale": "revert ReqInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 86,
       "implementation": "manual",
       "protocol": "Request",
@@ -586,7 +586,7 @@
       "rationale": "if (onlyIfRequested == REQ_REQUESTED) {"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 87,
       "implementation": "manual",
       "protocol": "Request",
@@ -594,7 +594,7 @@
       "rationale": "if (s.phase != REQ_REQUESTED) {"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 88,
       "implementation": "manual",
       "protocol": "Request",
@@ -602,7 +602,7 @@
       "rationale": "revert ReqInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 90,
       "implementation": "manual",
       "protocol": "Request",
@@ -610,7 +610,7 @@
       "rationale": "} else if (s.phase != REQ_REQUESTED && s.phase != REQ_AGREED) {"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 91,
       "implementation": "manual",
       "protocol": "Request",
@@ -618,7 +618,7 @@
       "rationale": "revert ReqInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 98,
       "implementation": "manual",
       "protocol": "Request",
@@ -626,7 +626,7 @@
       "rationale": "if (s.phase == REQ_NONE) {"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 99,
       "implementation": "manual",
       "protocol": "Request",
@@ -634,7 +634,7 @@
       "rationale": "revert ReqInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 101,
       "implementation": "manual",
       "protocol": "Request",
@@ -642,7 +642,7 @@
       "rationale": "if (msg.sender != s.peer) {"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 102,
       "implementation": "manual",
       "protocol": "Request",
@@ -650,7 +650,7 @@
       "rationale": "revert ReqUnexpectedPeer();"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 121,
       "implementation": "manual",
       "protocol": "Request",
@@ -658,7 +658,7 @@
       "rationale": "if (conversationId == bytes32(0)) {"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 122,
       "implementation": "manual",
       "protocol": "Request",
@@ -666,7 +666,7 @@
       "rationale": "revert ReqZeroConversationId();"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 125,
       "implementation": "manual",
       "protocol": "Request",
@@ -674,7 +674,7 @@
       "rationale": "if (s.phase != REQ_NONE) {"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 126,
       "implementation": "manual",
       "protocol": "Request",
@@ -682,7 +682,7 @@
       "rationale": "revert ReqInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 145,
       "implementation": "manual",
       "protocol": "Request",
@@ -690,7 +690,7 @@
       "rationale": "if (s.role != REQ_ROLE_PARTICIPANT || s.phase != REQ_REQUESTED) {"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 146,
       "implementation": "manual",
       "protocol": "Request",
@@ -698,7 +698,7 @@
       "rationale": "revert ReqInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 159,
       "implementation": "manual",
       "protocol": "Request",
@@ -706,7 +706,7 @@
       "rationale": "revert ReqInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 163,
       "implementation": "manual",
       "protocol": "Request",
@@ -714,7 +714,7 @@
       "rationale": "revert ReqInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 167,
       "implementation": "manual",
       "protocol": "Request",
@@ -722,7 +722,7 @@
       "rationale": "revert ReqInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 171,
       "implementation": "manual",
       "protocol": "Request",
@@ -730,7 +730,7 @@
       "rationale": "revert ReqInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 179,
       "implementation": "manual",
       "protocol": "Request",
@@ -738,7 +738,7 @@
       "rationale": "if (s.role != REQ_ROLE_PARTICIPANT) {"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 180,
       "implementation": "manual",
       "protocol": "Request",
@@ -746,7 +746,7 @@
       "rationale": "revert ReqInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 182,
       "implementation": "manual",
       "protocol": "Request",
@@ -754,7 +754,7 @@
       "rationale": "if (refuseAct) {"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 183,
       "implementation": "manual",
       "protocol": "Request",
@@ -762,7 +762,7 @@
       "rationale": "if (s.phase != REQ_REQUESTED) {"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 184,
       "implementation": "manual",
       "protocol": "Request",
@@ -770,7 +770,7 @@
       "rationale": "revert ReqInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 186,
       "implementation": "manual",
       "protocol": "Request",
@@ -778,7 +778,7 @@
       "rationale": "} else if (onlyRequested == REQ_REQUESTED) {"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 187,
       "implementation": "manual",
       "protocol": "Request",
@@ -786,7 +786,7 @@
       "rationale": "if (s.phase != REQ_REQUESTED) {"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 188,
       "implementation": "manual",
       "protocol": "Request",
@@ -794,7 +794,7 @@
       "rationale": "revert ReqInvalidTransition();"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 190,
       "implementation": "manual",
       "protocol": "Request",
@@ -802,7 +802,7 @@
       "rationale": "} else if (s.phase != REQ_REQUESTED && s.phase != REQ_AGREED) {"
     },
     {
-      "file": "src/manual/ManualRequest.sol",
+      "file": "comparison/src/manual/ManualRequest.sol",
       "line": 191,
       "implementation": "manual",
       "protocol": "Request",

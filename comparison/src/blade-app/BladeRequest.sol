@@ -2,6 +2,7 @@
 pragma solidity ^0.8.26;
 
 // RQ3:PROTOCOL
+import {Agent} from "blade/core/Agent.sol";
 import {RequestAgent} from "blade/core/RequestAgent.sol";
 import {Message} from "blade/core/Message.sol";
 import {Performative} from "blade/core/Performative.sol";
@@ -9,7 +10,7 @@ import {Protocol} from "blade/core/Protocol.sol";
 
 /// @dev Population B: thin native wrapper. Protocol machine stays in Core (population A).
 contract BladeRequester is RequestAgent {
-    constructor() RequestAgent(address(0)) {}
+    constructor() Agent(address(0)) {}
 
     function startRequest(address participant, bytes32 conversationId, bytes calldata content)
         external
@@ -26,7 +27,7 @@ contract BladeRequester is RequestAgent {
 }
 
 contract BladeParticipant is RequestAgent {
-    constructor() RequestAgent(address(0)) {}
+    constructor() Agent(address(0)) {}
 
     function refuse(Message calldata inbound, address to, bytes calldata content) external {
         _reply(inbound, to, _out(inbound, uint8(Performative.Refuse), content));

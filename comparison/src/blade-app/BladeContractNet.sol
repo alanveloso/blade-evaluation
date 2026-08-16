@@ -2,6 +2,7 @@
 pragma solidity ^0.8.26;
 
 // RQ3:PROTOCOL
+import {Agent} from "blade/core/Agent.sol";
 import {ContractNetManager} from "blade/core/ContractNetManager.sol";
 import {ContractNetParticipant} from "blade/core/ContractNetParticipant.sol";
 import {Message} from "blade/core/Message.sol";
@@ -9,7 +10,7 @@ import {Performative} from "blade/core/Performative.sol";
 import {Protocol} from "blade/core/Protocol.sol";
 
 contract BladeManager is ContractNetManager {
-    constructor() ContractNetManager(address(0)) {}
+    constructor() Agent(address(0)) {}
 
     function cfp(
         address[] calldata participants,
@@ -39,7 +40,7 @@ contract BladeManager is ContractNetManager {
 }
 
 contract BladeCnParticipant is ContractNetParticipant {
-    constructor() ContractNetParticipant(address(0)) {}
+    constructor() Agent(address(0)) {}
 
     function propose(Message calldata inbound, address manager, bytes calldata content) external {
         _respond(inbound, manager, _out(inbound, uint8(Performative.Propose), content));

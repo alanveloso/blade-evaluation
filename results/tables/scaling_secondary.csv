@@ -1,0 +1,5 @@
+condition_id,path,payload_bytes,participant_count,gas_blade,gas_manual,absolute_delta,relative_overhead,ratio,calldata_bytes_blade,calldata_bytes_manual,active_conversations
+SEC-ACT-K1,active,0,1,138754,107145,31609,0.2950114331,1.2950114331,488,168,1
+SEC-ACT-K10,active,0,1,1387516,1071450,316066,0.2949890336,1.2949890336,4880,1680,10
+SEC-ACT-K100,active,0,1,13875112,10714140,3160972,0.2950280657,1.2950280657,48800,16800,100
+SEC-CN-A-N16-P0,feasibility,0,16,3028394,2396738,631656,0.2635482059,1.2635482059,14888,4648,1

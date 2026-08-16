@@ -36,6 +36,7 @@ contract Agent is IAgent {
     function handle(Message calldata message) external {
         MessageLib.validateFields(message.protocol, message.conversationId);
         _authenticate(message);
+        _authorizeInbound(message);
         _onInbound(message);
         emit Received(
             msg.sender,
@@ -87,6 +88,10 @@ contract Agent is IAgent {
             revert UnauthorizedLogicalSender();
         }
     }
+
+    /// @dev Application policy. Default allows every authenticated message. Must not mutate.
+    /// Runs after relay/native authentication and before any protocol state transition.
+    function _authorizeInbound(Message calldata message) internal view virtual {}
 
     function _onInbound(Message calldata message) internal virtual {}
 

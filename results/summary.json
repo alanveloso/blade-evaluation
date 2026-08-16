@@ -1,10 +1,10 @@
 {
-  "primary_relative_overhead_min": 0.20338313176823966,
+  "primary_relative_overhead_min": 0.2076748176149758,
   "primary_relative_overhead_min_cell": "CN-FAIL-A-N1-P0",
-  "primary_relative_overhead_max": 0.5394812496007155,
+  "primary_relative_overhead_max": 0.5403916182201495,
   "primary_relative_overhead_max_cell": "REQ-R3-P1024",
-  "rq3_application_reduction": 0.7616279069767442,
-  "rq3_protocol_reduction": 0.7719298245614035,
+  "rq3_application_reduction": 0.7558139534883721,
+  "rq3_protocol_reduction": 0.7660818713450293,
   "storage": {
     "request_r3": [
       {
@@ -153,6 +153,6 @@
       }
     ]
   },
-  "raw_primary_sha256": "ee00c96b7992de82803a44d6cea3d583979a44be5d4c83fadab728f30a572d5d",
-  "raw_secondary_sha256": "a889e91b13c52739838a36c4c26282c2e2eaff1d100d441f2b86573b0557060c"
+  "raw_primary_sha256": "718675c92aa438e56a8dac7b1d065a36b05127bbeb417fdd4bde6bf9be6a02c1",
+  "raw_secondary_sha256": "d1f91a336ee0e550ce305d3bfebdeaceba42ca604337bed5471cc2ca39d009b0"
 }

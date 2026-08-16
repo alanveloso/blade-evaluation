@@ -1,23 +1,23 @@
 {
   "B": {
-    "total_code_loc": 82,
-    "protocol_loc": 78,
+    "total_code_loc": 84,
+    "protocol_loc": 80,
     "policy_loc": 2,
     "neutral_loc": 2,
     "files": [
       {
-        "file": "src/blade-app/BladeContractNet.sol",
-        "pygount_code": 48,
-        "protocol_loc": 46,
+        "file": "comparison/src/blade-app/BladeContractNet.sol",
+        "pygount_code": 49,
+        "protocol_loc": 47,
         "policy_loc": 1,
         "neutral_loc": 1,
         "non_code_lines": 25,
         "check_sites": 0
       },
       {
-        "file": "src/blade-app/BladeRequest.sol",
-        "pygount_code": 34,
-        "protocol_loc": 32,
+        "file": "comparison/src/blade-app/BladeRequest.sol",
+        "pygount_code": 35,
+        "protocol_loc": 33,
         "policy_loc": 1,
         "neutral_loc": 1,
         "non_code_lines": 25,
@@ -32,7 +32,7 @@
     "neutral_loc": 2,
     "files": [
       {
-        "file": "src/manual/ManualContractNet.sol",
+        "file": "comparison/src/manual/ManualContractNet.sol",
         "pygount_code": 223,
         "protocol_loc": 222,
         "policy_loc": 0,
@@ -41,7 +41,7 @@
         "check_sites": 63
       },
       {
-        "file": "src/manual/ManualRequest.sol",
+        "file": "comparison/src/manual/ManualRequest.sol",
         "pygount_code": 121,
         "protocol_loc": 120,
         "policy_loc": 0,

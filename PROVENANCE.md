@@ -5,26 +5,25 @@ This file records the evidence chain for the published evaluation of BLADE.
 ## Canonical BLADE Core
 
 - Repository: https://github.com/alanveloso/blade
-- Commit: `c145305a3ca76f52a64b62a0cb731283dbba9638`
+- Commit: `fbf266f5a9304af3b4541ed82a5d814a6afda5cc`
 
 ## Measurement identifiers
 
 | Item | SHA-256 |
 |---|---|
-| Experiment spec | `8e613546c1da2c91778d47d641b15e9020e09f8385d96ee78b5e0a1d8f422452` |
-| Runner | `67d7c8153f23306b89240ba371ed137cb751968d5fbae9e4967bdda94083b3f3` |
-| Preflight | `6f1e3f520eb27cefddcb114f9de0799751f77a2b51394bf1bb8e12bd6730ae28` |
-| Scientific freeze-manifest file | `223dbceeccb04a40b3417a8170cb30d58ab7756375965649590c7e04b0829f6e` |
+| Experiment spec | `af2da9cebbc8f847b02a68f9cce077f06c01a29c7c37494b779159916e5605b0` |
+| Runner (`scripts/campaign/run_campaign.py`) | `b502331fe5dff6eff3b31d7da371e9ac8125c5a3a3244c99f210e4d291393c89` |
+| Preflight (`scripts/campaign/preflight_enforce.py`) | `6495156a7d19abcd95f2f6326a71b2d5fec7aa076c2d37ec82463b95541af7fb` |
 
-These hashes identify the measurement configuration before data collection. `PUBLIC_MANIFEST.sha256` is the integrity list of this publication package.
+These hashes identify the measurement configuration and runner sources in this artifact. `PUBLIC_MANIFEST.sha256` is the integrity list of this publication package.
 
 ## Official raw measurements
 
 | File | Rows | SHA-256 |
 |---|---:|---|
-| `data/raw/f3.jsonl` | 304 | `ee00c96b7992de82803a44d6cea3d583979a44be5d4c83fadab728f30a572d5d` |
-| `data/raw/f3_secondary.jsonl` | 558 | `a889e91b13c52739838a36c4c26282c2e2eaff1d100d441f2b86573b0557060c` |
-| `ablation/raw/ablation.json` | — | `ee3a27abba30c6848a479e6afe03d7ea9cb2407e3dc9c96f6ae07ec50cafc894` |
+| `data/raw/primary.jsonl` | 304 | `718675c92aa438e56a8dac7b1d065a36b05127bbeb417fdd4bde6bf9be6a02c1` |
+| `data/raw/secondary.jsonl` | 558 | `d1f91a336ee0e550ce305d3bfebdeaceba42ca604337bed5471cc2ca39d009b0` |
+| `ablation/raw/ablation.json` | — | `83bdf04595e7edb73c48b7dbd5dd7bbb2905461cefc2836279491d3dd54ddf8a` |
 
 ## Comparison sources
 
@@ -32,8 +31,8 @@ These are the Solidity sources used in the measured comparison.
 
 | Path | SHA-256 |
 |---|---|
-| `comparison/src/blade-app/BladeRequest.sol` | `29b646adc8d9bcbbb47e2844fbe604bfd1de120af29c6e0135fa04bb49fb69e7` |
-| `comparison/src/blade-app/BladeContractNet.sol` | `31d6997e0ea1a29fef780bcd5b22e2bb9b9e573e5384736aa0b971504a04e125` |
+| `comparison/src/blade-app/BladeRequest.sol` | `d635e2e5be3209c3a69f6aa6dca8e3a7f34150e922bd56c58337aeef854fca1d` |
+| `comparison/src/blade-app/BladeContractNet.sol` | `88d92c9ddd73b1a648ad372e733e5f90a137fb2debb3ceb12d10f9186816e38a` |
 | `comparison/src/manual/ManualRequest.sol` | `8278ecbb69446673db9da30e5754bcf8ad4562440c38443ac3cb1490bc9f6377` |
 | `comparison/src/manual/ManualContractNet.sol` | `c558af3b5abd18efc46bc31618beee4f9222925988bd070bd76b80fd94630198` |
 
@@ -41,11 +40,11 @@ These are the Solidity sources used in the measured comparison.
 
 A0 source files used in the ablation are SHA-256 identical to the canonical BLADE Core source at the evaluated commit.
 
-The nine files under `ablation/variants/A0/` match `src/core` at `c145305a3ca76f52a64b62a0cb731283dbba9638`.
+The nine files under `ablation/variants/A0/` are the ablation control tree and match `src/core` at the Core SHA in `experiment/config/experiment_spec.json`.
 
-F3 absolute gas and ablation A0 absolute gas must not be mixed for factor deltas.
+Primary-campaign absolute gas and ablation A0 absolute gas must not be mixed for factor deltas.
 
-- F3 example `conversationId`: `keccak("f3/REQ-R3-P0/blade")`
+- Campaign example `conversationId`: `keccak("f3/REQ-R3-P0/blade")`
 - Ablation: `keccak("ablation/R3/0")`
 
 Factor effect is always `(gas_Ai − gas_A0_same_harness) / gas_A0_same_harness`.

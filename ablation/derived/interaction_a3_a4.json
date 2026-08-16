@@ -2,10 +2,10 @@
   {
     "N": 2,
     "cell": "CN-HALF-N2-P0",
-    "gas_A0": 386959,
-    "gas_A3": 389493,
-    "gas_A4": 387223,
-    "gas_A34": 389757,
+    "gas_A0": 388598,
+    "gas_A3": 391132,
+    "gas_A4": 388862,
+    "gas_A34": 391396,
     "additive_delta": 2798,
     "combined_A34_delta": 2798,
     "interaction": 0
@@ -13,10 +13,10 @@
   {
     "N": 4,
     "cell": "CN-HALF-N4-P0",
-    "gas_A0": 698455,
-    "gas_A3": 706023,
-    "gas_A4": 699325,
-    "gas_A34": 706893,
+    "gas_A0": 701785,
+    "gas_A3": 709353,
+    "gas_A4": 702655,
+    "gas_A34": 710223,
     "additive_delta": 8438,
     "combined_A34_delta": 8438,
     "interaction": 0
@@ -24,10 +24,10 @@
   {
     "N": 8,
     "cell": "CN-HALF-N8-P0",
-    "gas_A0": 1321463,
-    "gas_A3": 1347997,
-    "gas_A4": 1323545,
-    "gas_A34": 1350079,
+    "gas_A0": 1328175,
+    "gas_A3": 1354709,
+    "gas_A4": 1330257,
+    "gas_A34": 1356791,
     "additive_delta": 28616,
     "combined_A34_delta": 28616,
     "interaction": 0

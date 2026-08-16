@@ -3,21 +3,21 @@
     "implementation": "blade",
     "protocol": "request",
     "step": "deploy_initiator",
-    "deployment_gas": 784420,
+    "deployment_gas": 792205,
     "condition_id": "REQ-R1-P0"
   },
   {
     "implementation": "blade",
     "protocol": "request",
     "step": "deploy_participant",
-    "deployment_gas": 933714,
+    "deployment_gas": 946271,
     "condition_id": "REQ-R1-P0"
   },
   {
     "implementation": "manual",
     "protocol": "request",
     "step": "deploy_initiator",
-    "deployment_gas": 354070,
+    "deployment_gas": 354082,
     "condition_id": "REQ-R1-P0"
   },
   {
@@ -31,21 +31,21 @@
     "implementation": "blade",
     "protocol": "contract-net",
     "step": "deploy_manager",
-    "deployment_gas": 1307344,
+    "deployment_gas": 1322038,
     "condition_id": "CN-A-N1-P0"
   },
   {
     "implementation": "blade",
     "protocol": "contract-net",
     "step": "deploy_participant_0",
-    "deployment_gas": 895049,
+    "deployment_gas": 929267,
     "condition_id": "CN-A-N1-P0"
   },
   {
     "implementation": "manual",
     "protocol": "contract-net",
     "step": "deploy_manager",
-    "deployment_gas": 1051156,
+    "deployment_gas": 1051168,
     "condition_id": "CN-A-N1-P0"
   },
   {

@@ -1,7 +1,7 @@
 {
   "experiment_spec_id": "blade-core-eval-v2",
   "note": "Internal experiment-generation identifier frozen before measurement. Not a BLADE software version.",
-  "core_sha": "c145305a3ca76f52a64b62a0cb731283dbba9638",
+  "core_sha": "fbf266f5a9304af3b4541ed82a5d814a6afda5cc",
   "schema_version": 2,
   "analysis_version": 1,
   "payload_pattern": "repeat_0xab",

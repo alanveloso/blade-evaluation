@@ -38,6 +38,7 @@ contract Agent is IAgent {
         Message memory copied = message;
         MessageLib.validate(copied);
         _authenticate(message);
+        _authorizeInbound(message);
         _onInbound(message);
         emit Received(
             msg.sender,
@@ -89,6 +90,10 @@ contract Agent is IAgent {
             revert UnauthorizedLogicalSender();
         }
     }
+
+    /// @dev Application policy. Default allows every authenticated message. Must not mutate.
+    /// Runs after relay/native authentication and before any protocol state transition.
+    function _authorizeInbound(Message calldata message) internal view virtual {}
 
     function _onInbound(Message calldata message) internal virtual {}
 

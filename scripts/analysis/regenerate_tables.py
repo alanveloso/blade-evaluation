@@ -14,8 +14,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 TAB = ROOT / "results" / "tables"
 FIG = ROOT / "results" / "figures"
-EXPECT_PRI = "ee00c96b7992de82803a44d6cea3d583979a44be5d4c83fadab728f30a572d5d"
-EXPECT_SEC = "a889e91b13c52739838a36c4c26282c2e2eaff1d100d441f2b86573b0557060c"
+EXPECT_PRI = "718675c92aa438e56a8dac7b1d065a36b05127bbeb417fdd4bde6bf9be6a02c1"
+EXPECT_SEC = "d1f91a336ee0e550ce305d3bfebdeaceba42ca604337bed5471cc2ca39d009b0"
 
 
 def sha(p: Path) -> str:
@@ -127,15 +127,15 @@ def svg_xy(
 
 
 def main() -> None:
-    pri = ROOT / "data/raw/f3.jsonl"
-    sec = ROOT / "data/raw/f3_secondary.jsonl"
+    pri = ROOT / "data/raw/primary.jsonl"
+    sec = ROOT / "data/raw/secondary.jsonl"
     if sha(pri) != EXPECT_PRI or sha(sec) != EXPECT_SEC:
         raise SystemExit("ABORT: published raw hash mismatch")
     oh = loadj(ROOT / "data/derived/overhead.json")
     ohs = loadj(ROOT / "data/derived/secondary_overhead.json")
     dep = loadj(ROOT / "data/derived/deployment_gas.json")
     bc = loadj(ROOT / "data/derived/bytecode_sizes.json")
-    rq3 = loadj(ROOT / "experiment/config/rq3.json")
+    rq3 = loadj(ROOT / "experiment/config/structural.json")
 
     req_ids = [
         "REQ-R1-P0", "REQ-R2-P0", "REQ-R3-P0", "REQ-R4-P0",
@@ -167,10 +167,10 @@ def main() -> None:
             "calldata_bytes_manual": r["calldata_bytes_manual"],
         }
 
-    write_csv(TAB / "rq2_request_interaction.csv", headers, [row(pick(oh, i)) for i in req_ids])
-    write_csv(TAB / "rq2_contractnet_interaction.csv", headers, [row(pick(oh, i)) for i in cn_ids])
+    write_csv(TAB / "request_interaction.csv", headers, [row(pick(oh, i)) for i in req_ids])
+    write_csv(TAB / "contractnet_interaction.csv", headers, [row(pick(oh, i)) for i in cn_ids])
     write_csv(
-        TAB / "rq4_secondary.csv",
+        TAB / "scaling_secondary.csv",
         headers + ["active_conversations"],
         [{**row(r), "active_conversations": r["active_conversations"]} for r in ohs],
     )
@@ -201,7 +201,7 @@ def main() -> None:
             }
         )
     write_csv(
-        TAB / "rq2_deployment_bytecode.csv",
+        TAB / "deployment_bytecode.csv",
         [
             "implementation", "protocol", "contract", "deployment_gas",
             "runtime_bytecode_bytes", "initcode_bytes", "source_condition",
@@ -209,7 +209,7 @@ def main() -> None:
         dep_rows,
     )
     write_csv(
-        TAB / "rq3_structural.csv",
+        TAB / "structural.csv",
         ["population", "total_loc", "protocol_loc", "policy_loc", "neutral_loc", "check_sites", "note"],
         [
             {
@@ -242,7 +242,7 @@ def main() -> None:
 
     r3 = [pick(oh, f"REQ-R3-P{n}") for n in (0, 32, 256, 1024)]
     svg_xy(
-        FIG / "fig1_request_r3_payload.svg",
+        FIG / "request_payload.svg",
         title="Request R3 complete-interaction gas vs payload",
         xlabel="payload size (bytes)",
         ylabel="complete-interaction gas (gasUsed sum)",
@@ -253,7 +253,7 @@ def main() -> None:
     )
     nser = [pick(oh, f"CN-A-N{n}-P0") for n in (1, 2, 4, 8)]
     svg_xy(
-        FIG / "fig2_cn_a_vs_n.svg",
+        FIG / "contractnet_vs_n.svg",
         title="Contract Net Scenario A complete-interaction gas vs N (0 B)",
         xlabel="participants N",
         ylabel="complete-interaction gas (gasUsed sum)",

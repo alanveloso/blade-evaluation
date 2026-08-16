@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="420" viewBox="0 0 720 420">
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="360.0" y="24" text-anchor="middle" font-size="14" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">A3 membership relative effect vs N (Scenario A, 0 B)</text>
+<line x1="88" y1="340.00" x2="692" y2="340.00" stroke="#ddd"/>
+<text x="80" y="344.00" text-anchor="end" font-size="11" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">0.0%</text>
+<line x1="88" y1="265.00" x2="692" y2="265.00" stroke="#ddd"/>
+<text x="80" y="269.00" text-anchor="end" font-size="11" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">1.1%</text>
+<line x1="88" y1="190.00" x2="692" y2="190.00" stroke="#ddd"/>
+<text x="80" y="194.00" text-anchor="end" font-size="11" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">2.2%</text>
+<line x1="88" y1="115.00" x2="692" y2="115.00" stroke="#ddd"/>
+<text x="80" y="119.00" text-anchor="end" font-size="11" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">3.3%</text>
+<line x1="88" y1="40.00" x2="692" y2="40.00" stroke="#ddd"/>
+<text x="80" y="44.00" text-anchor="end" font-size="11" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">4.4%</text>
+<rect x="110.95" y="304.45" width="74.90" height="35.55" fill="#fff" stroke="#111"/>
+<text x="148.40" y="358" text-anchor="middle" font-size="11" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">1</text>
+<rect x="231.75" y="292.61" width="74.90" height="47.39" fill="#fff" stroke="#111"/>
+<text x="269.20" y="358" text-anchor="middle" font-size="11" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">2</text>
+<rect x="352.55" y="263.85" width="74.90" height="76.15" fill="#fff" stroke="#111"/>
+<text x="390.00" y="358" text-anchor="middle" font-size="11" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">4</text>
+<rect x="473.35" y="202.92" width="74.90" height="137.08" fill="#fff" stroke="#111"/>
+<text x="510.80" y="358" text-anchor="middle" font-size="11" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">8</text>
+<rect x="594.15" y="79.13" width="74.90" height="260.87" fill="#fff" stroke="#111"/>
+<text x="631.60" y="358" text-anchor="middle" font-size="11" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">16</text>
+<text x="360.0" y="406" text-anchor="middle" font-size="12" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">relative effect vs A0</text>
+</svg>

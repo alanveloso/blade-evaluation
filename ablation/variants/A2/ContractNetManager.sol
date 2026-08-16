@@ -8,8 +8,8 @@ import {Performative} from "./Performative.sol";
 import {Protocol} from "./Protocol.sol";
 
 /// @title Manager role for the supported FIPA Contract Net interaction subset.
-/// @dev Does not store a full `Message` or `content`.
-contract ContractNetManager is Agent {
+/// @dev Does not store a full `Message` or `content`. Abstract: the leaf calls `Agent` once.
+abstract contract ContractNetManager is Agent {
     /// @dev Root record. Slots: conversationId => participant => Invited|Proposed|Accepted.
     struct Conversation {
         uint64 replyBy;
@@ -24,8 +24,6 @@ contract ContractNetManager is Agent {
     event ContractNetSlot(
         bytes32 indexed conversationId, address indexed participant, uint8 slot, uint8 performative
     );
-
-    constructor(address trustedRelay_) Agent(trustedRelay_) {}
 
     function conversation(bytes32 conversationId) external view returns (Conversation memory) {
         return _net[conversationId];
@@ -142,13 +140,14 @@ contract ContractNetManager is Agent {
         }
     }
 
-    function _onInbound(Message calldata message) internal override {
+    /// @dev True when this agent has a live manager conversation for `conversationId`.
+    function _handleContractNetManagerInbound(Message calldata message) internal returns (bool) {
         if (message.protocol != uint8(Protocol.FipaContractNet)) {
-            return;
+            return false;
         }
         Conversation storage c = _net[message.conversationId];
         if (c.invited == 0 && c.live == 0) {
-            revert ContractNetLib.InvalidTransition();
+            return false;
         }
         if (message.logicalSender != bytes32(0)) {
             revert ContractNetLib.UnexpectedPeer();
@@ -175,7 +174,7 @@ contract ContractNetManager is Agent {
                     msg.sender, _act(message.conversationId, uint8(Performative.RejectProposal), 0)
                 );
                 _maybeClear(message.conversationId);
-                return;
+                return true;
             }
             _slot[message.conversationId][msg.sender] = ContractNetLib.SLOT_PROPOSED;
             emit ContractNetSlot(
@@ -184,7 +183,7 @@ contract ContractNetManager is Agent {
                 ContractNetLib.SLOT_PROPOSED,
                 uint8(Performative.Propose)
             );
-            return;
+            return true;
         }
         if (act == Performative.Refuse) {
             if (slot != ContractNetLib.SLOT_INVITED) {
@@ -199,7 +198,7 @@ contract ContractNetManager is Agent {
                 uint8(Performative.Refuse)
             );
             _maybeClear(message.conversationId);
-            return;
+            return true;
         }
         if (act == Performative.NotUnderstood) {
             delete _slot[message.conversationId][msg.sender];
@@ -211,7 +210,7 @@ contract ContractNetManager is Agent {
                 uint8(Performative.NotUnderstood)
             );
             _maybeClear(message.conversationId);
-            return;
+            return true;
         }
         if (act == Performative.Inform || act == Performative.Failure) {
             if (slot != ContractNetLib.SLOT_ACCEPTED) {
@@ -223,9 +222,19 @@ contract ContractNetManager is Agent {
                 message.conversationId, msg.sender, ContractNetLib.SLOT_NONE, uint8(act)
             );
             _maybeClear(message.conversationId);
-            return;
+            return true;
         }
         revert ContractNetLib.InvalidTransition();
+    }
+
+    function _onInbound(Message calldata message) internal virtual override {
+        if (message.protocol == uint8(Protocol.FipaContractNet)) {
+            if (!_handleContractNetManagerInbound(message)) {
+                revert ContractNetLib.InvalidTransition();
+            }
+            return;
+        }
+        super._onInbound(message);
     }
 
     function _maybeClear(bytes32 conversationId) internal {

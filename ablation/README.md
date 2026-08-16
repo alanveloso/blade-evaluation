@@ -1,6 +1,6 @@
 # Implementation ablation
 
-These variants are **experimental counterfactuals**, not BLADE releases. They are measured modifications of **canonical BLADE** at commit `c145305a3ca76f52a64b62a0cb731283dbba9638`.
+These variants are **experimental counterfactuals**, not BLADE releases. They are measured modifications of canonical BLADE at the Core SHA recorded in `experiment/config/experiment_spec.json`.
 
 ## A0 reference
 
@@ -35,11 +35,11 @@ Ablation effects are computed against A0 measured in the same harness. Do not mi
 
 ## Measured effects
 
-- A1 (dispatch): **+1.909% to +4.490%**
-- A2 (validation/copy): **+0.837% to +2.245%**
-- A3 (membership): N=1 **+0.527%**; N=8 **+2.035%**; N=16 **+3.874%**
-- A4 (live-write) under HALF: **+0.068%**, **+0.125%**, **+0.158%**
-- A5 (combined) representative cells: **+5.377% to +9.510%**
+- A1 (dispatch): **+1.908% to +4.532%**
+- A2 (validation/copy): **+0.837% to +2.297%**
+- A3 (membership): N=1 **+0.525%**; N=8 **+2.025%**; N=16 **+3.854%**
+- A4 (live-write) under HALF: **+0.068%**, **+0.124%**, **+0.157%**
+- A5 (combined) representative cells: **+5.370% to +9.534%**
 
 Notes:
 
@@ -47,4 +47,4 @@ Notes:
 - A3+A4 were additive in the measured HALF 2×2; general additivity is not supported.
 - Semantic equivalence tests used with the comparison workloads are under `comparison/test/` (31 non-storage tests).
 
-Raw: `ablation/raw/ablation.json` SHA-256 `ee3a27abba30c6848a479e6afe03d7ea9cb2407e3dc9c96f6ae07ec50cafc894`.
+Raw: `ablation/raw/ablation.json` SHA-256 `83bdf04595e7edb73c48b7dbd5dd7bbb2905461cefc2836279491d3dd54ddf8a`.

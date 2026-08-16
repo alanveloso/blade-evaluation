@@ -1,0 +1,8 @@
+/out/
+/cache/
+/outputs/
+/foundry.toml
+/remappings.txt
+/.venv/
+__pycache__/
+*.pyc

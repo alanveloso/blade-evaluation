@@ -13,4 +13,4 @@ references:
   - type: software
     title: BLADE
     repository-code: https://github.com/alanveloso/blade
-    version: "c145305a3ca76f52a64b62a0cb731283dbba9638"
+    version: "fbf266f5a9304af3b4541ed82a5d814a6afda5cc"

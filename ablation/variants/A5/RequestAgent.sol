@@ -21,8 +21,8 @@ enum RequestRole {
 }
 
 /// @title On-chain implementation of the supported FIPA Request interaction subset.
-/// @dev Cancel is outside the current Core scope.
-contract RequestAgent is Agent {
+/// @dev Cancel is outside the current Core scope. Abstract: the leaf calls `Agent` once.
+abstract contract RequestAgent is Agent {
     /// @dev Live session only. Terminal acts `delete` this entry; `Terminal` is not stored.
     struct Status {
         RequestPhase phase;
@@ -38,8 +38,6 @@ contract RequestAgent is Agent {
     error NotRequestPerformative();
 
     event RequestAdvanced(bytes32 indexed conversationId, uint8 phase, uint8 performative);
-
-    constructor(address trustedRelay_) Agent(trustedRelay_) {}
 
     function requestStatus(bytes32 conversationId) external view returns (Status memory) {
         return _request[conversationId];
@@ -66,9 +64,10 @@ contract RequestAgent is Agent {
         _send(to, outbound);
     }
 
-    function _onInbound(Message calldata message) internal override {
+    /// @dev Returns true when this capability owns the inbound message (FIPA Request).
+    function _handleRequestInbound(Message calldata message) internal returns (bool) {
         if (message.protocol != uint8(Protocol.FipaRequest)) {
-            return;
+            return false;
         }
         Status storage s = _request[message.conversationId];
         if (s.phase == RequestPhase.None) {
@@ -82,7 +81,7 @@ contract RequestAgent is Agent {
             emit RequestAdvanced(
                 message.conversationId, uint8(RequestPhase.Requested), message.performative
             );
-            return;
+            return true;
         }
         _assertPeer(s, message);
         _commit(
@@ -90,32 +89,51 @@ contract RequestAgent is Agent {
             _nextInbound(s.role, s.phase, Performative(message.performative)),
             message.performative
         );
+        return true;
+    }
+
+    /// @dev Returns true when outbound is a Request continuation this capability must validate.
+    function _handleRequestReply(Message calldata, address to, Message memory outbound)
+        internal
+        returns (bool)
+    {
+        if (outbound.protocol != uint8(Protocol.FipaRequest)) {
+            return false;
+        }
+        Status storage s = _request[outbound.conversationId];
+        if (s.phase == RequestPhase.None) {
+            revert InvalidTransition();
+        }
+        // The Core owns peer correlation in both directions. A continuation cannot be
+        // redirected by application code to a transport peer different from the live session.
+        if (s.logicalPeer == bytes32(0)) {
+            if (to != s.transportPeer) {
+                revert UnexpectedPeer();
+            }
+        } else if (to != trustedRelay) {
+            revert UnexpectedPeer();
+        }
+        _commit(
+            outbound.conversationId,
+            _nextOutbound(s.role, s.phase, Performative(outbound.performative)),
+            outbound.performative
+        );
+        return true;
+    }
+
+    function _onInbound(Message calldata message) internal virtual override {
+        if (_handleRequestInbound(message)) {
+            return;
+        }
+        super._onInbound(message);
     }
 
     function _reply(Message calldata inbound, address to, Message memory outbound)
         internal
+        virtual
         override
     {
-        if (outbound.protocol == uint8(Protocol.FipaRequest)) {
-            Status storage s = _request[outbound.conversationId];
-            if (s.phase == RequestPhase.None) {
-                revert InvalidTransition();
-            }
-            // The Core owns peer correlation in both directions. A continuation cannot be
-            // redirected by application code to a transport peer different from the live session.
-            if (s.logicalPeer == bytes32(0)) {
-                if (to != s.transportPeer) {
-                    revert UnexpectedPeer();
-                }
-            } else if (to != trustedRelay) {
-                revert UnexpectedPeer();
-            }
-            _commit(
-                outbound.conversationId,
-                _nextOutbound(s.role, s.phase, Performative(outbound.performative)),
-                outbound.performative
-            );
-        }
+        _handleRequestReply(inbound, to, outbound);
         super._reply(inbound, to, outbound);
     }
 

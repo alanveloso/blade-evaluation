@@ -1,186 +1,234 @@
 [
   {
-    "cell": "REQ-R1-P0",
-    "official_gas": 129392,
-    "ablated_gas": 134538,
-    "delta": 5146,
-    "relative_effect": 0.03977061951279832,
-    "factor": "A1"
-  },
-  {
-    "cell": "REQ-R3-P0",
-    "official_gas": 183082,
-    "ablated_gas": 190864,
-    "delta": 7782,
-    "relative_effect": 0.042505543963906885,
-    "factor": "A1"
-  },
-  {
-    "cell": "REQ-R3-P1024",
-    "official_gas": 289170,
-    "ablated_gas": 294690,
-    "delta": 5520,
-    "relative_effect": 0.019089117128332816,
-    "factor": "A1"
-  },
-  {
     "cell": "CN-A-N1-P0",
-    "official_gas": 258810,
-    "ablated_gas": 268521,
-    "delta": 9711,
-    "relative_effect": 0.037521734090645645,
+    "official_gas": 259733,
+    "ablated_gas": 269577,
+    "delta": 9844,
+    "relative_effect": 0.037900459317837934,
     "factor": "A1"
   },
   {
     "cell": "CN-A-N2-P0",
-    "official_gas": 442410,
-    "ablated_gas": 462273,
-    "delta": 19863,
-    "relative_effect": 0.044897267240794736,
+    "official_gas": 444308,
+    "ablated_gas": 464444,
+    "delta": 20136,
+    "relative_effect": 0.0453199132133565,
     "factor": "A1"
   },
   {
     "cell": "REQ-R1-P0",
-    "official_gas": 129392,
-    "ablated_gas": 131645,
-    "delta": 2253,
-    "relative_effect": 0.01741220477309262,
-    "factor": "A2"
+    "official_gas": 129563,
+    "ablated_gas": 134709,
+    "delta": 5146,
+    "relative_effect": 0.03971812940422806,
+    "factor": "A1"
   },
   {
     "cell": "REQ-R3-P0",
-    "official_gas": 183082,
-    "ablated_gas": 186414,
-    "delta": 3332,
-    "relative_effect": 0.018199495308113305,
-    "factor": "A2"
+    "official_gas": 183366,
+    "ablated_gas": 191148,
+    "delta": 7782,
+    "relative_effect": 0.042439710742449524,
+    "factor": "A1"
   },
   {
     "cell": "REQ-R3-P1024",
-    "official_gas": 289170,
-    "ablated_gas": 291591,
-    "delta": 2421,
-    "relative_effect": 0.008372237784002489,
-    "factor": "A2"
+    "official_gas": 289341,
+    "ablated_gas": 294861,
+    "delta": 5520,
+    "relative_effect": 0.01907783549514241,
+    "factor": "A1"
   },
   {
     "cell": "CN-A-N2-P0",
-    "official_gas": 442410,
-    "ablated_gas": 452341,
-    "delta": 9931,
-    "relative_effect": 0.022447503447028776,
+    "official_gas": 444308,
+    "ablated_gas": 454513,
+    "delta": 10205,
+    "relative_effect": 0.022968301268489425,
     "factor": "A2"
   },
   {
     "cell": "CN-A-N2-P1024",
-    "official_gas": 638869,
-    "ablated_gas": 646866,
-    "delta": 7997,
-    "relative_effect": 0.012517433151397235,
+    "official_gas": 640042,
+    "ablated_gas": 648508,
+    "delta": 8466,
+    "relative_effect": 0.013227256961261917,
+    "factor": "A2"
+  },
+  {
+    "cell": "REQ-R1-P0",
+    "official_gas": 129563,
+    "ablated_gas": 131816,
+    "delta": 2253,
+    "relative_effect": 0.01738922377530622,
+    "factor": "A2"
+  },
+  {
+    "cell": "REQ-R3-P0",
+    "official_gas": 183366,
+    "ablated_gas": 186698,
+    "delta": 3332,
+    "relative_effect": 0.018171307657908226,
+    "factor": "A2"
+  },
+  {
+    "cell": "REQ-R3-P1024",
+    "official_gas": 289341,
+    "ablated_gas": 291762,
+    "delta": 2421,
+    "relative_effect": 0.008367289806836915,
     "factor": "A2"
   },
   {
     "cell": "CN-A-N1-P0",
-    "official_gas": 258810,
-    "ablated_gas": 260174,
+    "official_gas": 259733,
+    "ablated_gas": 261097,
     "delta": 1364,
-    "relative_effect": 0.005270275491673428,
-    "factor": "A3"
-  },
-  {
-    "cell": "CN-A-N2-P0",
-    "official_gas": 442410,
-    "ablated_gas": 445521,
-    "delta": 3111,
-    "relative_effect": 0.0070319386993964875,
-    "factor": "A3"
-  },
-  {
-    "cell": "CN-A-N4-P0",
-    "official_gas": 809622,
-    "ablated_gas": 818774,
-    "delta": 9152,
-    "relative_effect": 0.011304040651069264,
-    "factor": "A3"
-  },
-  {
-    "cell": "CN-A-N8-P0",
-    "official_gas": 1543812,
-    "ablated_gas": 1575234,
-    "delta": 31422,
-    "relative_effect": 0.020353514547108067,
+    "relative_effect": 0.005251546780732521,
     "factor": "A3"
   },
   {
     "cell": "CN-A-N16-P0",
-    "official_gas": 3012846,
-    "ablated_gas": 3129560,
+    "official_gas": 3028394,
+    "ablated_gas": 3145108,
     "delta": 116714,
-    "relative_effect": 0.03873878717996207,
+    "relative_effect": 0.03853989936580247,
     "factor": "A3"
   },
   {
     "cell": "CN-A-N2-P0",
-    "official_gas": 442410,
-    "ablated_gas": 442309,
+    "official_gas": 444308,
+    "ablated_gas": 447419,
+    "delta": 3111,
+    "relative_effect": 0.007001899583172034,
+    "factor": "A3"
+  },
+  {
+    "cell": "CN-A-N4-P0",
+    "official_gas": 813470,
+    "ablated_gas": 822622,
+    "delta": 9152,
+    "relative_effect": 0.011250568552005605,
+    "factor": "A3"
+  },
+  {
+    "cell": "CN-A-N8-P0",
+    "official_gas": 1551561,
+    "ablated_gas": 1582983,
+    "delta": 31422,
+    "relative_effect": 0.020251862479141975,
+    "factor": "A3"
+  },
+  {
+    "cell": "CN-HALF-N2-P0",
+    "official_gas": 388598,
+    "ablated_gas": 391132,
+    "delta": 2534,
+    "relative_effect": 0.00652087761645711,
+    "factor": "A3"
+  },
+  {
+    "cell": "CN-HALF-N4-P0",
+    "official_gas": 701785,
+    "ablated_gas": 709353,
+    "delta": 7568,
+    "relative_effect": 0.010783929551073334,
+    "factor": "A3"
+  },
+  {
+    "cell": "CN-HALF-N8-P0",
+    "official_gas": 1328175,
+    "ablated_gas": 1354709,
+    "delta": 26534,
+    "relative_effect": 0.01997778907147025,
+    "factor": "A3"
+  },
+  {
+    "cell": "CN-A-N2-P0",
+    "official_gas": 444308,
+    "ablated_gas": 444207,
     "delta": -101,
-    "relative_effect": -0.00022829502045613797,
+    "relative_effect": -0.0002273197871746626,
     "factor": "A4"
   },
   {
     "cell": "CN-HALF-N2-P0",
-    "official_gas": 386959,
-    "ablated_gas": 387223,
+    "official_gas": 388598,
+    "ablated_gas": 388862,
     "delta": 264,
-    "relative_effect": 0.0006822428215909179,
+    "relative_effect": 0.0006793653081076074,
     "factor": "A4"
   },
   {
     "cell": "CN-HALF-N4-P0",
-    "official_gas": 698455,
-    "ablated_gas": 699325,
+    "official_gas": 701785,
+    "ablated_gas": 702655,
     "delta": 870,
-    "relative_effect": 0.0012456063740684798,
+    "relative_effect": 0.0012396959182655657,
     "factor": "A4"
   },
   {
     "cell": "CN-HALF-N8-P0",
-    "official_gas": 1321463,
-    "ablated_gas": 1323545,
+    "official_gas": 1328175,
+    "ablated_gas": 1330257,
     "delta": 2082,
-    "relative_effect": 0.0015755265187144855,
+    "relative_effect": 0.0015675645152182507,
     "factor": "A4"
   },
   {
-    "cell": "REQ-R1-P0",
-    "official_gas": 129392,
-    "ablated_gas": 136350,
-    "delta": 6958,
-    "relative_effect": 0.05377457648077161,
-    "factor": "A5"
-  },
-  {
-    "cell": "REQ-R3-P0",
-    "official_gas": 183082,
-    "ablated_gas": 193541,
-    "delta": 10459,
-    "relative_effect": 0.05712740739122361,
-    "factor": "A5"
-  },
-  {
     "cell": "CN-A-N2-P0",
-    "official_gas": 442410,
-    "ablated_gas": 473821,
-    "delta": 31411,
-    "relative_effect": 0.0709997513618589,
+    "official_gas": 444308,
+    "ablated_gas": 475992,
+    "delta": 31684,
+    "relative_effect": 0.0713108924439803,
     "factor": "A5"
   },
   {
     "cell": "CN-A-N8-P0",
-    "official_gas": 1543812,
-    "ablated_gas": 1690631,
-    "delta": 146819,
-    "relative_effect": 0.0951016056359194,
+    "official_gas": 1551561,
+    "ablated_gas": 1699492,
+    "delta": 147931,
+    "relative_effect": 0.0953433348737175,
     "factor": "A5"
+  },
+  {
+    "cell": "REQ-R1-P0",
+    "official_gas": 129563,
+    "ablated_gas": 136521,
+    "delta": 6958,
+    "relative_effect": 0.05370360365227727,
+    "factor": "A5"
+  },
+  {
+    "cell": "REQ-R3-P0",
+    "official_gas": 183366,
+    "ablated_gas": 193825,
+    "delta": 10459,
+    "relative_effect": 0.05703892760926235,
+    "factor": "A5"
+  },
+  {
+    "cell": "CN-HALF-N2-P0",
+    "official_gas": 388598,
+    "ablated_gas": 391396,
+    "delta": 2798,
+    "relative_effect": 0.007200242924564717,
+    "factor": "A34"
+  },
+  {
+    "cell": "CN-HALF-N4-P0",
+    "official_gas": 701785,
+    "ablated_gas": 710223,
+    "delta": 8438,
+    "relative_effect": 0.0120236254693389,
+    "factor": "A34"
+  },
+  {
+    "cell": "CN-HALF-N8-P0",
+    "official_gas": 1328175,
+    "ablated_gas": 1356791,
+    "delta": 28616,
+    "relative_effect": 0.0215453535866885,
+    "factor": "A34"
   }
 ]

@@ -22,23 +22,23 @@ expect_lines() {
 [[ -f PUBLIC_MANIFEST.sha256 ]] || fail "PUBLIC_MANIFEST.sha256 missing"
 sha256sum --strict -c PUBLIC_MANIFEST.sha256
 
-expect_sha data/raw/f3.jsonl ee00c96b7992de82803a44d6cea3d583979a44be5d4c83fadab728f30a572d5d
-expect_sha data/raw/f3_secondary.jsonl a889e91b13c52739838a36c4c26282c2e2eaff1d100d441f2b86573b0557060c
-expect_sha ablation/raw/ablation.json ee3a27abba30c6848a479e6afe03d7ea9cb2407e3dc9c96f6ae07ec50cafc894
-expect_lines data/raw/f3.jsonl 304
-expect_lines data/raw/f3_secondary.jsonl 558
+expect_sha data/raw/primary.jsonl 718675c92aa438e56a8dac7b1d065a36b05127bbeb417fdd4bde6bf9be6a02c1
+expect_sha data/raw/secondary.jsonl d1f91a336ee0e550ce305d3bfebdeaceba42ca604337bed5471cc2ca39d009b0
+expect_sha ablation/raw/ablation.json 83bdf04595e7edb73c48b7dbd5dd7bbb2905461cefc2836279491d3dd54ddf8a
+expect_lines data/raw/primary.jsonl 304
+expect_lines data/raw/secondary.jsonl 558
 
-expect_sha comparison/src/blade-app/BladeRequest.sol 29b646adc8d9bcbbb47e2844fbe604bfd1de120af29c6e0135fa04bb49fb69e7
-expect_sha comparison/src/blade-app/BladeContractNet.sol 31d6997e0ea1a29fef780bcd5b22e2bb9b9e573e5384736aa0b971504a04e125
+expect_sha comparison/src/blade-app/BladeRequest.sol d635e2e5be3209c3a69f6aa6dca8e3a7f34150e922bd56c58337aeef854fca1d
+expect_sha comparison/src/blade-app/BladeContractNet.sol 88d92c9ddd73b1a648ad372e733e5f90a137fb2debb3ceb12d10f9186816e38a
 expect_sha comparison/src/manual/ManualRequest.sol 8278ecbb69446673db9da30e5754bcf8ad4562440c38443ac3cb1490bc9f6377
 expect_sha comparison/src/manual/ManualContractNet.sol c558af3b5abd18efc46bc31618beee4f9222925988bd070bd76b80fd94630198
 
 for f in \
-  results/tables/rq2_request_interaction.csv \
-  results/tables/rq2_contractnet_interaction.csv \
-  results/tables/rq2_deployment_bytecode.csv \
-  results/tables/rq3_structural.csv \
-  results/tables/rq4_secondary.csv \
+  results/tables/request_interaction.csv \
+  results/tables/contractnet_interaction.csv \
+  results/tables/deployment_bytecode.csv \
+  results/tables/structural.csv \
+  results/tables/scaling_secondary.csv \
   data/storage/request_r3.json \
   data/storage/cn_a_n2.json \
   data/storage/active_k.json \
@@ -49,4 +49,4 @@ do
 done
 
 echo "OK"
-echo "canonical Core SHA (documented): c145305a3ca76f52a64b62a0cb731283dbba9638"
+echo "canonical Core SHA (documented): fbf266f5a9304af3b4541ed82a5d814a6afda5cc"

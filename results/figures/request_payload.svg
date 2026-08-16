@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="480" viewBox="0 0 720 480">
+  <rect width="100%" height="100%" fill="#fff"/>
+  <text x="360.0" y="22" text-anchor="middle" font-size="14" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">Request R3 complete-interaction gas vs payload</text>
+  <line x1="88" y1="416.00" x2="692" y2="416.00" stroke="#ddd" stroke-width="1"/><text x="80" y="420.00" text-anchor="end" font-size="11" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">0</text><line x1="88" y1="340.00" x2="692" y2="340.00" stroke="#ddd" stroke-width="1"/><text x="80" y="344.00" text-anchor="end" font-size="11" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">62,498</text><line x1="88" y1="264.00" x2="692" y2="264.00" stroke="#ddd" stroke-width="1"/><text x="80" y="268.00" text-anchor="end" font-size="11" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">124,995</text><line x1="88" y1="188.00" x2="692" y2="188.00" stroke="#ddd" stroke-width="1"/><text x="80" y="192.00" text-anchor="end" font-size="11" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">187,493</text><line x1="88" y1="112.00" x2="692" y2="112.00" stroke="#ddd" stroke-width="1"/><text x="80" y="116.00" text-anchor="end" font-size="11" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">249,991</text><line x1="88" y1="36.00" x2="692" y2="36.00" stroke="#ddd" stroke-width="1"/><text x="80" y="40.00" text-anchor="end" font-size="11" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">312,488</text>
+  <line x1="88" y1="36" x2="88" y2="416" stroke="#111" stroke-width="1.2"/>
+  <line x1="88" y1="416" x2="692" y2="416" stroke="#111" stroke-width="1.2"/>
+  <polyline fill="none" stroke="#111" stroke-width="1.6" points="88.00,193.06 105.81,189.80 230.45,167.74 657.81,64.15"/>
+<circle cx="88.00" cy="193.06" r="4.2" fill="#fff" stroke="#111" stroke-width="1.6"/>
+<circle cx="105.81" cy="189.80" r="4.2" fill="#fff" stroke="#111" stroke-width="1.6"/>
+<circle cx="230.45" cy="167.74" r="4.2" fill="#fff" stroke="#111" stroke-width="1.6"/>
+<circle cx="657.81" cy="64.15" r="4.2" fill="#fff" stroke="#111" stroke-width="1.6"/>
+  <polyline fill="none" stroke="#111" stroke-width="1.6" stroke-dasharray="6 4" points="88.00,249.12 105.81,247.96 230.45,240.07 657.81,187.58"/>
+<rect x="84.50" y="245.62" width="7" height="7" fill="#fff" stroke="#111" stroke-width="1.6"/>
+<rect x="102.31" y="244.46" width="7" height="7" fill="#fff" stroke="#111" stroke-width="1.6"/>
+<rect x="226.95" y="236.57" width="7" height="7" fill="#fff" stroke="#111" stroke-width="1.6"/>
+<rect x="654.31" y="184.08" width="7" height="7" fill="#fff" stroke="#111" stroke-width="1.6"/>
+  <text x="88.00" y="434" text-anchor="middle" font-size="11" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">0</text><text x="105.81" y="434" text-anchor="middle" font-size="11" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">32</text><text x="230.45" y="434" text-anchor="middle" font-size="11" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">256</text><text x="657.81" y="434" text-anchor="middle" font-size="11" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">1024</text>
+  <text x="360.0" y="466" text-anchor="middle" font-size="12" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">payload size (bytes)</text>
+  <text transform="translate(16,226.0) rotate(-90)" text-anchor="middle" font-size="12" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">complete-interaction gas (gasUsed sum)</text>
+  
+    <g transform="translate(100,44)">
+      <line x1="0" y1="8" x2="28" y2="8" stroke="#111" stroke-width="1.6"/>
+      <circle cx="14" cy="8" r="4.2" fill="#fff" stroke="#111" stroke-width="1.6"/>
+      <text x="36" y="12" font-size="12" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">BLADE</text>
+      <line x1="120" y1="8" x2="148" y2="8" stroke="#111" stroke-width="1.6" stroke-dasharray="6 4"/>
+      <rect x="131" y="4.5" width="7" height="7" fill="#fff" stroke="#111" stroke-width="1.6"/>
+      <text x="156" y="12" font-size="12" font-family="DejaVu Sans,Helvetica,Arial,sans-serif">purpose-built Solidity</text>
+    </g>
+</svg>
