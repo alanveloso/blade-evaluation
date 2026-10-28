@@ -1,0 +1,1729 @@
+{
+  "non_ok_cells": {
+    "E0": [],
+    "E0R": [],
+    "E1H": [],
+    "E1": [],
+    "E2": []
+  },
+  "e0_reproduction": {
+    "rows_e0": 862,
+    "rows_e0r": 862,
+    "same_keys": true,
+    "interaction_tx_gas_differences": 0,
+    "deployment_gas_differences": [
+      [
+        "blade",
+        "deploy_participant",
+        946271,
+        946259
+      ]
+    ]
+  },
+  "primary_overhead_ranges": {
+    "E0": {
+      "min": [
+        20.76748176149758,
+        "CN-FAIL-A-N1-P0"
+      ],
+      "max": [
+        54.03916182201495,
+        "REQ-R3-P1024"
+      ],
+      "request": {
+        "min": [
+          28.456323957899745,
+          "REQ-R2-P0"
+        ],
+        "max": [
+          54.03916182201495,
+          "REQ-R3-P1024"
+        ]
+      },
+      "contract_net": {
+        "min": [
+          20.76748176149758,
+          "CN-FAIL-A-N1-P0"
+        ],
+        "max": [
+          33.23216679572686,
+          "CN-A-N2-P1024"
+        ]
+      }
+    },
+    "E1H": {
+      "min": [
+        20.76748176149758,
+        "CN-FAIL-A-N1-P0"
+      ],
+      "max": [
+        58.33090755713445,
+        "REQ-R3-P1024"
+      ],
+      "request": {
+        "min": [
+          28.456323957899745,
+          "REQ-R2-P0"
+        ],
+        "max": [
+          58.33090755713445,
+          "REQ-R3-P1024"
+        ]
+      },
+      "contract_net": {
+        "min": [
+          20.76748176149758,
+          "CN-FAIL-A-N1-P0"
+        ],
+        "max": [
+          40.433193829192454,
+          "CN-A-N2-P1024"
+        ]
+      }
+    },
+    "E1": {
+      "min": [
+        20.76748176149758,
+        "CN-FAIL-A-N1-P0"
+      ],
+      "max": [
+        38.85024148849588,
+        "REQ-R3-P1024"
+      ],
+      "request": {
+        "min": [
+          28.456323957899745,
+          "REQ-R2-P0"
+        ],
+        "max": [
+          38.85024148849588,
+          "REQ-R3-P1024"
+        ]
+      },
+      "contract_net": {
+        "min": [
+          20.76748176149758,
+          "CN-FAIL-A-N1-P0"
+        ],
+        "max": [
+          32.86349754501952,
+          "CN-A-N2-P1024"
+        ]
+      }
+    },
+    "E2": {
+      "min": [
+        20.76748176149758,
+        "CN-FAIL-A-N1-P0"
+      ],
+      "max": [
+        102.18432402954737,
+        "REQ-R1-P0"
+      ],
+      "request": {
+        "min": [
+          83.0839239355793,
+          "REQ-R3-P1024"
+        ],
+        "max": [
+          102.18432402954737,
+          "REQ-R1-P0"
+        ]
+      },
+      "contract_net": {
+        "min": [
+          20.76748176149758,
+          "CN-FAIL-A-N1-P0"
+        ],
+        "max": [
+          32.86349754501952,
+          "CN-A-N2-P1024"
+        ]
+      }
+    }
+  },
+  "start_request_first_vs_steady": {
+    "E2_first": 151772,
+    "E1_first": 85016,
+    "E2_steady(startRequest_50)": 134672,
+    "E1_steady(startRequest_50)": 85016,
+    "first_delta": 66756,
+    "steady_delta": 49656
+  },
+  "baseline_sensitivity_primary": {
+    "request": {
+      "vs_manual": [
+        83.0839239355793,
+        102.18432402954737
+      ],
+      "vs_correlated_observable": [
+        7.7585204755614265,
+        10.903944554355208
+      ]
+    },
+    "contract_net": {
+      "vs_manual": [
+        20.76748176149758,
+        32.86349754501952
+      ],
+      "vs_correlated_observable": [
+        5.4208029918363,
+        7.033554645046013
+      ]
+    }
+  },
+  "ablation_reproduction_mismatches": [],
+  "ablation_direction_counts": {
+    "E0 (submitted)/A1": {
+      "positive": 5
+    },
+    "E0 (submitted)/A2": {
+      "positive": 5
+    },
+    "E0 (submitted)/A3": {
+      "positive": 8
+    },
+    "E0 (submitted)/A4": {
+      "negative": 1,
+      "positive": 3
+    },
+    "E0 (submitted)/A5": {
+      "positive": 4
+    },
+    "E0 (submitted)/A34": {
+      "positive": 3
+    },
+    "ABL-E1/A1": {
+      "positive": 5
+    },
+    "ABL-E1/A2": {
+      "positive": 5
+    },
+    "ABL-E1/A3": {
+      "positive": 11
+    },
+    "ABL-E1/A4": {
+      "negative": 4,
+      "positive": 6
+    },
+    "ABL-E1/A5": {
+      "positive": 4
+    },
+    "ABL-E1/A34": {
+      "positive": 6
+    },
+    "ABL-E2/A1": {
+      "positive": 5
+    },
+    "ABL-E2/A2": {
+      "positive": 5
+    },
+    "ABL-E2/A3": {
+      "positive": 11
+    },
+    "ABL-E2/A4": {
+      "negative": 4,
+      "positive": 6
+    },
+    "ABL-E2/A5": {
+      "positive": 4
+    },
+    "ABL-E2/A34": {
+      "positive": 6
+    }
+  },
+  "storage": {
+    "E1": {
+      "revision_abandoned.json": {
+        "blade_initiator_slots": 1,
+        "blade_participant_slots": 1,
+        "manual_initiator_slots": 1,
+        "manual_participant_slots": 1,
+        "note": "blade initiator count includes the persistent nonce slot on E2"
+      },
+      "revision_active_k.json": [
+        {
+          "implementation": "blade",
+          "K": 1,
+          "active_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "active_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 0
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        },
+        {
+          "implementation": "manual",
+          "K": 1,
+          "active_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "active_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 0
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        },
+        {
+          "implementation": "blade",
+          "K": 10,
+          "active_I": {
+            "session": 10,
+            "persistent": 0
+          },
+          "active_P": {
+            "session": 10,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 0
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        },
+        {
+          "implementation": "manual",
+          "K": 10,
+          "active_I": {
+            "session": 10,
+            "persistent": 0
+          },
+          "active_P": {
+            "session": 10,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 0
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        },
+        {
+          "implementation": "blade",
+          "K": 100,
+          "active_I": {
+            "session": 100,
+            "persistent": 0
+          },
+          "active_P": {
+            "session": 100,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 0
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        },
+        {
+          "implementation": "manual",
+          "K": 100,
+          "active_I": {
+            "session": 100,
+            "persistent": 0
+          },
+          "active_P": {
+            "session": 100,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 0
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        }
+      ],
+      "revision_request_r3.json": [
+        {
+          "implementation": "blade",
+          "path": "R3",
+          "payload_bytes": 0,
+          "requested_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "requested_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 0
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "manual",
+          "path": "R3",
+          "payload_bytes": 0,
+          "requested_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "requested_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 0
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "blade",
+          "path": "R3",
+          "payload_bytes": 32,
+          "requested_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "requested_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 0
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "manual",
+          "path": "R3",
+          "payload_bytes": 32,
+          "requested_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "requested_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 0
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "blade",
+          "path": "R3",
+          "payload_bytes": 256,
+          "requested_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "requested_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 0
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "manual",
+          "path": "R3",
+          "payload_bytes": 256,
+          "requested_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "requested_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 0
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "blade",
+          "path": "R3",
+          "payload_bytes": 1024,
+          "requested_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "requested_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 0
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "manual",
+          "path": "R3",
+          "payload_bytes": 1024,
+          "requested_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "requested_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 0
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        }
+      ]
+    },
+    "E2": {
+      "revision_abandoned.json": {
+        "blade_initiator_slots": 3,
+        "blade_participant_slots": 2,
+        "manual_initiator_slots": 1,
+        "manual_participant_slots": 1,
+        "note": "blade initiator count includes the persistent nonce slot on E2"
+      },
+      "revision_active_k.json": [
+        {
+          "implementation": "blade",
+          "K": 1,
+          "active_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "active_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        },
+        {
+          "implementation": "manual",
+          "K": 1,
+          "active_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "active_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 0
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        },
+        {
+          "implementation": "blade",
+          "K": 10,
+          "active_I": {
+            "session": 20,
+            "persistent": 1
+          },
+          "active_P": {
+            "session": 20,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        },
+        {
+          "implementation": "manual",
+          "K": 10,
+          "active_I": {
+            "session": 10,
+            "persistent": 0
+          },
+          "active_P": {
+            "session": 10,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 0
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        },
+        {
+          "implementation": "blade",
+          "K": 100,
+          "active_I": {
+            "session": 200,
+            "persistent": 1
+          },
+          "active_P": {
+            "session": 200,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        },
+        {
+          "implementation": "manual",
+          "K": 100,
+          "active_I": {
+            "session": 100,
+            "persistent": 0
+          },
+          "active_P": {
+            "session": 100,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 0
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        }
+      ],
+      "revision_request_r3.json": [
+        {
+          "implementation": "blade",
+          "path": "R3",
+          "payload_bytes": 0,
+          "requested_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "requested_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "agreed_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "manual",
+          "path": "R3",
+          "payload_bytes": 0,
+          "requested_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "requested_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 0
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "blade",
+          "path": "R3",
+          "payload_bytes": 32,
+          "requested_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "requested_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "agreed_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "manual",
+          "path": "R3",
+          "payload_bytes": 32,
+          "requested_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "requested_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 0
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "blade",
+          "path": "R3",
+          "payload_bytes": 256,
+          "requested_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "requested_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "agreed_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "manual",
+          "path": "R3",
+          "payload_bytes": 256,
+          "requested_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "requested_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 0
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "blade",
+          "path": "R3",
+          "payload_bytes": 1024,
+          "requested_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "requested_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "agreed_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "manual",
+          "path": "R3",
+          "payload_bytes": 1024,
+          "requested_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "requested_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 1,
+            "persistent": 0
+          },
+          "agreed_P": {
+            "session": 1,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 0
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        }
+      ]
+    },
+    "E2-MCORR": {
+      "revision_abandoned.json": {
+        "blade_initiator_slots": 3,
+        "blade_participant_slots": 2,
+        "manual_initiator_slots": 3,
+        "manual_participant_slots": 2,
+        "note": "blade initiator count includes the persistent nonce slot on E2"
+      },
+      "revision_active_k.json": [
+        {
+          "implementation": "blade",
+          "K": 1,
+          "active_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "active_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        },
+        {
+          "implementation": "manual",
+          "K": 1,
+          "active_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "active_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        },
+        {
+          "implementation": "blade",
+          "K": 10,
+          "active_I": {
+            "session": 20,
+            "persistent": 1
+          },
+          "active_P": {
+            "session": 20,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        },
+        {
+          "implementation": "manual",
+          "K": 10,
+          "active_I": {
+            "session": 20,
+            "persistent": 1
+          },
+          "active_P": {
+            "session": 20,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        },
+        {
+          "implementation": "blade",
+          "K": 100,
+          "active_I": {
+            "session": 200,
+            "persistent": 1
+          },
+          "active_P": {
+            "session": 200,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        },
+        {
+          "implementation": "manual",
+          "K": 100,
+          "active_I": {
+            "session": 200,
+            "persistent": 1
+          },
+          "active_P": {
+            "session": 200,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        }
+      ],
+      "revision_request_r3.json": [
+        {
+          "implementation": "blade",
+          "path": "R3",
+          "payload_bytes": 0,
+          "requested_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "requested_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "agreed_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "manual",
+          "path": "R3",
+          "payload_bytes": 0,
+          "requested_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "requested_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "agreed_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "blade",
+          "path": "R3",
+          "payload_bytes": 32,
+          "requested_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "requested_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "agreed_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "manual",
+          "path": "R3",
+          "payload_bytes": 32,
+          "requested_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "requested_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "agreed_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "blade",
+          "path": "R3",
+          "payload_bytes": 256,
+          "requested_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "requested_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "agreed_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "manual",
+          "path": "R3",
+          "payload_bytes": 256,
+          "requested_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "requested_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "agreed_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "blade",
+          "path": "R3",
+          "payload_bytes": 1024,
+          "requested_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "requested_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "agreed_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "manual",
+          "path": "R3",
+          "payload_bytes": 1024,
+          "requested_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "requested_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "agreed_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        }
+      ]
+    },
+    "E2-MCOBS": {
+      "revision_abandoned.json": {
+        "blade_initiator_slots": 3,
+        "blade_participant_slots": 2,
+        "manual_initiator_slots": 3,
+        "manual_participant_slots": 2,
+        "note": "blade initiator count includes the persistent nonce slot on E2"
+      },
+      "revision_active_k.json": [
+        {
+          "implementation": "blade",
+          "K": 1,
+          "active_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "active_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        },
+        {
+          "implementation": "manual",
+          "K": 1,
+          "active_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "active_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        },
+        {
+          "implementation": "blade",
+          "K": 10,
+          "active_I": {
+            "session": 20,
+            "persistent": 1
+          },
+          "active_P": {
+            "session": 20,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        },
+        {
+          "implementation": "manual",
+          "K": 10,
+          "active_I": {
+            "session": 20,
+            "persistent": 1
+          },
+          "active_P": {
+            "session": 20,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        },
+        {
+          "implementation": "blade",
+          "K": 100,
+          "active_I": {
+            "session": 200,
+            "persistent": 1
+          },
+          "active_P": {
+            "session": 200,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        },
+        {
+          "implementation": "manual",
+          "K": 100,
+          "active_I": {
+            "session": 200,
+            "persistent": 1
+          },
+          "active_P": {
+            "session": 200,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          }
+        }
+      ],
+      "revision_request_r3.json": [
+        {
+          "implementation": "blade",
+          "path": "R3",
+          "payload_bytes": 0,
+          "requested_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "requested_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "agreed_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "manual",
+          "path": "R3",
+          "payload_bytes": 0,
+          "requested_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "requested_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "agreed_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "blade",
+          "path": "R3",
+          "payload_bytes": 32,
+          "requested_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "requested_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "agreed_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "manual",
+          "path": "R3",
+          "payload_bytes": 32,
+          "requested_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "requested_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "agreed_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "blade",
+          "path": "R3",
+          "payload_bytes": 256,
+          "requested_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "requested_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "agreed_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "manual",
+          "path": "R3",
+          "payload_bytes": 256,
+          "requested_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "requested_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "agreed_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "blade",
+          "path": "R3",
+          "payload_bytes": 1024,
+          "requested_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "requested_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "agreed_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        },
+        {
+          "implementation": "manual",
+          "path": "R3",
+          "payload_bytes": 1024,
+          "requested_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "requested_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "agreed_I": {
+            "session": 2,
+            "persistent": 1
+          },
+          "agreed_P": {
+            "session": 2,
+            "persistent": 0
+          },
+          "terminal_I": {
+            "session": 0,
+            "persistent": 1
+          },
+          "terminal_P": {
+            "session": 0,
+            "persistent": 0
+          },
+          "payload_in_storage": false
+        }
+      ]
+    }
+  }
+}

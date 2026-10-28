@@ -1,0 +1,108 @@
+No files changed, compilation skipped
+
+Ran 4 tests for comparison/test/revision/ResidualExposure.t.sol:ResidualExposureTest
+[PASS] test_abandonedRequest_strandsStorageAndBlocksReuse() (gas: 228275)
+[PASS] test_conversationIdSquatting_blocksHonestRequest() (gas: 1401607)
+[PASS] test_relayDisabledInMeasuredWrappers() (gas: 11044)
+[PASS] test_squattedSessionIsIsolatedFromHonestInitiator() (gas: 965365)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 7.50ms (831.26µs CPU time)
+
+Ran 3 tests for comparison/test/original/StoragePilot.t.sol:StoragePilotTest
+[FAIL: ReplyWithMismatch()] test_storage_K_agreed() (gas: 1838727)
+[PASS] test_storage_cnA_N2() (gas: 5143313)
+[FAIL: ReplyWithMismatch()] test_storage_request_R3_payloads() (gas: 2045624)
+Suite result: FAILED. 1 passed; 2 failed; 0 skipped; finished in 7.76ms (1.85ms CPU time)
+
+Ran 10 tests for comparison/test/original/RequestEquivalence.t.sol:RequestEquivalenceTest
+[FAIL: ReplyWithMismatch()] test_R1_requestRefuse() (gas: 146625)
+[FAIL: ReplyWithMismatch()] test_R2_requestInform() (gas: 141619)
+[FAIL: ReplyWithMismatch()] test_R3_requestAgreeInform() (gas: 141327)
+[FAIL: ReplyWithMismatch()] test_R4_requestAgreeFailure() (gas: 141260)
+[FAIL: ReplyWithMismatch()] test_invalid_continuationAfterCleanup() (gas: 141650)
+[PASS] test_invalid_duplicateLiveRequest() (gas: 200371)
+[FAIL: ReplyWithMismatch()] test_invalid_refuseAfterAgree() (gas: 141349)
+[PASS] test_invalid_wrongPeer() (gas: 201696)
+[PASS] test_invalid_zeroConversationId() (gas: 90801)
+[FAIL: ReplyWithMismatch()] test_reuseAfterCleanup() (gas: 141671)
+Suite result: FAILED. 3 passed; 7 failed; 0 skipped; finished in 7.82ms (790.65µs CPU time)
+
+Ran 9 tests for comparison/test/revision/RequestEquivalenceRev.t.sol:RequestEquivalenceRevTest
+[PASS] test_R1_requestRefuse() (gas: 190256)
+[PASS] test_R2_requestInform() (gas: 183432)
+[PASS] test_R3_requestAgreeInform() (gas: 215112)
+[PASS] test_R4_requestAgreeFailure() (gas: 201600)
+[PASS] test_invalid_continuationAfterCleanup() (gas: 175744)
+[PASS] test_invalid_refuseAfterAgree() (gas: 227197)
+[PASS] test_reuseAfterCleanup() (gas: 312199)
+[PASS] test_staleInboundAfterReuse() (gas: 223532)
+[PASS] test_tokenOnlyWhenCoreAssigns() (gas: 144515)
+Suite result: ok. 9 passed; 0 failed; 0 skipped; finished in 7.90ms (1.97ms CPU time)
+
+Ran 8 tests for comparison/test/original/ContractNetEquivalence.t.sol:ContractNetEquivalenceTest
+[PASS] test_failureCell_A_N1() (gas: 3528441)
+[PASS] test_invalid_duplicateLiveCfp() (gas: 3577748)
+[PASS] test_invalid_evaluateBeforeDeadline() (gas: 3599064)
+[PASS] test_invalid_proposeThenRefuse() (gas: 3597241)
+[PASS] test_invalid_unexpectedPeerPropose() (gas: 3582178)
+[PASS] test_scenarioA_N2_allProposeAcceptInform() (gas: 4875379)
+[PASS] test_scenarioB_N2_mixed() (gas: 4827362)
+[PASS] test_scenarioC_confirmation_identicalToB_N2() (gas: 4827341)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 7.91ms (4.95ms CPU time)
+
+Ran 13 tests for comparison/test/original/ParametricEquivalence.t.sol:ParametricEquivalenceTest
+[FAIL: ReplyWithMismatch()] test_R3_payload_0() (gas: 1845340)
+[FAIL: ReplyWithMismatch()] test_R3_payload_1024() (gas: 1994751)
+[FAIL: ReplyWithMismatch()] test_R3_payload_256() (gas: 1882582)
+[FAIL: ReplyWithMismatch()] test_R3_payload_32() (gas: 1850005)
+[PASS] test_cnA_N1_payload0() (gas: 3554158)
+[PASS] test_cnA_N1_payload256() (gas: 3596526)
+[PASS] test_cnA_N2_payload0() (gas: 4913412)
+[PASS] test_cnA_N2_payload1024() (gas: 5112808)
+[PASS] test_cnA_N2_payload256() (gas: 4963084)
+[PASS] test_cnA_N2_payload32() (gas: 4919626)
+[PASS] test_cnA_N4_payload0() (gas: 7636221)
+[PASS] test_cnA_N4_payload256() (gas: 7701066)
+[PASS] test_cnA_N8_payload0_orSkip() (gas: 13101031)
+Suite result: FAILED. 9 passed; 4 failed; 0 skipped; finished in 7.87ms (22.12ms CPU time)
+
+Ran 8 tests for comparison/test/revision/PayloadEncodingEquivalence.t.sol:PayloadEncodingEquivalenceTest
+[PASS] test_R1_refuse_inboundContentUnused() (gas: 889788)
+[PASS] test_R2_inform_inboundContentUnused() (gas: 890017)
+[PASS] test_R3_agreeInform_inboundContentUnused() (gas: 967586)
+[PASS] test_R4_agreeFailure_inboundContentUnused() (gas: 967749)
+[PASS] test_activeK_agree_inboundContentUnused() (gas: 2357148)
+[PASS] test_cnA_propose_inboundContentUnused() (gas: 1359555)
+[PASS] test_cnB_proposeRefuse_inboundContentUnused() (gas: 1158463)
+[PASS] test_digestDetectsReadField() (gas: 289777)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 11.48ms (33.82ms CPU time)
+
+Ran 2 tests for comparison/test/revision/StorageRev.t.sol:StorageRevTest
+[PASS] test_storage_K_agreed() (gas: 234283706)
+[PASS] test_storage_request_R3() (gas: 11904076)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 395.28ms (404.99ms CPU time)
+
+Ran 8 test suites in 396.41ms (453.51ms CPU time): 44 tests passed, 13 failed, 0 skipped (57 total tests)
+
+Failing tests:
+Encountered 4 failing tests in comparison/test/original/ParametricEquivalence.t.sol:ParametricEquivalenceTest
+[FAIL: ReplyWithMismatch()] test_R3_payload_0() (gas: 1845340)
+[FAIL: ReplyWithMismatch()] test_R3_payload_1024() (gas: 1994751)
+[FAIL: ReplyWithMismatch()] test_R3_payload_256() (gas: 1882582)
+[FAIL: ReplyWithMismatch()] test_R3_payload_32() (gas: 1850005)
+
+Encountered 7 failing tests in comparison/test/original/RequestEquivalence.t.sol:RequestEquivalenceTest
+[FAIL: ReplyWithMismatch()] test_R1_requestRefuse() (gas: 146625)
+[FAIL: ReplyWithMismatch()] test_R2_requestInform() (gas: 141619)
+[FAIL: ReplyWithMismatch()] test_R3_requestAgreeInform() (gas: 141327)
+[FAIL: ReplyWithMismatch()] test_R4_requestAgreeFailure() (gas: 141260)
+[FAIL: ReplyWithMismatch()] test_invalid_continuationAfterCleanup() (gas: 141650)
+[FAIL: ReplyWithMismatch()] test_invalid_refuseAfterAgree() (gas: 141349)
+[FAIL: ReplyWithMismatch()] test_reuseAfterCleanup() (gas: 141671)
+
+Encountered 2 failing tests in comparison/test/original/StoragePilot.t.sol:StoragePilotTest
+[FAIL: ReplyWithMismatch()] test_storage_K_agreed() (gas: 1838727)
+[FAIL: ReplyWithMismatch()] test_storage_request_R3_payloads() (gas: 2045624)
+
+Encountered a total of 13 failing tests, 44 tests succeeded
+
+Tip: Run `forge test --rerun` to retry only the 13 failed tests

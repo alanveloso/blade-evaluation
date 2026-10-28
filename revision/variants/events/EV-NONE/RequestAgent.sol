@@ -1,0 +1,253 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+import {Agent} from "./Agent.sol";
+import {Message} from "./Message.sol";
+import {Performative} from "./Performative.sol";
+import {Protocol} from "./Protocol.sol";
+
+/// @dev Compact FIPA Request session status. Not a full `Message`; no `content`.
+enum RequestPhase {
+    None,
+    Requested,
+    Agreed,
+    Terminal
+}
+
+enum RequestRole {
+    None,
+    Initiator,
+    Participant
+}
+
+/// @title On-chain implementation of the supported FIPA Request interaction subset.
+/// @dev Cancel is outside the current Core scope. Abstract: the leaf calls `Agent` once.
+/// @dev Correlation: every act after the opening Request is bound to the session token
+/// (`replyWith` of that Request). Participant acts must carry it in `inReplyTo`; initiator
+/// continuations must keep it in `replyWith`. The initiator's Core assigns the token from a
+/// monotonic nonce, so a reused `conversationId` never reuses a token.
+abstract contract RequestAgent is Agent {
+    /// @dev Live session only. Terminal acts `delete` this entry; `Terminal` is not stored.
+    struct Status {
+        RequestPhase phase;
+        RequestRole role;
+        address transportPeer;
+        bytes32 logicalPeer;
+        bytes32 replyWith;
+    }
+
+    mapping(bytes32 conversationId => Status) internal _request;
+    /// @dev Persistent (one slot per agent). Never decremented; makes Request tokens single-use.
+    uint256 internal _requestNonce;
+
+    error InvalidTransition();
+    error UnexpectedPeer();
+    error NotRequestPerformative();
+    error MissingReplyWith();
+    error ReplyWithAssignedByCore();
+
+    event RequestAdvanced(bytes32 indexed conversationId, uint8 phase, uint8 performative);
+
+    function requestStatus(bytes32 conversationId) external view returns (Status memory) {
+        return _request[conversationId];
+    }
+
+    function _startRequest(address to, Message memory outbound) internal {
+        if (outbound.protocol != uint8(Protocol.FipaRequest)) {
+            revert InvalidTransition();
+        }
+        if (outbound.performative != uint8(Performative.Request)) {
+            revert NotRequestPerformative();
+        }
+        Status storage s = _request[outbound.conversationId];
+        if (s.phase != RequestPhase.None) {
+            revert InvalidTransition();
+        }
+        if (outbound.replyWith != bytes32(0)) {
+            revert ReplyWithAssignedByCore();
+        }
+        bytes32 token = keccak256(
+            abi.encode(block.chainid, address(this), outbound.conversationId, ++_requestNonce)
+        );
+        s.phase = RequestPhase.Requested;
+        s.role = RequestRole.Initiator;
+        s.transportPeer = to;
+        s.logicalPeer = bytes32(0);
+        s.replyWith = token;
+        outbound.replyWith = token;
+        _send(to, outbound);
+    }
+
+    /// @dev Returns true when this capability owns the inbound message (FIPA Request).
+    function _handleRequestInbound(Message calldata message) internal returns (bool) {
+        if (message.protocol != uint8(Protocol.FipaRequest)) {
+            return false;
+        }
+        Status storage s = _request[message.conversationId];
+        if (s.phase == RequestPhase.None) {
+            if (message.performative != uint8(Performative.Request)) {
+                revert InvalidTransition();
+            }
+            if (message.replyWith == bytes32(0)) {
+                revert MissingReplyWith();
+            }
+            s.phase = RequestPhase.Requested;
+            s.role = RequestRole.Participant;
+            s.transportPeer = msg.sender;
+            s.logicalPeer = message.logicalSender;
+            s.replyWith = message.replyWith;
+            return true;
+        }
+        _assertPeer(s, message);
+        RequestPhase next = _nextInbound(s.role, s.phase, Performative(message.performative));
+        _assertCorrelated(
+            s, s.role == RequestRole.Participant, message.replyWith, message.inReplyTo
+        );
+        _commit(message.conversationId, next, message.performative);
+        return true;
+    }
+
+    /// @dev Returns true when outbound is a Request continuation this capability must validate.
+    function _handleRequestReply(Message calldata, address to, Message memory outbound)
+        internal
+        returns (bool)
+    {
+        if (outbound.protocol != uint8(Protocol.FipaRequest)) {
+            return false;
+        }
+        Status storage s = _request[outbound.conversationId];
+        if (s.phase == RequestPhase.None) {
+            revert InvalidTransition();
+        }
+        // The Core owns peer correlation in both directions. A continuation cannot be
+        // redirected by application code to a transport peer different from the live session.
+        if (s.logicalPeer == bytes32(0)) {
+            if (to != s.transportPeer) {
+                revert UnexpectedPeer();
+            }
+        } else if (to != trustedRelay) {
+            revert UnexpectedPeer();
+        }
+        RequestPhase next = _nextOutbound(s.role, s.phase, Performative(outbound.performative));
+        // Checked against the stored session, not against the application-supplied `inbound`.
+        _assertCorrelated(
+            s, s.role == RequestRole.Initiator, outbound.replyWith, outbound.inReplyTo
+        );
+        _commit(outbound.conversationId, next, outbound.performative);
+        return true;
+    }
+
+    function _onInbound(Message calldata message) internal virtual override {
+        if (_handleRequestInbound(message)) {
+            return;
+        }
+        super._onInbound(message);
+    }
+
+    function _reply(Message calldata inbound, address to, Message memory outbound)
+        internal
+        virtual
+        override
+    {
+        _handleRequestReply(inbound, to, outbound);
+        super._reply(inbound, to, outbound);
+    }
+
+    /// @dev `Terminal` is an event/transition token only; it is not kept in `_request`.
+    function _commit(bytes32 conversationId, RequestPhase next, uint8 performative) internal {
+        if (next == RequestPhase.Terminal) {
+            delete _request[conversationId];
+        } else {
+            _request[conversationId].phase = next;
+        }
+    }
+
+    function _assertPeer(Status storage s, Message calldata message) internal view {
+        if (s.logicalPeer == bytes32(0)) {
+            if (msg.sender != s.transportPeer || message.logicalSender != bytes32(0)) {
+                revert UnexpectedPeer();
+            }
+            return;
+        }
+        if (msg.sender != trustedRelay || message.logicalSender != s.logicalPeer) {
+            revert UnexpectedPeer();
+        }
+    }
+
+    function _assertCorrelated(
+        Status storage s,
+        bool fromInitiator,
+        bytes32 replyWith,
+        bytes32 inReplyTo
+    ) internal view {
+        if ((fromInitiator ? replyWith : inReplyTo) != s.replyWith) {
+            revert ReplyWithMismatch();
+        }
+    }
+
+    function _nextInbound(RequestRole role, RequestPhase phase, Performative act)
+        internal
+        pure
+        returns (RequestPhase)
+    {
+        if (act == Performative.NotUnderstood) {
+            if (phase == RequestPhase.Requested || phase == RequestPhase.Agreed) {
+                return RequestPhase.Terminal;
+            }
+            revert InvalidTransition();
+        }
+        if (role == RequestRole.Initiator) {
+            if (phase == RequestPhase.Requested) {
+                if (
+                    act == Performative.Refuse || act == Performative.Inform
+                        || act == Performative.Failure
+                ) {
+                    return RequestPhase.Terminal;
+                }
+                if (act == Performative.Agree) {
+                    return RequestPhase.Agreed;
+                }
+            } else if (phase == RequestPhase.Agreed) {
+                if (act == Performative.Inform || act == Performative.Failure) {
+                    return RequestPhase.Terminal;
+                }
+            }
+        } else if (role == RequestRole.Participant) {
+            if (phase == RequestPhase.Requested || phase == RequestPhase.Agreed) {
+                revert InvalidTransition();
+            }
+        }
+        revert InvalidTransition();
+    }
+
+    function _nextOutbound(RequestRole role, RequestPhase phase, Performative act)
+        internal
+        pure
+        returns (RequestPhase)
+    {
+        if (act == Performative.NotUnderstood) {
+            if (phase == RequestPhase.Requested || phase == RequestPhase.Agreed) {
+                return RequestPhase.Terminal;
+            }
+            revert InvalidTransition();
+        }
+        if (role == RequestRole.Participant) {
+            if (phase == RequestPhase.Requested) {
+                if (
+                    act == Performative.Refuse || act == Performative.Inform
+                        || act == Performative.Failure
+                ) {
+                    return RequestPhase.Terminal;
+                }
+                if (act == Performative.Agree) {
+                    return RequestPhase.Agreed;
+                }
+            } else if (phase == RequestPhase.Agreed) {
+                if (act == Performative.Inform || act == Performative.Failure) {
+                    return RequestPhase.Terminal;
+                }
+            }
+        }
+        revert InvalidTransition();
+    }
+}

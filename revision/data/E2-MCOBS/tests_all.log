@@ -1,0 +1,55 @@
+No files changed, compilation skipped
+
+Ran 5 tests for comparison/test/revision/variant_correlated/ManualCorrelated.t.sol:ManualCorrelatedTest
+[PASS] test_happyPathsClearSessionStorage() (gas: 300395)
+[PASS] test_missingTokenRejectedAtParticipant() (gas: 11140)
+[PASS] test_staleTokenRejectedAfterReuse() (gas: 199460)
+[PASS] test_tokenAssignedAndSharedByBothSides() (gas: 134446)
+[PASS] test_wrongTokenRejectedAtInitiator() (gas: 135100)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 950.68µs (1.00ms CPU time)
+
+Ran 4 tests for comparison/test/revision/ResidualExposure.t.sol:ResidualExposureTest
+[PASS] test_abandonedRequest_strandsStorageAndBlocksReuse() (gas: 306197)
+[PASS] test_conversationIdSquatting_blocksHonestRequest() (gas: 1686340)
+[PASS] test_relayDisabledInMeasuredWrappers() (gas: 11044)
+[PASS] test_squattedSessionIsIsolatedFromHonestInitiator() (gas: 965365)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 1.09ms (1.05ms CPU time)
+
+Ran 9 tests for comparison/test/revision/RequestEquivalenceRev.t.sol:RequestEquivalenceRevTest
+[PASS] test_R1_requestRefuse() (gas: 257469)
+[PASS] test_R2_requestInform() (gas: 250184)
+[PASS] test_R3_requestAgreeInform() (gas: 288748)
+[PASS] test_R4_requestAgreeFailure() (gas: 274364)
+[PASS] test_invalid_continuationAfterCleanup() (gas: 241612)
+[PASS] test_invalid_refuseAfterAgree() (gas: 308876)
+[PASS] test_reuseAfterCleanup() (gas: 423902)
+[PASS] test_staleInboundAfterReuse() (gas: 223532)
+[PASS] test_tokenOnlyWhenCoreAssigns() (gas: 144515)
+Suite result: ok. 9 passed; 0 failed; 0 skipped; finished in 2.39ms (2.36ms CPU time)
+
+Ran 6 tests for comparison/test/revision/variant_observable/ManualObservable.t.sol:ManualObservableTest
+[PASS] test_cnA_sameLogShapes() (gas: 5631403)
+[PASS] test_cnB_sameLogShapes() (gas: 5468287)
+[PASS] test_cnReject_sameLogShapes() (gas: 3870551)
+[PASS] test_requestR1_sameLogShapes() (gas: 2814873)
+[PASS] test_requestR3_sameLogShapes_P0() (gas: 2861547)
+[PASS] test_requestR3_sameLogShapes_P1024() (gas: 3033304)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 2.33ms (5.47ms CPU time)
+
+Ran 8 tests for comparison/test/revision/PayloadEncodingEquivalence.t.sol:PayloadEncodingEquivalenceTest
+[PASS] test_R1_refuse_inboundContentUnused() (gas: 889788)
+[PASS] test_R2_inform_inboundContentUnused() (gas: 890017)
+[PASS] test_R3_agreeInform_inboundContentUnused() (gas: 967586)
+[PASS] test_R4_agreeFailure_inboundContentUnused() (gas: 967749)
+[PASS] test_activeK_agree_inboundContentUnused() (gas: 2357148)
+[PASS] test_cnA_propose_inboundContentUnused() (gas: 1359555)
+[PASS] test_cnB_proposeRefuse_inboundContentUnused() (gas: 1158463)
+[PASS] test_digestDetectsReadField() (gas: 289777)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 7.09ms (27.26ms CPU time)
+
+Ran 2 tests for comparison/test/revision/StorageRev.t.sol:StorageRevTest
+[PASS] test_storage_K_agreed() (gas: 300560411)
+[PASS] test_storage_request_R3() (gas: 13702359)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 513.56ms (520.37ms CPU time)
+
+Ran 6 test suites in 514.43ms (527.40ms CPU time): 34 tests passed, 0 failed, 0 skipped (34 total tests)
