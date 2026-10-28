@@ -1,0 +1,87 @@
+{
+  "anvil_flags": {
+    "base_fee_wei": 1000000000,
+    "chain_id": 31337,
+    "gas_limit": 30000000,
+    "genesis_timestamp": 1700000000,
+    "hardfork": "cancun",
+    "rpc_port": 8558
+  },
+  "campaign": {
+    "core_overlay": null,
+    "core_sha": "fbf266f5a9304af3b4541ed82a5d814a6afda5cc",
+    "expected_node_hardfork": "Cancun",
+    "hardfork": "cancun",
+    "manual_variant": null,
+    "payload_encoding": "minimal",
+    "role": "Original Core with the corrected methodology (explicit Cancun, no redundant inbound payload). E1 - E1H isolates the payload correction."
+  },
+  "campaign_id": "E1",
+  "compiler": {
+    "evm_version": "cancun",
+    "optimizer": true,
+    "optimizer_runs": 200,
+    "solc": "0.8.26",
+    "via_ir": false
+  },
+  "config_id": "blade-jaamas-revision-r1",
+  "config_sha256": "6719fdd0befa26ebdec1476b1c52d55d00e961f21f8e875e38c226bd14f58304",
+  "core_path": "/home/alanveloso/C\u00f3digo/blade-integrado/blade-evaluation/outputs/cores/fbf266f5a9304af3b4541ed82a5d814a6afda5cc",
+  "evaluation_git": {
+    "dirty_paths": [
+      "revision/"
+    ],
+    "head": "096f67cc756dd82cee24d63e59b64198f3c54ff8"
+  },
+  "historical_hashes_verified": {
+    "PUBLIC_MANIFEST.sha256": "e8d8c969fffbf2280236462cfa5bbbac44be26a869dbda077aaa43b42d3e923e",
+    "ablation/raw/ablation.json": "83bdf04595e7edb73c48b7dbd5dd7bbb2905461cefc2836279491d3dd54ddf8a",
+    "data/raw/primary.jsonl": "718675c92aa438e56a8dac7b1d065a36b05127bbeb417fdd4bde6bf9be6a02c1",
+    "data/raw/secondary.jsonl": "d1f91a336ee0e550ce305d3bfebdeaceba42ca604337bed5471cc2ca39d009b0"
+  },
+  "matrices": [
+    "diagnostic"
+  ],
+  "phase": "diagnostic",
+  "runner_sha256": "c89e154952929a9f52cd04c73fd6bfacc3ccb508681a9cfb16203116ce13ca67",
+  "sources_sha256": {
+    "blade/core/Agent.sol": "cbc87069e88315bc786a45c7a22877eaf023d94b1a037c9c707fcb2134e57627",
+    "blade/core/ContractNetLib.sol": "1ad1bb594fe02b082d475a4236eb3fab03091d1085f723ac63ee0e6f74b24a71",
+    "blade/core/ContractNetManager.sol": "bf4e7ae21df90fd937d9d4e1b4a9a4ce59f9d0180612997564e36310f1903229",
+    "blade/core/ContractNetParticipant.sol": "dfec4fbd633a03787b565b68f7665d79f6bb5aeea588946a5a9405d08bd84f9f",
+    "blade/core/IAgent.sol": "3dbc2b2f03a37e4634a24676931c475b9a6c5d9a4e6a348b1aacd82a3f93403d",
+    "blade/core/Message.sol": "f81843039114dd925ee17bf3ae4fb66004c30689b443e0affc1e2cb482ac1b4b",
+    "blade/core/Performative.sol": "4e272416f0e242730c3404e2abbb41a1fae6ae47f37dc75d67b2df334437bf0e",
+    "blade/core/Protocol.sol": "a90aa8c240a10ab756ccd3db95a5cc594016f44a1f82e3aeaf16300ec307a43f",
+    "blade/core/RequestAgent.sol": "35e695eb51ba65fafd2ca7bc90afb706182e7d253a2e3fecc6f7696fa9b7f58c",
+    "comparison/src/blade-app/BladeContractNet.sol": "88d92c9ddd73b1a648ad372e733e5f90a137fb2debb3ceb12d10f9186816e38a",
+    "comparison/src/blade-app/BladeRequest.sol": "d635e2e5be3209c3a69f6aa6dca8e3a7f34150e922bd56c58337aeef854fca1d",
+    "comparison/src/manual/ManualContractNet.sol": "c558af3b5abd18efc46bc31618beee4f9222925988bd070bd76b80fd94630198",
+    "comparison/src/manual/ManualRequest.sol": "8278ecbb69446673db9da30e5754bcf8ad4562440c38443ac3cb1490bc9f6377"
+  },
+  "toolchain": {
+    "anvil": {
+      "commit": "4072e48705af9d93e3c0f6e29e93b5e9a40caed8",
+      "raw": "anvil Version: 1.7.1\nCommit SHA: 4072e48705af9d93e3c0f6e29e93b5e9a40caed8\nBuild Timestamp: 2026-05-08T07:50:55.527285345Z (1778226655)\nBuild Profile: dist",
+      "version": "1.7.1"
+    },
+    "cast": {
+      "commit": "4072e48705af9d93e3c0f6e29e93b5e9a40caed8",
+      "raw": "cast Version: 1.7.1\nCommit SHA: 4072e48705af9d93e3c0f6e29e93b5e9a40caed8\nBuild Timestamp: 2026-05-08T07:50:55.527285345Z (1778226655)\nBuild Profile: dist",
+      "version": "1.7.1"
+    },
+    "forge": {
+      "commit": "4072e48705af9d93e3c0f6e29e93b5e9a40caed8",
+      "raw": "forge Version: 1.7.1\nCommit SHA: 4072e48705af9d93e3c0f6e29e93b5e9a40caed8\nBuild Timestamp: 2026-05-08T07:50:55.527285345Z (1778226655)\nBuild Profile: dist",
+      "version": "1.7.1"
+    },
+    "platform": "Linux-6.17.0-1033-oem-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "solc": {
+      "path": "/home/alanveloso/.local/share/svm/0.8.26/solc-0.8.26",
+      "raw": "solc, the solidity compiler commandline interface\nVersion: 0.8.26+commit.8a97fa7a.Linux.g++",
+      "sha256": "d5f23436f443edb85d8e76906d12f0a86ce0490e7663a9e608efeb7a93f149ef",
+      "version": "0.8.26"
+    }
+  }
+}

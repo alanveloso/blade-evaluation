@@ -1,0 +1,70 @@
+{
+  "campaign_id": "E2-MCOBS",
+  "profile": "token",
+  "definition": {
+    "description": "Corrected Core (token correlation). Submitted tests that cannot express the token are replaced by complete ports; ContractNetEquivalence runs unchanged.",
+    "replace": {
+      "RequestEquivalence.t.sol": {
+        "by": "RequestEquivalenceRev.t.sol",
+        "reason": "Original continuations carry no correlation token; the corrected Core rejects them with ReplyWithMismatch. The port keeps all 10 original tests (same state assertions), reads the Core-assigned token, and adds test_staleInboundAfterReuse and test_tokenOnlyWhenCoreAssigns. test_invalid_wrongPeer now sends the correct token so the rejection is attributable to the peer check (selector asserted)."
+      },
+      "ParametricEquivalence.t.sol": {
+        "by": "ParametricEquivalenceRev.t.sol",
+        "reason": "Same 13 cells and state assertions with token-aware continuations. Payload delivery is asserted on recorded call data for every recipient (exactly once) plus Received contents; the N=8 cell must pass instead of being skippable."
+      },
+      "StoragePilot.t.sol": {
+        "by": "StorageRev.t.sol",
+        "reason": "The original requires zero non-zero slots at the terminal message; the corrected Core keeps one persistent nonce slot at the initiator by design. The port keeps the three probes (R3 payloads, active K with isolation, CN A N=2), requires session slots to return to zero, live sessions to be non-empty, the persistent slot to be unchanged by the terminal message, and no payload in storage."
+      }
+    },
+    "env": {},
+    "not_applicable": [
+      {
+        "test": "comparison/test/RequestEquivalence.t.sol",
+        "reason": "Replaced by RequestEquivalenceRev.t.sol: original continuations carry no correlation token."
+      },
+      {
+        "test": "comparison/test/ParametricEquivalence.t.sol",
+        "reason": "Replaced by ParametricEquivalenceRev.t.sol: original continuations carry no correlation token; payload delivery was observed only via Received."
+      },
+      {
+        "test": "comparison/test/StoragePilot.t.sol",
+        "reason": "Replaced by StorageRev.t.sol: original requires zero non-zero slots at the terminal message; E2 keeps a persistent nonce slot."
+      }
+    ]
+  },
+  "env": {},
+  "test_files": [
+    "comparison/test/original/ContractNetEquivalence.t.sol",
+    "comparison/test/revision/ParametricEquivalenceRev.t.sol",
+    "comparison/test/revision/PayloadEncodingEquivalence.t.sol",
+    "comparison/test/revision/RequestEquivalenceRev.t.sol",
+    "comparison/test/revision/ResidualExposure.t.sol",
+    "comparison/test/revision/StorageRev.t.sol",
+    "comparison/test/revision/variant_correlated-observable/ManualCorrelatedObservable.t.sol",
+    "comparison/test/revision/variant_correlated/ManualCorrelated.t.sol",
+    "comparison/test/revision/variant_observable/ManualObservable.t.sol"
+  ],
+  "core_sha": "4b60b86159e89baccd24a859ca62e7039a8c8be2",
+  "config_sha256": "6e1e775551d2c91e72799dbeea16bab381a7675a0f32c67dacdd211d67da9b72",
+  "runner_sha256": "c532b6aed93b726dd2fd43cac415be956f49db5bc52747f0cf53e3c86cfad941",
+  "sources_sha256": {
+    "comparison/src/blade-app/BladeContractNet.sol": "88d92c9ddd73b1a648ad372e733e5f90a137fb2debb3ceb12d10f9186816e38a",
+    "comparison/src/blade-app/BladeRequest.sol": "d635e2e5be3209c3a69f6aa6dca8e3a7f34150e922bd56c58337aeef854fca1d",
+    "comparison/src/manual/ManualContractNet.sol": "0d08b24640c7e562af5fde4388d7443daf7401e63104ac67d1337360317091f0",
+    "comparison/src/manual/ManualRequest.sol": "8d6eaf3095c5b9fbe8e9d1c6922c839f04944d0582a2648e92fcba2c451e4f02",
+    "blade/core/Agent.sol": "cbc87069e88315bc786a45c7a22877eaf023d94b1a037c9c707fcb2134e57627",
+    "blade/core/ContractNetLib.sol": "1ad1bb594fe02b082d475a4236eb3fab03091d1085f723ac63ee0e6f74b24a71",
+    "blade/core/ContractNetManager.sol": "bf4e7ae21df90fd937d9d4e1b4a9a4ce59f9d0180612997564e36310f1903229",
+    "blade/core/ContractNetParticipant.sol": "dfec4fbd633a03787b565b68f7665d79f6bb5aeea588946a5a9405d08bd84f9f",
+    "blade/core/IAgent.sol": "3dbc2b2f03a37e4634a24676931c475b9a6c5d9a4e6a348b1aacd82a3f93403d",
+    "blade/core/Message.sol": "f81843039114dd925ee17bf3ae4fb66004c30689b443e0affc1e2cb482ac1b4b",
+    "blade/core/Performative.sol": "4e272416f0e242730c3404e2abbb41a1fae6ae47f37dc75d67b2df334437bf0e",
+    "blade/core/Protocol.sol": "a90aa8c240a10ab756ccd3db95a5cc594016f44a1f82e3aeaf16300ec307a43f",
+    "blade/core/RequestAgent.sol": "b6850a70a4ebbf8003ad4e9abe311eb674e8ca0cbe29bad952b710b42cb945b4"
+  },
+  "forge_exit": 0,
+  "summary": [
+    "Ran 9 test suites in 700.84ms (1.53s CPU time): 69 tests passed, 0 failed, 0 skipped (69 total tests)"
+  ]
+}

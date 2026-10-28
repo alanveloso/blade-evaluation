@@ -1,0 +1,664 @@
+{
+  "config_id": "blade-jaamas-revision-r1",
+  "note": "JAAMAS revision campaigns. E0 is the submitted evidence and is never re-written. Every other campaign writes only under outputs/revision/<campaign_id>/ and is promoted to revision/data/<campaign_id>/ after validation.",
+  "toolchain": {
+    "solc": "0.8.26",
+    "forge": "1.7.1",
+    "cast": "1.7.1",
+    "anvil": "1.7.1",
+    "foundry_commit": "4072e48705af9d93e3c0f6e29e93b5e9a40caed8"
+  },
+  "compiler": {
+    "optimizer": true,
+    "optimizer_runs": 200,
+    "via_ir": false,
+    "evm_version": "cancun"
+  },
+  "anvil": {
+    "chain_id": 31337,
+    "gas_limit": 30000000,
+    "base_fee_wei": 1000000000,
+    "genesis_timestamp": 1700000000,
+    "rpc_port": 8558
+  },
+  "historical": {
+    "E0": {
+      "description": "Submitted campaign (experiment_spec_id blade-core-eval-v2). Anvil started without --hardfork, so the effective hardfork was the Anvil 1.7.1 default (`latest`, reported by anvil_nodeInfo as Bpo1) while contracts were compiled for evm_version cancun.",
+      "core_sha": "fbf266f5a9304af3b4541ed82a5d814a6afda5cc",
+      "evaluation_sha": "096f67c",
+      "raw": {
+        "data/raw/primary.jsonl": "718675c92aa438e56a8dac7b1d065a36b05127bbeb417fdd4bde6bf9be6a02c1",
+        "data/raw/secondary.jsonl": "d1f91a336ee0e550ce305d3bfebdeaceba42ca604337bed5471cc2ca39d009b0",
+        "ablation/raw/ablation.json": "83bdf04595e7edb73c48b7dbd5dd7bbb2905461cefc2836279491d3dd54ddf8a"
+      },
+      "effective_hardfork": "Bpo1",
+      "payload_encoding": "legacy"
+    }
+  },
+  "campaigns": {
+    "E0R": {
+      "role": "Reproduction check of E0 through this runner: same Core, Anvil default hardfork, legacy payload encoding. Must reproduce every transaction_gas_used of data/raw/*.jsonl.",
+      "core_sha": "fbf266f5a9304af3b4541ed82a5d814a6afda5cc",
+      "hardfork": null,
+      "expected_node_hardfork": "Bpo1",
+      "payload_encoding": "legacy",
+      "core_overlay": null,
+      "manual_variant": null,
+      "test_profile": "historical"
+    },
+    "E1H": {
+      "role": "Original Core, explicit Cancun, legacy payload encoding. E1H - E0 isolates the hardfork correction.",
+      "core_sha": "fbf266f5a9304af3b4541ed82a5d814a6afda5cc",
+      "hardfork": "cancun",
+      "expected_node_hardfork": "Cancun",
+      "payload_encoding": "legacy",
+      "core_overlay": null,
+      "manual_variant": null,
+      "test_profile": "historical"
+    },
+    "E1": {
+      "role": "Original Core with the corrected methodology (explicit Cancun, no redundant inbound payload). E1 - E1H isolates the payload correction.",
+      "core_sha": "fbf266f5a9304af3b4541ed82a5d814a6afda5cc",
+      "hardfork": "cancun",
+      "expected_node_hardfork": "Cancun",
+      "payload_encoding": "minimal",
+      "core_overlay": null,
+      "manual_variant": null,
+      "test_profile": "historical"
+    },
+    "E2": {
+      "role": "Corrected Core (Request correlation fix) with the corrected methodology. E2 - E1 isolates the Core correction.",
+      "core_sha": "4b60b86159e89baccd24a859ca62e7039a8c8be2",
+      "hardfork": "cancun",
+      "expected_node_hardfork": "Cancun",
+      "payload_encoding": "minimal",
+      "core_overlay": null,
+      "manual_variant": null,
+      "test_profile": "token"
+    },
+    "E2-EV-NORECV": {
+      "role": "Experimental counterfactual (not a BLADE release): E2 Core without the Agent.Received emission.",
+      "core_sha": "4b60b86159e89baccd24a859ca62e7039a8c8be2",
+      "hardfork": "cancun",
+      "expected_node_hardfork": "Cancun",
+      "payload_encoding": "minimal",
+      "core_overlay": "revision/variants/events/EV-NORECV",
+      "manual_variant": null,
+      "test_profile": "token-no-received"
+    },
+    "E2-EV-NOPHASE": {
+      "role": "Experimental counterfactual (not a BLADE release): E2 Core without RequestAdvanced, ContractNetSlot and ContractNetParticipantPhase emissions.",
+      "core_sha": "4b60b86159e89baccd24a859ca62e7039a8c8be2",
+      "hardfork": "cancun",
+      "expected_node_hardfork": "Cancun",
+      "payload_encoding": "minimal",
+      "core_overlay": "revision/variants/events/EV-NOPHASE",
+      "manual_variant": null,
+      "test_profile": "token"
+    },
+    "E2-EV-NONE": {
+      "role": "Experimental counterfactual (not a BLADE release): E2 Core without any event emission.",
+      "core_sha": "4b60b86159e89baccd24a859ca62e7039a8c8be2",
+      "hardfork": "cancun",
+      "expected_node_hardfork": "Cancun",
+      "payload_encoding": "minimal",
+      "core_overlay": "revision/variants/events/EV-NONE",
+      "manual_variant": null,
+      "test_profile": "token-no-received"
+    },
+    "E2-MOBS": {
+      "role": "Purpose-built baseline with observability equivalent to BLADE (same event signatures and emission points). BLADE side identical to E2.",
+      "core_sha": "4b60b86159e89baccd24a859ca62e7039a8c8be2",
+      "hardfork": "cancun",
+      "expected_node_hardfork": "Cancun",
+      "payload_encoding": "minimal",
+      "core_overlay": null,
+      "manual_variant": "observable",
+      "test_profile": "token"
+    },
+    "E2-MCORR": {
+      "role": "Purpose-built Request baseline with explicit single-use correlation tokens (sensitivity bound for the E2 correlation guarantee). BLADE side identical to E2.",
+      "core_sha": "4b60b86159e89baccd24a859ca62e7039a8c8be2",
+      "hardfork": "cancun",
+      "expected_node_hardfork": "Cancun",
+      "payload_encoding": "minimal",
+      "core_overlay": null,
+      "manual_variant": "correlated",
+      "test_profile": "token"
+    },
+    "E2-MCOBS": {
+      "role": "Purpose-built baseline with both the E2 correlation guarantee and BLADE-equivalent observability (Request: correlated-observable; Contract Net: observable). BLADE side identical to E2.",
+      "core_sha": "4b60b86159e89baccd24a859ca62e7039a8c8be2",
+      "hardfork": "cancun",
+      "expected_node_hardfork": "Cancun",
+      "payload_encoding": "minimal",
+      "core_overlay": null,
+      "manual_variant": [
+        "observable",
+        "correlated-observable"
+      ],
+      "variant_tests": [
+        "correlated",
+        "observable",
+        "correlated-observable"
+      ],
+      "test_profile": "token"
+    },
+    "S-NONCE": {
+      "role": "EXPERIMENTAL STUDY, not a campaign and not E3: Core 4b60b86 with the nonce-packing patch (revision/src/core-variants/nonce-packed). Measured only on the 'nonce' matrix for comparison with E2; not to be reported as a BLADE result.",
+      "core_sha": "4b60b86159e89baccd24a859ca62e7039a8c8be2",
+      "core_patch": "revision/src/core-variants/nonce-packed",
+      "core_patch_base_sha256": {
+        "RequestAgent.sol": "b6850a70a4ebbf8003ad4e9abe311eb674e8ca0cbe29bad952b710b42cb945b4"
+      },
+      "hardfork": "cancun",
+      "expected_node_hardfork": "Cancun",
+      "payload_encoding": "minimal",
+      "core_overlay": null,
+      "manual_variant": null,
+      "test_profile": "token"
+    },
+    "S-E2REF": {
+      "role": "Reference re-measurement of E2 on the 'nonce' matrix with the current runner (nonce study baseline and runner reproducibility check against revision/data/E2). Not a separate campaign.",
+      "core_sha": "4b60b86159e89baccd24a859ca62e7039a8c8be2",
+      "hardfork": "cancun",
+      "expected_node_hardfork": "Cancun",
+      "payload_encoding": "minimal",
+      "core_overlay": null,
+      "manual_variant": null,
+      "test_profile": "token"
+    }
+  },
+  "matrices": {
+    "diagnostic": [
+      "REQ-R1-P0",
+      "REQ-R2-P0",
+      "REQ-R3-P0",
+      "REQ-R3-P1024",
+      "REQ-R4-P0",
+      "CN-A-N2-P0",
+      "CN-A-N8-P0"
+    ],
+    "events": [
+      "REQ-R1-P0",
+      "REQ-R3-P0",
+      "REQ-R3-P1024",
+      "CN-A-N2-P0",
+      "CN-A-N8-P0",
+      "CN-A-N2-P1024",
+      "CN-B-N2-P0"
+    ],
+    "nonce": [
+      "REQ-R1-P0",
+      "REQ-R2-P0",
+      "REQ-R3-P0",
+      "REQ-R3-P256",
+      "REQ-R3-P1024",
+      "REQ-R4-P0",
+      "SEC-ACT-K1",
+      "SEC-ACT-K10",
+      "SEC-ACT-K100",
+      "CN-A-N2-P0"
+    ]
+  },
+  "ablation": {
+    "campaigns": {
+      "ABL-E0R": {
+        "base": "E0R",
+        "variant_rebase": null
+      },
+      "ABL-E1": {
+        "base": "E1",
+        "variant_rebase": null
+      },
+      "ABL-E2": {
+        "base": "E2",
+        "variant_rebase": "RequestAgent.sol"
+      }
+    },
+    "variants": [
+      "A0",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A34"
+    ],
+    "cells": {
+      "A1": [
+        [
+          "REQ",
+          "R1",
+          0,
+          null
+        ],
+        [
+          "REQ",
+          "R3",
+          0,
+          null
+        ],
+        [
+          "REQ",
+          "R3",
+          1024,
+          null
+        ],
+        [
+          "CN",
+          "A",
+          0,
+          1
+        ],
+        [
+          "CN",
+          "A",
+          0,
+          2
+        ]
+      ],
+      "A2": [
+        [
+          "REQ",
+          "R1",
+          0,
+          null
+        ],
+        [
+          "REQ",
+          "R3",
+          0,
+          null
+        ],
+        [
+          "REQ",
+          "R3",
+          1024,
+          null
+        ],
+        [
+          "CN",
+          "A",
+          0,
+          2
+        ],
+        [
+          "CN",
+          "A",
+          1024,
+          2
+        ]
+      ],
+      "A3": [
+        [
+          "CN",
+          "A",
+          0,
+          1
+        ],
+        [
+          "CN",
+          "A",
+          0,
+          2
+        ],
+        [
+          "CN",
+          "A",
+          0,
+          4
+        ],
+        [
+          "CN",
+          "A",
+          0,
+          8
+        ],
+        [
+          "CN",
+          "A",
+          0,
+          16
+        ],
+        [
+          "CN",
+          "HALF",
+          0,
+          2
+        ],
+        [
+          "CN",
+          "HALF",
+          0,
+          4
+        ],
+        [
+          "CN",
+          "HALF",
+          0,
+          8
+        ],
+        [
+          "CN",
+          "REJ",
+          0,
+          2
+        ],
+        [
+          "CN",
+          "REJ",
+          0,
+          4
+        ],
+        [
+          "CN",
+          "REJ",
+          0,
+          8
+        ]
+      ],
+      "A4": [
+        [
+          "CN",
+          "A",
+          0,
+          1
+        ],
+        [
+          "CN",
+          "A",
+          0,
+          2
+        ],
+        [
+          "CN",
+          "A",
+          0,
+          4
+        ],
+        [
+          "CN",
+          "A",
+          0,
+          8
+        ],
+        [
+          "CN",
+          "HALF",
+          0,
+          2
+        ],
+        [
+          "CN",
+          "HALF",
+          0,
+          4
+        ],
+        [
+          "CN",
+          "HALF",
+          0,
+          8
+        ],
+        [
+          "CN",
+          "REJ",
+          0,
+          2
+        ],
+        [
+          "CN",
+          "REJ",
+          0,
+          4
+        ],
+        [
+          "CN",
+          "REJ",
+          0,
+          8
+        ]
+      ],
+      "A5": [
+        [
+          "REQ",
+          "R1",
+          0,
+          null
+        ],
+        [
+          "REQ",
+          "R3",
+          0,
+          null
+        ],
+        [
+          "CN",
+          "A",
+          0,
+          2
+        ],
+        [
+          "CN",
+          "A",
+          0,
+          8
+        ]
+      ],
+      "A34": [
+        [
+          "CN",
+          "HALF",
+          0,
+          2
+        ],
+        [
+          "CN",
+          "HALF",
+          0,
+          4
+        ],
+        [
+          "CN",
+          "HALF",
+          0,
+          8
+        ],
+        [
+          "CN",
+          "REJ",
+          0,
+          2
+        ],
+        [
+          "CN",
+          "REJ",
+          0,
+          4
+        ],
+        [
+          "CN",
+          "REJ",
+          0,
+          8
+        ]
+      ]
+    },
+    "historical_cells": {
+      "A3": [
+        [
+          "CN",
+          "A",
+          0,
+          1
+        ],
+        [
+          "CN",
+          "A",
+          0,
+          2
+        ],
+        [
+          "CN",
+          "A",
+          0,
+          4
+        ],
+        [
+          "CN",
+          "A",
+          0,
+          8
+        ],
+        [
+          "CN",
+          "A",
+          0,
+          16
+        ],
+        [
+          "CN",
+          "HALF",
+          0,
+          2
+        ],
+        [
+          "CN",
+          "HALF",
+          0,
+          4
+        ],
+        [
+          "CN",
+          "HALF",
+          0,
+          8
+        ]
+      ],
+      "A4": [
+        [
+          "CN",
+          "A",
+          0,
+          2
+        ],
+        [
+          "CN",
+          "HALF",
+          0,
+          2
+        ],
+        [
+          "CN",
+          "HALF",
+          0,
+          4
+        ],
+        [
+          "CN",
+          "HALF",
+          0,
+          8
+        ]
+      ],
+      "A34": [
+        [
+          "CN",
+          "HALF",
+          0,
+          2
+        ],
+        [
+          "CN",
+          "HALF",
+          0,
+          4
+        ],
+        [
+          "CN",
+          "HALF",
+          0,
+          8
+        ]
+      ]
+    }
+  },
+  "test_profiles": {
+    "historical": {
+      "description": "Submitted tests unchanged plus revision tests. Used for the original Core (E0R, E1H, E1).",
+      "replace": {},
+      "env": {},
+      "not_applicable": []
+    },
+    "token": {
+      "description": "Corrected Core (token correlation). Submitted tests that cannot express the token are replaced by complete ports; ContractNetEquivalence runs unchanged.",
+      "replace": {
+        "RequestEquivalence.t.sol": {
+          "by": "RequestEquivalenceRev.t.sol",
+          "reason": "Original continuations carry no correlation token; the corrected Core rejects them with ReplyWithMismatch. The port keeps all 10 original tests (same state assertions), reads the Core-assigned token, and adds test_staleInboundAfterReuse and test_tokenOnlyWhenCoreAssigns. test_invalid_wrongPeer now sends the correct token so the rejection is attributable to the peer check (selector asserted)."
+        },
+        "ParametricEquivalence.t.sol": {
+          "by": "ParametricEquivalenceRev.t.sol",
+          "reason": "Same 13 cells and state assertions with token-aware continuations. Payload delivery is asserted on recorded call data for every recipient (exactly once) plus Received contents; the N=8 cell must pass instead of being skippable."
+        },
+        "StoragePilot.t.sol": {
+          "by": "StorageRev.t.sol",
+          "reason": "The original requires zero non-zero slots at the terminal message; the corrected Core keeps one persistent nonce slot at the initiator by design. The port keeps the three probes (R3 payloads, active K with isolation, CN A N=2), requires session slots to return to zero, live sessions to be non-empty, the persistent slot to be unchanged by the terminal message, and no payload in storage."
+        }
+      },
+      "env": {},
+      "not_applicable": [
+        {
+          "test": "comparison/test/RequestEquivalence.t.sol",
+          "reason": "Replaced by RequestEquivalenceRev.t.sol: original continuations carry no correlation token."
+        },
+        {
+          "test": "comparison/test/ParametricEquivalence.t.sol",
+          "reason": "Replaced by ParametricEquivalenceRev.t.sol: original continuations carry no correlation token; payload delivery was observed only via Received."
+        },
+        {
+          "test": "comparison/test/StoragePilot.t.sol",
+          "reason": "Replaced by StorageRev.t.sol: original requires zero non-zero slots at the terminal message; E2 keeps a persistent nonce slot."
+        }
+      ]
+    },
+    "token-no-received": {
+      "description": "Measurement-only Cores without the Received emission. As 'token', but Received contents are replaced by an assertion that no Received log exists; payload delivery is still asserted on call data.",
+      "replace": {
+        "RequestEquivalence.t.sol": {
+          "by": "RequestEquivalenceRev.t.sol",
+          "reason": "Original continuations carry no correlation token; the corrected Core rejects them with ReplyWithMismatch. The port keeps all 10 original tests (same state assertions), reads the Core-assigned token, and adds test_staleInboundAfterReuse and test_tokenOnlyWhenCoreAssigns. test_invalid_wrongPeer now sends the correct token so the rejection is attributable to the peer check (selector asserted)."
+        },
+        "ParametricEquivalence.t.sol": {
+          "by": "ParametricEquivalenceRev.t.sol",
+          "reason": "Same 13 cells and state assertions with token-aware continuations. Payload delivery is asserted on recorded call data for every recipient (exactly once) plus Received contents; the N=8 cell must pass instead of being skippable."
+        },
+        "StoragePilot.t.sol": {
+          "by": "StorageRev.t.sol",
+          "reason": "The original requires zero non-zero slots at the terminal message; the corrected Core keeps one persistent nonce slot at the initiator by design. The port keeps the three probes (R3 payloads, active K with isolation, CN A N=2), requires session slots to return to zero, live sessions to be non-empty, the persistent slot to be unchanged by the terminal message, and no payload in storage."
+        }
+      },
+      "env": {
+        "REVISION_EXPECT_RECEIVED": "false"
+      },
+      "not_applicable": [
+        {
+          "test": "comparison/test/RequestEquivalence.t.sol",
+          "reason": "Replaced by RequestEquivalenceRev.t.sol: original continuations carry no correlation token."
+        },
+        {
+          "test": "comparison/test/ParametricEquivalence.t.sol",
+          "reason": "Replaced by ParametricEquivalenceRev.t.sol. Payload delivery is asserted on recorded call data; Received logs must be absent."
+        },
+        {
+          "test": "comparison/test/StoragePilot.t.sol",
+          "reason": "Replaced by StorageRev.t.sol: original requires zero non-zero slots at the terminal message."
+        }
+      ]
+    }
+  },
+  "core_tests": {
+    "fuzz_seed": "0x6a61616d6173"
+  }
+}
