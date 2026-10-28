@@ -16,7 +16,8 @@ ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "outputs" / "revision"
 DST = ROOT / "revision" / "data"
 KEEP = ("raw/*.jsonl", "meta.json", "environment.json", "preflight.json", "storage/revision_*.json",
-        "tests_all.log", "ablation.json")
+        "tests_all.log", "test_profile_all.json", "ablation.json",
+        "core_tests.log", "core_tests_summary.json")
 
 
 def main(ids: list[str]) -> None:

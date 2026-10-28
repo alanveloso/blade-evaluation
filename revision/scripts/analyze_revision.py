@@ -305,6 +305,38 @@ def main() -> None:
     md.append("\n## A3 × A4 interaction (A34 − A3 − A4, deltas vs A0)\n")
     md.append(md_table(int_hdr, int_rows))
 
+    # --- Nonce-packing study (S-NONCE vs promoted E2; not a campaign result) ---------------
+    if (DATA / "S-NONCE").is_dir():
+        nI = interactions(campaign_rows("S-NONCE"))
+        e2steps = steps(C["E2"])
+        nsteps = steps(campaign_rows("S-NONCE"))
+        nonce_rows = []
+        for (cid, impl), (g, _) in sorted(nI.items()):
+            e2g = I["E2"][(cid, impl)][0]
+            nonce_rows.append([cid, impl, e2g, g, g - e2g, pct(g, e2g)])
+        write_csv("nonce_study.csv",
+                  ["condition_id", "impl", "E2_gas", "S_NONCE_gas", "delta", "relative_pct"], nonce_rows)
+        step_rows = []
+        for cid in ("REQ-R1-P0", "REQ-R3-P0", "REQ-R3-P1024", "SEC-ACT-K100"):
+            for impl in ("blade", "manual"):
+                for step, row in sorted(nsteps.get((cid, impl), {}).items()):
+                    a = e2steps.get((cid, impl), {}).get(step)
+                    if not a:
+                        continue
+                    step_rows.append([cid, impl, step, a["transaction_gas_used"],
+                                      row["transaction_gas_used"],
+                                      row["transaction_gas_used"] - a["transaction_gas_used"]])
+        write_csv("nonce_study_steps.csv",
+                  ["condition_id", "impl", "step", "E2", "S_NONCE", "delta"], step_rows)
+        md.append("\n## Nonce-packing study (S-NONCE vs E2; experimental, not a campaign)\n")
+        md.append(md_table(["condition", "impl", "E2", "packed", "Δ", "relative %"], nonce_rows))
+        md.append("\nPer-transaction deltas:\n")
+        md.append(md_table(["condition", "impl", "step", "E2", "packed", "Δ"], step_rows))
+        summary["nonce_study"] = {
+            "blade_interaction_deltas": {r[0]: r[4] for r in nonce_rows if r[1] == "blade"},
+            "manual_must_be_zero": [r for r in nonce_rows if r[1] == "manual" and r[4] != 0],
+        }
+
     # --- Storage probes --------------------------------------------------------------------
     st = {}
     for c in ("E1", "E2", "E2-MCORR", "E2-MCOBS"):

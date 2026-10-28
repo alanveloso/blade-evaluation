@@ -4,6 +4,8 @@ pragma solidity ^0.8.26;
 import {RevisionBase} from "./RevisionBase.sol";
 import {BladeRequester, BladeParticipant} from "app/blade-app/BladeRequest.sol";
 import {ManualInitiator, ManualParticipant} from "app/manual/ManualRequest.sol";
+import {BladeManager, BladeCnParticipant} from "app/blade-app/BladeContractNet.sol";
+import {ManualManager, ManualCnParticipant} from "app/manual/ManualContractNet.sol";
 
 /// @dev Revision of the Request storage probe (comparison/test/StoragePilot.t.sol stays unchanged).
 /// Non-zero written slots are split into session slots (must return to zero at the end of the
@@ -136,6 +138,8 @@ contract StorageRevTest is RevisionBase {
         Count memory tP = _count(P);
         bool needle = _payloadInStorage(I, payload) || _payloadInStorage(P, payload);
         require(tI.session == 0 && tP.session == 0, "session storage not cleared");
+        require(agI.session > 0 && agP.session > 0, "no live session state");
+        require(tI.persistent == agI.persistent && tP.persistent == 0, "persistent slot changed");
         require(!needle, "payload stored");
         json = string.concat(
             "{\"implementation\":\"", blade ? "blade" : "manual", "\",\"path\":\"R3\",\"payload_bytes\":",
@@ -168,7 +172,14 @@ contract StorageRevTest is RevisionBase {
         _merge(P);
         Count memory aI = _count(I);
         Count memory aP = _count(P);
-        for (uint256 i = 0; i < k; i++) {
+        require(aI.session > 0 && aP.session > 0, "no live session state");
+        // Closing one conversation must leave the others live (isolation check of StoragePilot).
+        if (k >= 2) {
+            _inform(blade, I, P, keccak256(abi.encode(uint256(0))), "");
+            require(_phaseOf(blade, I, keccak256(abi.encode(uint256(1)))) == 2, "isolation");
+            require(_phaseOf(blade, I, keccak256(abi.encode(uint256(0)))) == 0, "closed");
+        }
+        for (uint256 i = k >= 2 ? 1 : 0; i < k; i++) {
             _inform(blade, I, P, keccak256(abi.encode(i)), "");
         }
         _merge(I);
@@ -180,6 +191,74 @@ contract StorageRevTest is RevisionBase {
             "{\"implementation\":\"", blade ? "blade" : "manual", "\",\"K\":", vm.toString(k),
             ",\"active_I\":", _fmt(aI), ",\"active_P\":", _fmt(aP),
             ",\"terminal_I\":", _fmt(tI), ",\"terminal_P\":", _fmt(tP), "}"
+        );
+    }
+
+    function _phaseOf(bool blade, address I, bytes32 id) internal view returns (uint8) {
+        return blade ? uint8(BladeRequester(I).requestStatus(id).phase) : ManualInitiator(I).status(id).phase;
+    }
+
+    /// @dev Unchanged from StoragePilot apart from the minimal inbound encoding; Contract Net is not
+    /// affected by the Request correction and has no persistent slot.
+    function test_storage_cnA_N2() public {
+        string memory out = string.concat("[", _cn(true), ",", _cn(false), "]");
+        vm.writeFile("outputs/storage/revision_cn_a_n2.json", out);
+    }
+
+    function _cn(bool blade) internal returns (string memory json) {
+        uint256 n = 2;
+        address M;
+        address[] memory parts = new address[](n);
+        if (blade) {
+            M = address(new BladeManager());
+            for (uint256 i = 0; i < n; i++) {
+                parts[i] = address(new BladeCnParticipant());
+            }
+        } else {
+            M = address(new ManualManager());
+            for (uint256 i = 0; i < n; i++) {
+                parts[i] = address(new ManualCnParticipant());
+            }
+        }
+        _scratch(M);
+        vm.record();
+        uint64 by = uint64(block.timestamp + 10);
+        if (blade) {
+            BladeManager(M).cfp(parts, CID, by, "");
+            for (uint256 i = 0; i < n; i++) {
+                BladeCnParticipant(parts[i]).propose(_cfpInbound(CID, by, ""), M, "");
+            }
+        } else {
+            ManualManager(M).cfp(parts, CID, by, "");
+            for (uint256 i = 0; i < n; i++) {
+                ManualCnParticipant(parts[i]).propose(CID, "");
+            }
+        }
+        _merge(M);
+        Count memory afterPropose = _count(M);
+        vm.warp(uint256(by) + 1);
+        address[] memory none = new address[](0);
+        if (blade) {
+            BladeManager(M).evaluate(CID, parts, none, none);
+        } else {
+            ManualManager(M).evaluate(CID, parts, none, none);
+        }
+        _merge(M);
+        Count memory afterEval = _count(M);
+        for (uint256 i = 0; i < n; i++) {
+            if (blade) {
+                BladeCnParticipant(parts[i]).inform(_acceptInbound(CID), M, "");
+            } else {
+                ManualCnParticipant(parts[i]).inform(CID, "");
+            }
+        }
+        _merge(M);
+        Count memory terminal = _count(M);
+        json = string.concat(
+            "{\"implementation\":\"", blade ? "blade" : "manual", "\",\"scenario\":\"A\",\"N\":2,\"after_propose_M\":",
+            vm.toString(afterPropose.session + afterPropose.persistent), ",\"after_eval_M\":",
+            vm.toString(afterEval.session + afterEval.persistent), ",\"terminal_M\":",
+            vm.toString(terminal.session + terminal.persistent), "}"
         );
     }
 

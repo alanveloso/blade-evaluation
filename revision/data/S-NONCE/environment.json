@@ -1,0 +1,264 @@
+{
+  "effective_environment_per_cell": {
+    "CN-A-N2-P0/blade": {
+      "base_fee_per_gas": 1000000000,
+      "bls_probe": {
+        "empty_input": "ok:0x",
+        "present": false,
+        "valid_input_output_bytes": 0
+      },
+      "chain_id": 31337,
+      "gas_limit": 30000000,
+      "hardfork": "Cancun",
+      "prague_precompile_present": false,
+      "timestamp": 1700000000
+    },
+    "CN-A-N2-P0/manual": {
+      "base_fee_per_gas": 1000000000,
+      "bls_probe": {
+        "empty_input": "ok:0x",
+        "present": false,
+        "valid_input_output_bytes": 0
+      },
+      "chain_id": 31337,
+      "gas_limit": 30000000,
+      "hardfork": "Cancun",
+      "prague_precompile_present": false,
+      "timestamp": 1700000000
+    },
+    "REQ-R1-P0/blade": {
+      "base_fee_per_gas": 1000000000,
+      "bls_probe": {
+        "empty_input": "ok:0x",
+        "present": false,
+        "valid_input_output_bytes": 0
+      },
+      "chain_id": 31337,
+      "gas_limit": 30000000,
+      "hardfork": "Cancun",
+      "prague_precompile_present": false,
+      "timestamp": 1700000000
+    },
+    "REQ-R1-P0/manual": {
+      "base_fee_per_gas": 1000000000,
+      "bls_probe": {
+        "empty_input": "ok:0x",
+        "present": false,
+        "valid_input_output_bytes": 0
+      },
+      "chain_id": 31337,
+      "gas_limit": 30000000,
+      "hardfork": "Cancun",
+      "prague_precompile_present": false,
+      "timestamp": 1700000000
+    },
+    "REQ-R2-P0/blade": {
+      "base_fee_per_gas": 1000000000,
+      "bls_probe": {
+        "empty_input": "ok:0x",
+        "present": false,
+        "valid_input_output_bytes": 0
+      },
+      "chain_id": 31337,
+      "gas_limit": 30000000,
+      "hardfork": "Cancun",
+      "prague_precompile_present": false,
+      "timestamp": 1700000000
+    },
+    "REQ-R2-P0/manual": {
+      "base_fee_per_gas": 1000000000,
+      "bls_probe": {
+        "empty_input": "ok:0x",
+        "present": false,
+        "valid_input_output_bytes": 0
+      },
+      "chain_id": 31337,
+      "gas_limit": 30000000,
+      "hardfork": "Cancun",
+      "prague_precompile_present": false,
+      "timestamp": 1700000000
+    },
+    "REQ-R3-P0/blade": {
+      "base_fee_per_gas": 1000000000,
+      "bls_probe": {
+        "empty_input": "ok:0x",
+        "present": false,
+        "valid_input_output_bytes": 0
+      },
+      "chain_id": 31337,
+      "gas_limit": 30000000,
+      "hardfork": "Cancun",
+      "prague_precompile_present": false,
+      "timestamp": 1700000000
+    },
+    "REQ-R3-P0/manual": {
+      "base_fee_per_gas": 1000000000,
+      "bls_probe": {
+        "empty_input": "ok:0x",
+        "present": false,
+        "valid_input_output_bytes": 0
+      },
+      "chain_id": 31337,
+      "gas_limit": 30000000,
+      "hardfork": "Cancun",
+      "prague_precompile_present": false,
+      "timestamp": 1700000000
+    },
+    "REQ-R3-P1024/blade": {
+      "base_fee_per_gas": 1000000000,
+      "bls_probe": {
+        "empty_input": "ok:0x",
+        "present": false,
+        "valid_input_output_bytes": 0
+      },
+      "chain_id": 31337,
+      "gas_limit": 30000000,
+      "hardfork": "Cancun",
+      "prague_precompile_present": false,
+      "timestamp": 1700000000
+    },
+    "REQ-R3-P1024/manual": {
+      "base_fee_per_gas": 1000000000,
+      "bls_probe": {
+        "empty_input": "ok:0x",
+        "present": false,
+        "valid_input_output_bytes": 0
+      },
+      "chain_id": 31337,
+      "gas_limit": 30000000,
+      "hardfork": "Cancun",
+      "prague_precompile_present": false,
+      "timestamp": 1700000000
+    },
+    "REQ-R3-P256/blade": {
+      "base_fee_per_gas": 1000000000,
+      "bls_probe": {
+        "empty_input": "ok:0x",
+        "present": false,
+        "valid_input_output_bytes": 0
+      },
+      "chain_id": 31337,
+      "gas_limit": 30000000,
+      "hardfork": "Cancun",
+      "prague_precompile_present": false,
+      "timestamp": 1700000000
+    },
+    "REQ-R3-P256/manual": {
+      "base_fee_per_gas": 1000000000,
+      "bls_probe": {
+        "empty_input": "ok:0x",
+        "present": false,
+        "valid_input_output_bytes": 0
+      },
+      "chain_id": 31337,
+      "gas_limit": 30000000,
+      "hardfork": "Cancun",
+      "prague_precompile_present": false,
+      "timestamp": 1700000000
+    },
+    "REQ-R4-P0/blade": {
+      "base_fee_per_gas": 1000000000,
+      "bls_probe": {
+        "empty_input": "ok:0x",
+        "present": false,
+        "valid_input_output_bytes": 0
+      },
+      "chain_id": 31337,
+      "gas_limit": 30000000,
+      "hardfork": "Cancun",
+      "prague_precompile_present": false,
+      "timestamp": 1700000000
+    },
+    "REQ-R4-P0/manual": {
+      "base_fee_per_gas": 1000000000,
+      "bls_probe": {
+        "empty_input": "ok:0x",
+        "present": false,
+        "valid_input_output_bytes": 0
+      },
+      "chain_id": 31337,
+      "gas_limit": 30000000,
+      "hardfork": "Cancun",
+      "prague_precompile_present": false,
+      "timestamp": 1700000000
+    },
+    "SEC-ACT-K1/blade": {
+      "base_fee_per_gas": 1000000000,
+      "bls_probe": {
+        "empty_input": "ok:0x",
+        "present": false,
+        "valid_input_output_bytes": 0
+      },
+      "chain_id": 31337,
+      "gas_limit": 30000000,
+      "hardfork": "Cancun",
+      "prague_precompile_present": false,
+      "timestamp": 1700000000
+    },
+    "SEC-ACT-K1/manual": {
+      "base_fee_per_gas": 1000000000,
+      "bls_probe": {
+        "empty_input": "ok:0x",
+        "present": false,
+        "valid_input_output_bytes": 0
+      },
+      "chain_id": 31337,
+      "gas_limit": 30000000,
+      "hardfork": "Cancun",
+      "prague_precompile_present": false,
+      "timestamp": 1700000000
+    },
+    "SEC-ACT-K10/blade": {
+      "base_fee_per_gas": 1000000000,
+      "bls_probe": {
+        "empty_input": "ok:0x",
+        "present": false,
+        "valid_input_output_bytes": 0
+      },
+      "chain_id": 31337,
+      "gas_limit": 30000000,
+      "hardfork": "Cancun",
+      "prague_precompile_present": false,
+      "timestamp": 1700000000
+    },
+    "SEC-ACT-K10/manual": {
+      "base_fee_per_gas": 1000000000,
+      "bls_probe": {
+        "empty_input": "ok:0x",
+        "present": false,
+        "valid_input_output_bytes": 0
+      },
+      "chain_id": 31337,
+      "gas_limit": 30000000,
+      "hardfork": "Cancun",
+      "prague_precompile_present": false,
+      "timestamp": 1700000000
+    },
+    "SEC-ACT-K100/blade": {
+      "base_fee_per_gas": 1000000000,
+      "bls_probe": {
+        "empty_input": "ok:0x",
+        "present": false,
+        "valid_input_output_bytes": 0
+      },
+      "chain_id": 31337,
+      "gas_limit": 30000000,
+      "hardfork": "Cancun",
+      "prague_precompile_present": false,
+      "timestamp": 1700000000
+    },
+    "SEC-ACT-K100/manual": {
+      "base_fee_per_gas": 1000000000,
+      "bls_probe": {
+        "empty_input": "ok:0x",
+        "present": false,
+        "valid_input_output_bytes": 0
+      },
+      "chain_id": 31337,
+      "gas_limit": 30000000,
+      "hardfork": "Cancun",
+      "prague_precompile_present": false,
+      "timestamp": 1700000000
+    }
+  }
+}

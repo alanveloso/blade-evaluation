@@ -1,0 +1,352 @@
+Compiling 51 files with Solc 0.8.26
+Solc 0.8.26 finished in 11.56s
+Compiler run successful with warnings:
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/ContractNetActors.sol:57:5:
+   |
+57 |     function _onReceive(Message calldata inbound) internal override {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/ContractNetActors.sol:67:5:
+   |
+67 |     function _onReceive(Message calldata inbound) internal override {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+   --> test/ContractNetActors.sol:140:5:
+    |
+140 |     function _onReceive(Message calldata inbound) internal override {
+    |     ^ (Relevant source part starts here and spans across multiple lines).
+
+
+Ran 2 tests for test/examples/Example.t.sol:ExampleTest
+[PASS] test_contractNetExampleProposeAcceptInform() (gas: 2026710)
+[PASS] test_requestExampleInformDone() (gas: 1662403)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.22ms (559.76µs CPU time)
+
+Ran 4 tests for test/AgentStorage.t.sol:AgentStorageTest
+[PASS] test_handleAndReplyDoesNotPersistContent() (gas: 88885)
+[PASS] test_handleDoesNotPersistContent() (gas: 46566)
+[PASS] test_snapshot_handle() (gas: 11304)
+[PASS] test_snapshot_handleAndReply() (gas: 23643)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 1.43ms (928.14µs CPU time)
+
+Ran 6 tests for test/Authorization.t.sol:AuthorizationTest
+[PASS] test_authorizedCfpMutatesAsBefore() (gas: 1850077)
+[PASS] test_authorizedRequestMutatesAsBefore() (gas: 1735557)
+[PASS] test_defaultAgentRemainsPermissive() (gas: 222082)
+[PASS] test_rejectedCfpLeavesEmptySession() (gas: 1829891)
+[PASS] test_rejectedRequestLeavesEmptyStatus() (gas: 1688963)
+[PASS] test_relayAuthenticationRunsBeforeAuthorization() (gas: 824367)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 1.50ms (778.20µs CPU time)
+
+Ran 3 tests for test/GasRequest.t.sol:GasRequestTest
+[PASS] test_gas_exampleSynchronousInform() (gas: 1701289)
+Logs:
+  example request->inform (one tx): 120987
+
+[PASS] test_gas_requestAgreeInform() (gas: 256380)
+Logs:
+  startRequest: 106995
+  agree: 17609
+  inform: 17742
+  total: 142346
+
+[PASS] test_gas_requestRefuse() (gas: 241725)
+Logs:
+  first startRequest: 137932
+  refuse: 17739
+  next startRequest: 106995
+  refuse (2): 17747
+
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 1.80ms (961.06µs CPU time)
+
+Ran 13 tests for test/Composition.t.sol:CompositionTest
+[PASS] test_contractNetManager() (gas: 119720)
+[PASS] test_contractNetParticipant() (gas: 122114)
+[PASS] test_invalidManagerTransition() (gas: 12124)
+[PASS] test_invalidParticipantTransition() (gas: 16007)
+[PASS] test_invalidRequestTransition() (gas: 146518)
+[PASS] test_malformedContractNetWithoutSessionReverts() (gas: 15408)
+[PASS] test_managerAndParticipantDifferentConversations() (gas: 238148)
+[PASS] test_requestAndContractNetConcurrent() (gas: 221151)
+[PASS] test_requestInitiator() (gas: 127521)
+[PASS] test_requestParticipant() (gas: 129396)
+[PASS] test_sameCnIdManagerThenParticipantCfpReverts() (gas: 163119)
+[PASS] test_sameCnIdParticipantThenManagerCfpReverts() (gas: 108224)
+[PASS] test_sameConversationIdAcrossRequestAndContractNet() (gas: 219260)
+Suite result: ok. 13 passed; 0 failed; 0 skipped; finished in 3.01ms (2.25ms CPU time)
+
+Ran 21 tests for test/ContractNet.t.sol:ContractNetTest
+[PASS] test_cfpMultipleSameConversationId() (gas: 188087)
+[PASS] test_cfpRequiresReplyBy() (gas: 15840)
+[PASS] test_evaluateAfterDeadlineOneAndMultipleAndZero() (gas: 197832)
+[PASS] test_evaluateBeforeDeadlineReverts() (gas: 196892)
+[PASS] test_independentConversations() (gas: 160929)
+[PASS] test_informWithoutAcceptReverts() (gas: 164233)
+[PASS] test_invalidTransitionDuplicatePropose() (gas: 180753)
+[PASS] test_lateProposeRejected() (gas: 152617)
+[PASS] test_mixedProposeRefuse() (gas: 154462)
+[PASS] test_multipleAcceptedThenFailure() (gas: 213866)
+[PASS] test_notUnderstoodOnlyOneParticipant() (gas: 157585)
+[PASS] test_proposeBeforeDeadline() (gas: 176699)
+[PASS] test_refuse() (gas: 139672)
+[PASS] test_silentNonResponderClosedOnEvaluate() (gas: 169569)
+[PASS] test_snapshot_cfpN1() (gas: 94040)
+[PASS] test_snapshot_cfpN2() (gas: 156950)
+[PASS] test_snapshot_cfpN4() (gas: 282704)
+[PASS] test_snapshot_evaluateAcceptRejectInform() (gas: 190242)
+[PASS] test_snapshot_proposeRefuse() (gas: 151509)
+[PASS] test_unexpectedPeer() (gas: 167404)
+[PASS] test_zeroProposalsSelected() (gas: 179954)
+Suite result: ok. 21 passed; 0 failed; 0 skipped; finished in 7.53ms (6.70ms CPU time)
+
+Ran 8 tests for test/Message.t.sol:MessageTest
+[PASS] testFuzz_protocolRequiresConversationId(uint8) (runs: 256, μ: 6130, ~: 6130)
+[PASS] test_contentIsOpaqueBytesRoundTrip() (gas: 4110)
+[PASS] test_nativeLogicalSenderIsZero() (gas: 677)
+[PASS] test_noFromToInAbiEncoding() (gas: 1286)
+[PASS] test_omittedReplyFieldsAreZero() (gas: 905)
+[PASS] test_relayReservedLogicalSenderIsNonZeroOpaque() (gas: 688)
+[PASS] test_validate_protocolRequiresConversationId() (gas: 5605)
+[PASS] test_validate_protocolWithConversationIdOk() (gas: 806)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 13.77ms (13.83ms CPU time)
+
+Ran 5 tests for test/revision/NonceStudy.t.sol:NonceStudyTest
+[PASS] testFuzz_tokenMatchesFormulaAfterPriorRequests(uint8,bytes32) (runs: 256, μ: 861512, ~: 756833)
+[PASS] test_chainIdChangeDuringSession() (gas: 165478)
+[PASS] test_nonceBoundary() (gas: 231257)
+[PASS] test_storageLayout() (gas: 146795)
+[PASS] test_tokensFollowTheCoreFormula() (gas: 370596)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 306.16ms (310.65ms CPU time)
+
+Ran 13 tests for test/Agent.t.sol:AgentTest
+[PASS] testFuzz_nonRelayCannotSetLogicalSender(bytes32) (runs: 256, μ: 12631, ~: 12631)
+[PASS] test_emptyContentDelivered() (gas: 68980)
+[PASS] test_largeContentIsNotStoredOnBareAgent() (gas: 307303)
+[PASS] test_nativeAgentToAgentReceiveAndReply() (gas: 70270)
+[PASS] test_nonRelayCannotSetLogicalSender() (gas: 12197)
+[PASS] test_outOfEnumPerformativeOnBareAgentIsDelivered() (gas: 281409)
+[PASS] test_receivedEventHasTransportCallerNotFromTo() (gas: 73083)
+[PASS] test_relayMustSetLogicalSender() (gas: 12214)
+[PASS] test_relayWithOpaqueLogicalSender() (gas: 39841)
+[PASS] test_replyConversationMismatchReverts() (gas: 344396)
+[PASS] test_replyWithMismatchReverts() (gas: 332248)
+[PASS] test_trustedRelayZeroRejectsLogicalSender() (gas: 359280)
+[PASS] test_unsupportedProtocolOnBareAgentIsDelivered() (gas: 282508)
+Suite result: ok. 13 passed; 0 failed; 0 skipped; finished in 308.12ms (309.69ms CPU time)
+
+Ran 43 tests for test/Request.t.sol:RequestTest
+[PASS] testFuzz_corr_anyWrongTokenRejected(bytes32,uint8) (runs: 256, μ: 155669, ~: 155677)
+[PASS] testFuzz_corr_tokensUniqueAcrossReuse(uint8) (runs: 256, μ: 786471, ~: 686803)
+[PASS] test_cleanupDoesNotCorruptOtherConversation() (gas: 265640)
+[PASS] test_clearedSessionRejectsFurtherParticipantReply() (gas: 128932)
+[PASS] test_corr_applicationChosenTokenRejected() (gas: 39003)
+[PASS] test_corr_concurrentConversationsDoNotCrossCorrelate() (gas: 1227718)
+[PASS] test_corr_correctInReplyToAccepted() (gas: 126110)
+[PASS] test_corr_inboundRequestWithoutTokenRejected() (gas: 25839)
+[PASS] test_corr_initiatorNotUnderstoodMustKeepToken() (gas: 142159)
+[PASS] test_corr_missingInReplyToRejectedAtInitiator() (gas: 151649)
+[PASS] test_corr_missingInReplyToRejectedAtParticipantOutbound() (gas: 289728)
+[PASS] test_corr_relayParticipantCorrelation() (gas: 101378)
+[PASS] test_corr_relayRequestWithoutTokenRejected() (gas: 25864)
+[PASS] test_corr_requestAgreeInformCarriesSessionToken() (gas: 155234)
+[PASS] test_corr_reuseConversationIdWithSameTokenImpossible() (gas: 614808)
+[PASS] test_corr_staleReplyDuringNewConversationRejected() (gas: 290900)
+[PASS] test_corr_tokenAssignedByCoreAndDeliveredToPeer() (gas: 1136738)
+[PASS] test_corr_unauthorizedParticipantWithCorrectTokenRejected() (gas: 1156466)
+[PASS] test_corr_wrongInReplyToRejectedAtInitiator() (gas: 154895)
+[PASS] test_corr_wrongInReplyToRejectedAtParticipantOutbound() (gas: 270944)
+[PASS] test_duplicateParticipantAgreeReverts() (gas: 167128)
+[PASS] test_fipaRequestRequiresConversationId() (gas: 84045)
+[PASS] test_invalidDuplicateRequest() (gas: 148108)
+[PASS] test_invalidRefuseAfterAgree() (gas: 167104)
+[PASS] test_limitation_conversationIdSquattingBlocksHonestRequest() (gas: 1234323)
+[PASS] test_limitation_relayReplayOfClosedRequestReopensParticipant() (gas: 138561)
+[PASS] test_outOfEnumPerformativeOnActiveRequestReverts() (gas: 151431)
+[PASS] test_outboundContinuationCannotBeRedirected() (gas: 1154357)
+[PASS] test_relayRequestThenRefuse() (gas: 81154)
+[PASS] test_relayWrongLogicalSenderReverts() (gas: 93186)
+[PASS] test_requestAgreeRetainsMinimalState() (gas: 185412)
+[PASS] test_requestAgreeThenFailure() (gas: 161144)
+[PASS] test_requestAgreeThenInform() (gas: 166040)
+[PASS] test_requestFailureSkipsAgree() (gas: 146846)
+[PASS] test_requestInformSkipsAgree() (gas: 146769)
+[PASS] test_requestNotUnderstood() (gas: 132885)
+[PASS] test_requestRefuse() (gas: 146692)
+[PASS] test_requestRefuseDoesNotStoreContent() (gas: 146697)
+[PASS] test_reuseConversationIdAfterCleanup() (gas: 225043)
+[PASS] test_secondInformAfterAgreeReverts() (gas: 150748)
+[PASS] test_snapshot_requestAgreeInform() (gas: 138071)
+[PASS] test_snapshot_requestRefuse() (gas: 123697)
+[PASS] test_unexpectedPeerReverts() (gas: 1150803)
+Suite result: ok. 43 passed; 0 failed; 0 skipped; finished in 382.92ms (434.34ms CPU time)
+
+Ran 9 tests for test/ContractNetLiveness.t.sol:ContractNetLivenessTest
+[PASS] test_live_acceptedParticipantNeverReports() (gas: 145785)
+[PASS] test_live_batchedEvaluationRevertsAllConversations() (gas: 2402423)
+[PASS] test_live_boundedGasBurnerGriefsEvaluator() (gas: 23526667)
+Logs:
+  evaluate gas with bounded burner (limit 20M): 19730993
+
+[PASS] test_live_managerNeverEvaluates() (gas: 164246)
+[PASS] test_live_participantGriefingInOneConversationDoesNotBlockAnother() (gas: 1202615)
+[PASS] test_live_revertOnAcceptBlocksEvaluateForAll() (gas: 1069166)
+[PASS] test_live_revertOnAcceptRecoverableByRejecting() (gas: 1009119)
+[PASS] test_live_revertOnEveryDecisionStallsConversation() (gas: 969255)
+[PASS] test_live_unboundedGasBurnerBlocksEvaluate() (gas: 27648899)
+Suite result: ok. 9 passed; 0 failed; 0 skipped; finished in 383.04ms (293.85ms CPU time)
+
+Ran 13 tests for test/ContractNetChainSecurity.t.sol:ContractNetChainSecurityTest
+[PASS] testFuzz_deadline_proposalTimelyIffNotAfterReplyBy(uint16,bool) (runs: 256, μ: 109682, ~: 117411)
+[PASS] testFuzz_deadline_timelyProposalAndEvaluationMutuallyExclusive(uint16) (runs: 256, μ: 255236, ~: 262989)
+[PASS] testFuzz_isolation_actionsOnOneConversationLeaveOtherUntouched(uint256) (runs: 256, μ: 605315, ~: 611782)
+[PASS] testFuzz_order_responsesCommute(uint256) (runs: 256, μ: 460650, ~: 465012)
+[PASS] testFuzz_thirdParty_cannotActForParticipants(address,uint8) (runs: 256, μ: 271110, ~: 271110)
+[PASS] testFuzz_timestamp_manipulationOnlyAffectsDriftWindow(uint16,uint8) (runs: 256, μ: 332835, ~: 344999)
+[PASS] test_completed_noActModifiesFinishedConversation() (gas: 471598)
+[PASS] test_frontrun_cfpSquattingBlocksHonestManager() (gas: 1455932)
+[PASS] test_noEvaluate_lateProposalsKeepBeingRejected() (gas: 235350)
+[PASS] test_privacy_proposalContentIsPublic() (gas: 118557)
+[PASS] test_thirdParty_gatedWrapperRejectsThirdParty() (gas: 1412205)
+[PASS] test_thirdParty_permissiveWrapperLetsAnyonePickWinners() (gas: 231838)
+[PASS] test_timestamp_boundaryFlipByOneSecond() (gas: 112648)
+Suite result: ok. 13 passed; 0 failed; 0 skipped; finished in 383.17ms (1.51s CPU time)
+
+Ran 64 tests for test/ContractNetRobustness.t.sol:ContractNetRobustnessTest
+[PASS] testFuzz_reentry_anyActKeepsManagerConsistent(uint8) (runs: 256, μ: 1759364, ~: 1783371)
+[PASS] test_acceptHandleRevertRollsBackEvaluate() (gas: 232384)
+[PASS] test_acceptProposalWithoutProposeReverts() (gas: 103932)
+[PASS] test_alreadyExpiredCfpAllowsLateProposeReject() (gas: 101978)
+[PASS] test_bareManagerDecisionSelectorsAbsent() (gas: 706113)
+[PASS] test_bareParticipantRespondSelectorAbsent() (gas: 506485)
+[PASS] test_cfpAddressZeroRevertsEntireTransaction() (gas: 24227)
+[PASS] test_cfpAtomicRevertLeavesNoState() (gas: 179549)
+[PASS] test_cfpDeployedParticipantOk() (gas: 97265)
+[PASS] test_cfpDuplicateParticipantsReverts() (gas: 44757)
+[PASS] test_cfpEmptyParticipantsReverts() (gas: 11365)
+[PASS] test_cfpEoaRevertsEntireTransaction() (gas: 30283)
+[PASS] test_cfpInvalidAmongValidRevertsNoPartialState() (gas: 66463)
+[PASS] test_cfpManagerInParticipantListReverts() (gas: 72472)
+[PASS] test_cfpPublicCallerCurrentlyAllowed() (gas: 98912)
+[PASS] test_cfpReplyByMaxNeverLateEvaluateReverts() (gas: 118758)
+[PASS] test_cfpSameIdWhileActiveReverts() (gas: 102662)
+[PASS] test_deadlineEqReplyByProposeOkEvaluateReverts() (gas: 118808)
+[PASS] test_deadlineGtReplyByEvaluateAfterTimelyPropose() (gas: 132844)
+[PASS] test_deadlineGtReplyByProposeLateEvaluateOk() (gas: 106797)
+[PASS] test_deadlineLtReplyByProposeOkEvaluateReverts() (gas: 118917)
+[PASS] test_duplicateCfpOnActiveParticipantReverts() (gas: 104024)
+[PASS] test_evaluateAcceptImmediateFailure() (gas: 120712)
+[PASS] test_evaluateAcceptImmediateInform() (gas: 128710)
+[PASS] test_evaluateAllAcceptedCompleteSynchronously() (gas: 1024717)
+[PASS] test_evaluateDuplicateInAcceptReverts() (gas: 119544)
+[PASS] test_evaluateDuplicateInRejectReverts() (gas: 184426)
+[PASS] test_evaluateDuplicateInSilentReverts() (gas: 102795)
+[PASS] test_evaluateMixedAcceptRejectSilentWithSyncComplete() (gas: 249545)
+[PASS] test_evaluateOmitProposedReverts() (gas: 200452)
+[PASS] test_evaluateOneImmediateInformOtherRemainsAccepted() (gas: 213461)
+[PASS] test_evaluateOverlapAcceptRejectReverts() (gas: 183070)
+[PASS] test_evaluatePublicCallerCurrentlyAllowed() (gas: 133283)
+[PASS] test_evaluateRefusedAddressRevertsWithoutMutatingSibling() (gas: 164055)
+[PASS] test_evaluateSyncCompleteDoesNotCorruptOtherConversation() (gas: 223317)
+[PASS] test_evaluateTwiceReverts() (gas: 136311)
+[PASS] test_evaluateUnknownParticipantReverts() (gas: 127434)
+[PASS] test_expireAcceptedReverts() (gas: 134391)
+[PASS] test_expireCfpedAfterReplyByDeletes() (gas: 82117)
+[PASS] test_expireCfpedBeforeAndAtReplyByReverts() (gas: 101768)
+[PASS] test_expireDoesNotAffectOtherConversation() (gas: 166538)
+[PASS] test_expireProposedAfterDeadlineReverts() (gas: 116940)
+[PASS] test_lateProposalRejectionDoesNotReuseCfpReplyBy() (gas: 116266)
+[PASS] test_maliciousReentrantProposeOnAcceptRevertsEvaluate() (gas: 136650)
+[PASS] test_maliciousRevertDoesNotCorruptOtherConversation() (gas: 241754)
+[PASS] test_managerDecisionDoesNotReuseCfpReplyBy() (gas: 156757)
+[PASS] test_outOfEnumPerformativeOnCnReverts() (gas: 102277)
+[PASS] test_proposeThenRefuseReverts() (gas: 119531)
+[PASS] test_reentry_cfpSameIdAfterSynchronousClearIsConsistent() (gas: 1784980)
+[PASS] test_reentry_cfpSameLiveConversationRejected() (gas: 1802513)
+[PASS] test_reentry_directCompletionActsAreValidAndConsistent() (gas: 7424003)
+[PASS] test_reentry_directInvalidActsRejectedByManager() (gas: 13138753)
+[PASS] test_reentry_directProposeBubbledRollsBackEvaluate() (gas: 1645194)
+[PASS] test_reentry_directProposeReachesManagerAndIsRejected() (gas: 1652385)
+[PASS] test_reentry_evaluateSameConversationRejected() (gas: 1658605)
+[PASS] test_reentry_otherConversations() (gas: 3542000)
+[PASS] test_refuseThenProposeReverts() (gas: 96796)
+[PASS] test_rejectProposalWhileOnlyCfpedRevertsPreservesSession() (gas: 103903)
+[PASS] test_respondPublicCallerCurrentlyAllowed() (gas: 115255)
+[PASS] test_responseOnWrongConversationDoesNotMutateOther() (gas: 194957)
+[PASS] test_reuseAfterExpireNoTombstone() (gas: 150740)
+[PASS] test_reuseConversationIdAfterCleanup() (gas: 164724)
+[PASS] test_sameParticipantTwoConversations() (gas: 198855)
+[PASS] test_snapshot_expire() (gas: 78655)
+Suite result: ok. 64 passed; 0 failed; 0 skipped; finished in 383.41ms (403.88ms CPU time)
+
+Ran 1 test for test/invariants/AgentInvariant.t.sol:AgentInvariantTest
+[PASS] invariant_logicalSenderAndPayload() (runs: 48, calls: 1152, reverts: 0)
+
+╭--------------+-----------------+-------+---------+----------╮
+| Contract     | Selector        | Calls | Reverts | Discards |
++=============================================================+
+| AgentHandler | handleNative    | 579   | 0       | 0        |
+|--------------+-----------------+-------+---------+----------|
+| AgentHandler | handleWithRelay | 573   | 0       | 0        |
+╰--------------+-----------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 530.04ms (528.96ms CPU time)
+
+Ran 2 tests for test/invariants/RequestInvariant.t.sol:RequestInvariantTest
+[PASS] invariant_requestPhasesAndIsolation() (runs: 48, calls: 1152, reverts: 0)
+
+╭----------------+----------------------+-------+---------+----------╮
+| Contract       | Selector             | Calls | Reverts | Discards |
++====================================================================+
+| RequestHandler | forgedInboundRespond | 133   | 0       | 0        |
+|----------------+----------------------+-------+---------+----------|
+| RequestHandler | nativeLogicalSpoof   | 130   | 0       | 0        |
+|----------------+----------------------+-------+---------+----------|
+| RequestHandler | openAliceToBob       | 127   | 0       | 0        |
+|----------------+----------------------+-------+---------+----------|
+| RequestHandler | openBobToAlice       | 139   | 0       | 0        |
+|----------------+----------------------+-------+---------+----------|
+| RequestHandler | participantRespond   | 129   | 0       | 0        |
+|----------------+----------------------+-------+---------+----------|
+| RequestHandler | relayWrongLogical    | 123   | 0       | 0        |
+|----------------+----------------------+-------+---------+----------|
+| RequestHandler | staleTokenReply      | 141   | 0       | 0        |
+|----------------+----------------------+-------+---------+----------|
+| RequestHandler | wrongPeerHandle      | 112   | 0       | 0        |
+|----------------+----------------------+-------+---------+----------|
+| RequestHandler | wrongTokenReply      | 118   | 0       | 0        |
+╰----------------+----------------------+-------+---------+----------╯
+
+[PASS] test_handlerHappyPathMutates() (gas: 722881)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.34s (1.34s CPU time)
+
+Ran 2 tests for test/invariants/ContractNetInvariant.t.sol:ContractNetInvariantTest
+[PASS] invariant_contractNetLiveSlotsAndIsolation() (runs: 48, calls: 1152, reverts: 0)
+
+╭--------------------+------------------------+-------+---------+----------╮
+| Contract           | Selector               | Calls | Reverts | Discards |
++==========================================================================+
+| ContractNetHandler | cfp                    | 149   | 0       | 0        |
+|--------------------+------------------------+-------+---------+----------|
+| ContractNetHandler | evaluate               | 138   | 0       | 0        |
+|--------------------+------------------------+-------+---------+----------|
+| ContractNetHandler | expire                 | 137   | 0       | 0        |
+|--------------------+------------------------+-------+---------+----------|
+| ContractNetHandler | respond                | 137   | 0       | 0        |
+|--------------------+------------------------+-------+---------+----------|
+| ContractNetHandler | rogueDirectHandle      | 154   | 0       | 0        |
+|--------------------+------------------------+-------+---------+----------|
+| ContractNetHandler | strangerPropose        | 139   | 0       | 0        |
+|--------------------+------------------------+-------+---------+----------|
+| ContractNetHandler | tryInvalidParticipants | 140   | 0       | 0        |
+|--------------------+------------------------+-------+---------+----------|
+| ContractNetHandler | warpAroundDeadline     | 158   | 0       | 0        |
+╰--------------------+------------------------+-------+---------+----------╯
+
+[PASS] test_handlerHappyPathMutates() (gas: 797808)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.69s (1.70s CPU time)
+
+Ran 16 test suites in 1.70s (5.74s CPU time): 209 tests passed, 0 failed, 0 skipped (209 total tests)
+

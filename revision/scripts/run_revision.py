@@ -153,6 +153,30 @@ def core_dir(sha: str) -> Path:
     return d
 
 
+def patched_core(camp: dict, core: Path, dest: Path) -> Path:
+    """Overlay = the base Core's src/core with the study's patch files substituted.
+
+    Each patched file must still match the recorded base hash, so a patch cannot silently apply to a
+    different Core revision.
+    """
+    patch = ROOT / camp["core_patch"]
+    if dest.exists():
+        shutil.rmtree(dest)
+    shutil.copytree(core / "src" / "core", dest)
+    for f in sorted(patch.glob("*.sol")):
+        want = camp["core_patch_base_sha256"].get(f.name)
+        if want is None or sha256_file(core / "src" / "core" / f.name) != want:
+            abort(f"patch {f.name} does not match the recorded base file of {camp['core_sha']}")
+        shutil.copyfile(f, dest / f.name)
+    return dest
+
+
+def core_overlay(camp: dict, core: Path, base: Path) -> Path | None:
+    if camp.get("core_patch"):
+        return patched_core(camp, core, base / "core-overlay")
+    return (ROOT / camp["core_overlay"]).resolve() if camp.get("core_overlay") else None
+
+
 def eval_git() -> dict:
     head = run(["git", "rev-parse", "HEAD"], cwd=str(ROOT)).stdout.strip()
     status = run(["git", "status", "--short"], cwd=str(ROOT)).stdout
@@ -173,8 +197,16 @@ def variant_layers(manual_variant) -> list[str]:
     return [manual_variant] if isinstance(manual_variant, str) else list(manual_variant)
 
 
+def test_profile(name: str) -> dict:
+    profiles = CFG["test_profiles"]
+    if name not in profiles:
+        abort(f"unknown test profile {name}")
+    return profiles[name]
+
+
 def prepare_project(dest: Path, core: Path, overlay: Path | None, manual_variant,
-                    with_tests: bool = False, variant_tests: list[str] | None = None) -> dict:
+                    with_tests: bool = False, variant_tests: list[str] | None = None,
+                    profile: dict | None = None) -> dict:
     if dest.exists():
         shutil.rmtree(dest)
     app = dest / "comparison" / "src"
@@ -196,11 +228,23 @@ def prepare_project(dest: Path, core: Path, overlay: Path | None, manual_variant
                 vt = ROOT / "revision" / "test-variants" / name
                 if vt.is_dir():
                     shutil.copytree(vt, tdir / "revision" / f"variant_{name}")
-        else:
-            # The submitted tests target the submitted purpose-built API.
-            shutil.copytree(ROOT / "comparison" / "test", tdir / "original")
-            for f in (tdir / "original").glob("*.sol"):
-                f.write_text(f.read_text().replace('"../src/', '"../../src/'))
+        replaced = (profile or {}).get("replace", {})
+        (tdir / "original").mkdir(parents=True)
+        for f in sorted((ROOT / "comparison" / "test").glob("*.sol")):
+            if f.name in replaced:
+                if not (ROOT / "revision" / "test" / replaced[f.name]["by"]).is_file():
+                    abort(f"profile replaces {f.name} by missing {replaced[f.name]['by']}")
+                inapp = tdir / "inapplicable"
+                inapp.mkdir(parents=True, exist_ok=True)
+                note = (
+                    f"// NOT COMPILED on profile {(profile or {}).get('description', '')}\n"
+                    f"// Replaced by revision/test/{replaced[f.name]['by']}.\n"
+                    f"// Reason: {replaced[f.name]['reason']}\n"
+                    "// Historical file preserved byte-for-byte below (comparison/test/ is untouched).\n"
+                )
+                (inapp / (f.name + ".historical")).write_text(note + f.read_text())
+                continue
+            (tdir / "original" / f.name).write_text(f.read_text().replace('"../src/', '"../../src/'))
     allow = [str(core)] + ([str(overlay)] if overlay else [])
     (dest / "foundry.toml").write_text(
         "[profile.default]\n"
@@ -273,8 +317,9 @@ class Anvil:
         if self.info["hardfork"] != self.expected:
             self.__exit__()
             abort(f"effective hardfork {self.info['hardfork']} != {self.expected}")
-        prague_rules = self.info["prague_precompile_present"]
-        if (self.expected == "Cancun") == prague_rules:
+        probe = self.info["bls_probe"]
+        if (self.expected == "Cancun") == probe["present"] or \
+                (probe["empty_input"] == "error") != probe["present"]:
             self.__exit__()
             abort(f"precompile probe inconsistent with {self.expected}: {self.info}")
         if self.info["chain_id"] != a["chain_id"] or self.info["gas_limit"] != a["gas_limit"] \
@@ -292,14 +337,41 @@ class Anvil:
                 self.proc.kill()
 
 
+def bls_probe() -> dict:
+    """EIP-2537 BLS12-381 G1ADD (0x0b, Prague+) probe with a *valid* input: two points at infinity.
+
+    An active precompile returns the 128-byte encoding of the point at infinity; an address without code
+    (Cancun) returns empty output. Any other outcome is inconclusive and aborts the run. The empty-input
+    call is kept as secondary evidence (PrecompileError when active, empty success otherwise).
+    """
+    def call(data: str) -> subprocess.CompletedProcess:
+        return subprocess.run([CAST, "rpc", "eth_call", json.dumps({"to": PRAGUE_PROBE, "data": data}), "latest",
+                               "--rpc-url", RPC], capture_output=True, text=True)
+    valid = call("0x" + "00" * 256)
+    if valid.returncode != 0:
+        abort(f"BLS probe inconclusive (valid input rejected): {valid.stderr.strip()[-300:]}")
+    out = json.loads(valid.stdout)
+    n = (len(out) - 2) // 2
+    if out == "0x":
+        present = False
+    elif n == 128 and int(out, 16) == 0:
+        present = True
+    else:
+        abort(f"BLS probe inconclusive: {n}-byte output {out[:40]}")
+    empty = call("0x")
+    return {"present": present, "valid_input_output_bytes": n,
+            "empty_input": "error" if empty.returncode != 0 else f"ok:{json.loads(empty.stdout)}"}
+
+
 def effective_environment() -> dict:
     node = json.loads(run([CAST, "rpc", "anvil_nodeInfo", "--rpc-url", RPC]).stdout)
     blk = json.loads(run([CAST, "block", "latest", "--rpc-url", RPC, "--json"]).stdout)
-    probe = subprocess.run([CAST, "call", PRAGUE_PROBE, "0x", "--rpc-url", RPC], capture_output=True, text=True)
+    probe = bls_probe()
     as_int = lambda v: int(v, 16) if isinstance(v, str) else int(v)  # noqa: E731
     return {
         "hardfork": node.get("hardFork"),
-        "prague_precompile_present": probe.returncode != 0,
+        "prague_precompile_present": probe["present"],
+        "bls_probe": probe,
         "chain_id": int(run([CAST, "chain-id", "--rpc-url", RPC]).stdout.strip()),
         "gas_limit": as_int(blk["gasLimit"]),
         "base_fee_per_gas": as_int(blk["baseFeePerGas"]),
@@ -616,19 +688,21 @@ def conditions_for(matrix: str) -> list[dict]:
     return [condition_by_id(c) for c in CFG["matrices"][matrix]]
 
 
-def setup_campaign(camp_id: str, tests: bool = False) -> tuple[dict, Path, dict, Path]:
+def setup_campaign(camp_id: str, tests: bool = False, profile_name: str | None = None
+                   ) -> tuple[dict, Path, dict, Path]:
     if camp_id not in CFG["campaigns"]:
         abort(f"unknown campaign {camp_id}")
     camp = CFG["campaigns"][camp_id]
+    profile = test_profile(profile_name or camp["test_profile"]) if tests else None
     hist = check_historical_untouched()
     tc = toolchain()
     core = core_dir(camp["core_sha"])
-    overlay = (ROOT / camp["core_overlay"]).resolve() if camp.get("core_overlay") else None
     base = OUT / camp_id
     base.mkdir(parents=True, exist_ok=True)
+    overlay = core_overlay(camp, core, base)
     proj = base / ("test-project" if tests else "project")
     sources = prepare_project(proj, core, overlay, camp.get("manual_variant"), with_tests=tests,
-                              variant_tests=camp.get("variant_tests"))
+                              variant_tests=camp.get("variant_tests"), profile=profile)
     compiler = forge_config_check(proj)
     build(proj)
     meta = {
@@ -715,14 +789,28 @@ def mode_preflight(camp_id: str) -> None:
     print("PREFLIGHT PASS", camp_id, json.dumps(meta["preflight_environment"]))
 
 
-def mode_tests(camp_id: str, match: list[str]) -> None:
-    camp, proj, meta, base = setup_campaign(camp_id, tests=True)
+def mode_tests(camp_id: str, match: list[str], profile_name: str | None = None) -> None:
+    camp, proj, meta, base = setup_campaign(camp_id, tests=True, profile_name=profile_name)
+    pname = profile_name or camp["test_profile"]
+    profile = test_profile(pname)
     args = [FORGE, "test", "-vv"]
     for m in match:
         args += ["--match-path", m]
-    p = subprocess.run(args, cwd=str(proj), capture_output=True, text=True)
-    logp = base / f"tests_{'_'.join(x.replace('/', '-').replace('*', 'X') for x in match) or 'all'}.log"
+    env = {**os.environ, **profile.get("env", {})}
+    p = subprocess.run(args, cwd=str(proj), capture_output=True, text=True, env=env)
+    suffix = '_'.join(x.replace('/', '-').replace('*', 'X') for x in match) or 'all'
+    if profile_name and profile_name != camp["test_profile"]:
+        suffix += f"_{pname}"
+    logp = base / f"tests_{suffix}.log"
     logp.write_text(p.stdout + p.stderr)
+    ran = sorted(str(f.relative_to(proj)) for f in (proj / "comparison" / "test").rglob("*.t.sol"))
+    (base / f"test_profile_{suffix}.json").write_text(json.dumps({
+        "campaign_id": camp_id, "profile": pname, "definition": profile, "env": profile.get("env", {}),
+        "test_files": ran, "core_sha": camp["core_sha"], "config_sha256": sha256_file(CFG_PATH),
+        "runner_sha256": sha256_file(Path(__file__)), "sources_sha256": meta["sources_sha256"],
+        "forge_exit": p.returncode,
+        "summary": [l for l in p.stdout.splitlines() if l.startswith("Ran ") and "test suites" in l],
+    }, indent=2) + "\n")
     for f in (proj / "outputs" / "storage").glob("*.json"):
         dst = base / "storage"
         dst.mkdir(exist_ok=True)
@@ -730,6 +818,57 @@ def mode_tests(camp_id: str, match: list[str]) -> None:
     tail = [l for l in p.stdout.splitlines() if "Suite result" in l or "tests passed" in l or "[FAIL" in l]
     print("\n".join(tail))
     print("TESTS EXIT", p.returncode, "log", logp)
+    if p.returncode != 0:
+        sys.exit(1)
+
+
+def mode_core_tests(camp_id: str) -> None:
+    """Run the Core repository's own suite (plus revision/test-core) against the campaign's Core tree.
+
+    The Core clone is copied, its src/core replaced by the campaign overlay (if any), and forge runs
+    with the Core's foundry.toml and a fixed fuzz seed so official and variant runs are comparable.
+    """
+    camp = CFG["campaigns"][camp_id]
+    check_historical_untouched()
+    tc = toolchain()
+    core = core_dir(camp["core_sha"])
+    base = OUT / camp_id
+    base.mkdir(parents=True, exist_ok=True)
+    overlay = core_overlay(camp, core, base)
+    proj = base / "core-tests"
+    if proj.exists():
+        shutil.rmtree(proj)
+    shutil.copytree(core, proj, ignore=shutil.ignore_patterns(".git", "out", "cache", "broadcast"))
+    if overlay:
+        shutil.rmtree(proj / "src" / "core")
+        shutil.copytree(overlay, proj / "src" / "core")
+    shutil.copytree(ROOT / "revision" / "test-core", proj / "test" / "revision")
+    seed = CFG["core_tests"]["fuzz_seed"]
+    p = subprocess.run(
+        [FORGE, "test", "--fuzz-seed", seed, "--no-match-path", "lib/", "-vv"],
+        cwd=str(proj), capture_output=True, text=True,
+    )
+    (base / "core_tests.log").write_text(p.stdout + "\n" + p.stderr)
+    results = {}
+    for line in (p.stdout + p.stderr).splitlines():
+        if line.startswith("[PASS]"):
+            results[line.split("(", 1)[0][len("[PASS] "):].strip()] = "PASS"
+        elif line.startswith("[FAIL"):
+            name = line.split("]", 1)[-1]
+            name = name.split("(", 1)[0].strip()
+            results[name] = "FAIL"
+        elif line.startswith("[SKIP"):
+            name = line.split("]", 1)[-1].split("(", 1)[0].strip()
+            results[name] = "SKIP"
+    if not results and p.returncode == 0:
+        abort(f"core tests produced no [PASS]/[FAIL] lines; see {base / 'core_tests.log'}")
+    summary = {"campaign_id": camp_id, "core_sha": camp["core_sha"], "core_patch": camp.get("core_patch"),
+               "fuzz_seed": seed, "toolchain_forge": tc["forge"]["version"],
+               "core_sha256": {f.name: sha256_file(f) for f in sorted((proj / "src" / "core").glob("*.sol"))},
+               "counts": {s: sum(1 for v in results.values() if v == s) for s in sorted(set(results.values()))},
+               "results": dict(sorted(results.items()))}
+    (base / "core_tests_summary.json").write_text(json.dumps(summary, indent=2) + "\n")
+    print("CORE TESTS", camp_id, summary["counts"], "exit", p.returncode)
     if p.returncode != 0:
         sys.exit(1)
 
@@ -795,9 +934,9 @@ def mode_ablation(abl_id: str) -> None:
         tree = ablation_tree(v, core, spec["variant_rebase"], base / "trees" / v)
         proj = base / "projects" / v
         sources = prepare_project(proj, core, tree, None)
-        forge_config_check(proj)
+        compiler = forge_config_check(proj)
         build(proj)
-        meta["variants"][v] = {"tree": str(tree), "sources_sha256": sources}
+        meta["variants"][v] = {"tree": str(tree), "sources_sha256": sources, "compiler": compiler}
         meta_sha = hashlib.sha256(json.dumps(meta["variants"][v], sort_keys=True).encode()).hexdigest()
         ctx = Ctx(abl_id, camp, proj, "ablation", meta_sha)
         results[v] = {}
@@ -826,18 +965,21 @@ def mode_ablation(abl_id: str) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--mode", required=True, choices=["preflight", "campaign", "tests", "ablation"])
+    ap.add_argument("--mode", required=True, choices=["preflight", "campaign", "tests", "ablation", "core-tests"])
     ap.add_argument("--campaign", required=True)
     ap.add_argument("--matrix", nargs="*", default=["primary", "secondary"])
     ap.add_argument("--phase", default="revision")
     ap.add_argument("--match-path", nargs="*", default=[])
+    ap.add_argument("--profile", default=None, help="test profile override (default: campaign test_profile)")
     a = ap.parse_args()
     if a.mode == "preflight":
         mode_preflight(a.campaign)
     elif a.mode == "campaign":
         mode_campaign(a.campaign, a.matrix, a.phase)
     elif a.mode == "tests":
-        mode_tests(a.campaign, a.match_path)
+        mode_tests(a.campaign, a.match_path, a.profile)
+    elif a.mode == "core-tests":
+        mode_core_tests(a.campaign)
     else:
         mode_ablation(a.campaign)
 

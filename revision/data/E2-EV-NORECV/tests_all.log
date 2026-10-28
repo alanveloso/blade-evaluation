@@ -1,0 +1,69 @@
+No files changed, compilation skipped
+
+Ran 4 tests for comparison/test/revision/ResidualExposure.t.sol:ResidualExposureTest
+[PASS] test_abandonedRequest_strandsStorageAndBlocksReuse() (gas: 223797)
+[PASS] test_conversationIdSquatting_blocksHonestRequest() (gas: 1324950)
+[PASS] test_relayDisabledInMeasuredWrappers() (gas: 11044)
+[PASS] test_squattedSessionIsIsolatedFromHonestInitiator() (gas: 884230)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 1.41ms (754.50µs CPU time)
+
+Ran 12 tests for comparison/test/revision/RequestEquivalenceRev.t.sol:RequestEquivalenceRevTest
+[PASS] test_R1_requestRefuse() (gas: 183074)
+[PASS] test_R2_requestInform() (gas: 176286)
+[PASS] test_R3_requestAgreeInform() (gas: 204364)
+[PASS] test_R4_requestAgreeFailure() (gas: 190871)
+[PASS] test_invalid_continuationAfterCleanup() (gas: 168648)
+[PASS] test_invalid_duplicateLiveRequest() (gas: 195855)
+[PASS] test_invalid_refuseAfterAgree() (gas: 218305)
+[PASS] test_invalid_wrongPeer() (gas: 201176)
+[PASS] test_invalid_zeroConversationId() (gas: 90801)
+[PASS] test_reuseAfterCleanup() (gas: 297887)
+[PASS] test_staleInboundAfterReuse() (gas: 209247)
+[PASS] test_tokenOnlyWhenCoreAssigns() (gas: 140015)
+Suite result: ok. 12 passed; 0 failed; 0 skipped; finished in 3.11ms (2.32ms CPU time)
+
+Ran 8 tests for comparison/test/original/ContractNetEquivalence.t.sol:ContractNetEquivalenceTest
+[PASS] test_failureCell_A_N1() (gas: 3377029)
+[PASS] test_invalid_duplicateLiveCfp() (gas: 3439879)
+[PASS] test_invalid_evaluateBeforeDeadline() (gas: 3456681)
+[PASS] test_invalid_proposeThenRefuse() (gas: 3454858)
+[PASS] test_invalid_unexpectedPeerPropose() (gas: 3444344)
+[PASS] test_scenarioA_N2_allProposeAcceptInform() (gas: 4641933)
+[PASS] test_scenarioB_N2_mixed() (gas: 4602979)
+[PASS] test_scenarioC_confirmation_identicalToB_N2() (gas: 4602958)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 10.07ms (8.74ms CPU time)
+
+Ran 8 tests for comparison/test/revision/PayloadEncodingEquivalence.t.sol:PayloadEncodingEquivalenceTest
+[PASS] test_R1_refuse_inboundContentUnused() (gas: 819144)
+[PASS] test_R2_inform_inboundContentUnused() (gas: 819373)
+[PASS] test_R3_agreeInform_inboundContentUnused() (gas: 872363)
+[PASS] test_R4_agreeFailure_inboundContentUnused() (gas: 872493)
+[PASS] test_activeK_agree_inboundContentUnused() (gas: 2129385)
+[PASS] test_cnA_propose_inboundContentUnused() (gas: 1054257)
+[PASS] test_cnB_proposeRefuse_inboundContentUnused() (gas: 978388)
+[PASS] test_digestDetectsReadField() (gas: 276912)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 22.54ms (59.30ms CPU time)
+
+Ran 13 tests for comparison/test/revision/ParametricEquivalenceRev.t.sol:ParametricEquivalenceRevTest
+[PASS] test_R3_payload_0() (gas: 2649017)
+[PASS] test_R3_payload_1024() (gas: 3854016)
+[PASS] test_R3_payload_256() (gas: 2949900)
+[PASS] test_R3_payload_32() (gas: 2686619)
+[PASS] test_cnA_N1_payload0() (gas: 3619970)
+[PASS] test_cnA_N1_payload256() (gas: 3787278)
+[PASS] test_cnA_N2_payload0() (gas: 5114086)
+[PASS] test_cnA_N2_payload1024() (gas: 6322148)
+[PASS] test_cnA_N2_payload256() (gas: 5415635)
+[PASS] test_cnA_N2_payload32() (gas: 5151783)
+[PASS] test_cnA_N4_payload0() (gas: 8128595)
+[PASS] test_cnA_N4_payload256() (gas: 8700885)
+[PASS] test_cnA_N8_payload0() (gas: 14264524)
+Suite result: ok. 13 passed; 0 failed; 0 skipped; finished in 34.30ms (216.39ms CPU time)
+
+Ran 3 tests for comparison/test/revision/StorageRev.t.sol:StorageRevTest
+[PASS] test_storage_K_agreed() (gas: 232497418)
+[PASS] test_storage_cnA_N2() (gas: 4914024)
+[PASS] test_storage_request_R3() (gas: 11271598)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 474.59ms (491.29ms CPU time)
+
+Ran 6 test suites in 475.82ms (546.02ms CPU time): 48 tests passed, 0 failed, 0 skipped (48 total tests)

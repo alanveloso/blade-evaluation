@@ -10,10 +10,15 @@ import {
     REQ_REQUESTED,
     REQ_AGREED,
     REQ_ROLE_INITIATOR,
-    REQ_ROLE_PARTICIPANT
+    REQ_ROLE_PARTICIPANT,
+    ReqInvalidTransition,
+    ReqUnexpectedPeer
 } from "app/manual/ManualRequest.sol";
 import {RequestAgent, RequestPhase, RequestRole} from "blade/core/RequestAgent.sol";
 import {Message} from "blade/core/Message.sol";
+import {Performative} from "blade/core/Performative.sol";
+import {Protocol} from "blade/core/Protocol.sol";
+import {IAgent} from "blade/core/IAgent.sol";
 
 /// @dev Revision of comparison/test/RequestEquivalence.t.sol (kept unchanged for E0/E1). BLADE
 /// continuations carry the session token (zero on E1) and no redundant inbound payload, exactly as the
@@ -110,6 +115,60 @@ contract RequestEquivalenceRevTest is RevisionBase {
         mP.agree(CID);
         mP.failure(CID, PAYLOAD);
         _manualCleared();
+    }
+
+    function test_invalid_zeroConversationId() public {
+        vm.expectRevert();
+        bI.startRequest(address(bP), bytes32(0), PAYLOAD);
+        vm.expectRevert();
+        mI.startRequest(address(mP), bytes32(0), PAYLOAD);
+    }
+
+    function test_invalid_duplicateLiveRequest() public {
+        bI.startRequest(address(bP), CID, PAYLOAD);
+        vm.expectRevert(RequestAgent.InvalidTransition.selector);
+        bI.startRequest(address(bP), CID, PAYLOAD);
+
+        mI.startRequest(address(mP), CID, PAYLOAD);
+        vm.expectRevert(ReqInvalidTransition.selector);
+        mI.startRequest(address(mP), CID, PAYLOAD);
+    }
+
+    /// @dev The forged reply carries the correct token, so the rejection is attributable to the peer
+    /// check alone (the original sent no token, which E2 would reject for a different reason).
+    function test_invalid_wrongPeer() public {
+        bI.startRequest(address(bP), CID, PAYLOAD);
+        Message memory refuse;
+        refuse.performative = uint8(Performative.Refuse);
+        refuse.protocol = uint8(Protocol.FipaRequest);
+        refuse.conversationId = CID;
+        refuse.inReplyTo = _token(address(bI), CID);
+        vm.prank(address(0xBEEF));
+        vm.expectRevert(RequestAgent.UnexpectedPeer.selector);
+        IAgent(address(bI)).handle(refuse);
+
+        mI.startRequest(address(mP), CID, PAYLOAD);
+        (bool correlated, bytes32 t) = _manualToken(address(mI), CID);
+        bytes memory forged = correlated
+            ? abi.encodeWithSignature("onRefuse(bytes32,bytes32,bytes)", CID, t, PAYLOAD)
+            : abi.encodeWithSignature("onRefuse(bytes32,bytes)", CID, PAYLOAD);
+        vm.prank(address(0xBEEF));
+        (bool ok, bytes memory ret) = address(mI).call(forged);
+        assertFalse(ok);
+        assertEq(bytes4(ret), ReqUnexpectedPeer.selector);
+    }
+
+    /// @dev The purpose-built status has 3 words (submitted / observable) or 4 (correlated variants).
+    function _manualToken(address a, bytes32 cid) internal view returns (bool correlated, bytes32 t) {
+        (bool ok, bytes memory ret) = a.staticcall(abi.encodeWithSignature("status(bytes32)", cid));
+        require(ok, "status");
+        correlated = ret.length == 128;
+        require(correlated || ret.length == 96, "status layout");
+        if (correlated) {
+            assembly {
+                t := mload(add(ret, 128))
+            }
+        }
     }
 
     function test_invalid_refuseAfterAgree() public {

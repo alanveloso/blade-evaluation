@@ -232,6 +232,21 @@
       "positive": 6
     }
   },
+  "nonce_study": {
+    "blade_interaction_deltas": {
+      "CN-A-N2-P0": 0,
+      "REQ-R1-P0": -23991,
+      "REQ-R2-P0": -23991,
+      "REQ-R3-P0": -25297,
+      "REQ-R3-P1024": -22067,
+      "REQ-R3-P256": -25297,
+      "REQ-R4-P0": -25297,
+      "SEC-ACT-K1": -23499,
+      "SEC-ACT-K10": -234990,
+      "SEC-ACT-K100": -2349900
+    },
+    "manual_must_be_zero": []
+  },
   "storage": {
     "E1": {
       "revision_abandoned.json": {
@@ -361,6 +376,24 @@
             "session": 0,
             "persistent": 0
           }
+        }
+      ],
+      "revision_cn_a_n2.json": [
+        {
+          "implementation": "blade",
+          "scenario": "A",
+          "N": 2,
+          "after_propose_M": 3,
+          "after_eval_M": 3,
+          "terminal_M": 0
+        },
+        {
+          "implementation": "manual",
+          "scenario": "A",
+          "N": 2,
+          "after_propose_M": 3,
+          "after_eval_M": 3,
+          "terminal_M": 0
         }
       ],
       "revision_request_r3.json": [
@@ -736,6 +769,24 @@
           }
         }
       ],
+      "revision_cn_a_n2.json": [
+        {
+          "implementation": "blade",
+          "scenario": "A",
+          "N": 2,
+          "after_propose_M": 3,
+          "after_eval_M": 3,
+          "terminal_M": 0
+        },
+        {
+          "implementation": "manual",
+          "scenario": "A",
+          "N": 2,
+          "after_propose_M": 3,
+          "after_eval_M": 3,
+          "terminal_M": 0
+        }
+      ],
       "revision_request_r3.json": [
         {
           "implementation": "blade",
@@ -1109,6 +1160,24 @@
           }
         }
       ],
+      "revision_cn_a_n2.json": [
+        {
+          "implementation": "blade",
+          "scenario": "A",
+          "N": 2,
+          "after_propose_M": 3,
+          "after_eval_M": 3,
+          "terminal_M": 0
+        },
+        {
+          "implementation": "manual",
+          "scenario": "A",
+          "N": 2,
+          "after_propose_M": 3,
+          "after_eval_M": 3,
+          "terminal_M": 0
+        }
+      ],
       "revision_request_r3.json": [
         {
           "implementation": "blade",
@@ -1480,6 +1549,24 @@
             "session": 0,
             "persistent": 0
           }
+        }
+      ],
+      "revision_cn_a_n2.json": [
+        {
+          "implementation": "blade",
+          "scenario": "A",
+          "N": 2,
+          "after_propose_M": 3,
+          "after_eval_M": 3,
+          "terminal_M": 0
+        },
+        {
+          "implementation": "manual",
+          "scenario": "A",
+          "N": 2,
+          "after_propose_M": 3,
+          "after_eval_M": 3,
+          "terminal_M": 0
         }
       ],
       "revision_request_r3.json": [

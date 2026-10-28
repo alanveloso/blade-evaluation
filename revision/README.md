@@ -19,6 +19,7 @@ and `scripts/verify_artifact.sh` still passes.
 | E2-MCORR | 4b60b86 | Cancun | minimal | `correlated` | Manual with the E2 correlation guarantee |
 | E2-MCOBS | 4b60b86 | Cancun | minimal | `observable` + `correlated-observable` | Manual with both |
 | ABL-E0R / ABL-E1 / ABL-E2 | E0R / E1 / E2 bases | as base | as base | n/a | Ablations A1–A5, A34 |
+| S-NONCE | 4b60b86 + nonce-packed overlay | Cancun | minimal | submitted | Isolated study, not E3 |
 
 Core commits (`git@github.com:alanveloso/blade.git`):
 `fbf266f5a9304af3b4541ed82a5d814a6afda5cc` is the submitted Core;
@@ -42,7 +43,9 @@ effective hardfork, toolchain versions and source hashes). Validated outputs are
 
 ```sh
 R=revision/scripts/run_revision.py
-python3 $R --mode tests     --campaign E2          # equivalence, storage and exposure tests
+python3 $R --mode tests     --campaign E2          # profile `token` (default for E2)
+python3 $R --mode tests     --campaign E1          # profile `historical` (originals + revision ports)
+python3 $R --mode core-tests --campaign E2         # Core suite + revision/test-core
 python3 $R --mode preflight --campaign E2          # hardfork, chain and determinism checks
 python3 $R --mode campaign  --campaign E2          # primary + secondary matrices
 python3 $R --mode campaign  --campaign E2-EV-NONE --matrix events
@@ -53,7 +56,30 @@ python3 revision/scripts/promote.py E2 ABL-E2      # copies outputs and rewrites
 ```
 
 Anvil is started with an explicit `--hardfork`. A campaign aborts unless `anvil_nodeInfo` reports the
-expected hardfork and a probe of the BLS precompile (`0x0b`) is consistent with it.
+expected hardfork and a probe of EIP-2537 BLS12-381 G1ADD (`0x0b`, Prague+) is consistent with it.
+The probe sends a *valid* input (two G1 points at infinity, 256 zero bytes). An active precompile
+returns the 128-byte encoding of infinity; Cancun has no code at that address and returns empty
+output. An empty-input call is secondary evidence (PrecompileError when the precompile is active).
+Empirically: Cancun → empty `0x` on both calls; Anvil default Bpo1 → 128-byte infinity and
+PrecompileError. Campaigns already measured under this rule were not rerun.
+
+## Test profiles
+
+Historical tests in `comparison/test/` are never modified. Each campaign selects a profile in
+`config/campaigns.json`; replaced originals are copied into the isolated project as
+`comparison/test/inapplicable/*.historical` (not compiled) with the reason recorded in
+`test_profile_all.json`.
+
+| Profile | Campaigns | What runs |
+|---|---|---|
+| `historical` | E0R, E1H, E1 | Original Request/Parametric/Storage/ContractNet plus all revision tests |
+| `token` | E2, E2-EV-NOPHASE, baselines, S-NONCE | Originals that cannot express the token are replaced by complete ports (`RequestEquivalenceRev`, `ParametricEquivalenceRev`, `StorageRev`); `ContractNetEquivalence` unchanged |
+| `token-no-received` | E2-EV-NORECV, E2-EV-NONE | As `token`, plus `REVISION_EXPECT_RECEIVED=false`: payload delivery is asserted on recorded `handle` calldata; `Received` logs must be absent |
+
+`ParametricEquivalenceRev` keeps the 13 original cells and state assertions, carries the Core-assigned
+token, and requires the N=8 cell to pass (the original may skip on resource exhaustion).
+`StorageRev` keeps the three probes and requires session slots to return to zero while allowing the
+persistent nonce slot.
 
 ## Results (all values in `results/`)
 
@@ -114,8 +140,21 @@ reported as sensitivity bounds next to the submitted one, not instead of it.
 | observable | 48.7–78.3% | 5.4–7.0% |
 | correlated + observable | 7.8–10.9% | 5.4–7.0% |
 
-The variants pass dedicated tests: `test-variants/correlated` (token checks) and
-`test-variants/observable`, which compares per-role log shapes with BLADE.
+The variants pass dedicated tests. `test-variants/correlated-observable` compares per-role logs as
+**ordered sequences of full values** (addresses and tokens mapped; any other difference fails),
+checks the Core token formula `keccak256(chainid, initiator, conversationId, nonce)`, rejects a
+stale token after `conversationId` reuse, isolates concurrent conversations, and records that both
+sides clear storage at the terminal message. Transaction sequences are identical
+(`startRequest`, `agree`, `inform` / `refuse` / `failure`). Compiler, hardfork, payload encoding and
+the BLADE-side Core are the same as E2.
+
+Documented semantic differences (not hidden gaps):
+
+- Tokens differ numerically because each initiator hashes its own address.
+- The purpose-built participant takes the token from storage, so a wrong application-supplied
+  inbound token is not expressible there; BLADE rejects it (`test_wrongTokenFromParticipantSide`).
+- The purpose-built API has no `logicalSender` / `trustedRelay`.
+- Contract Net in E2-MCOBS is the `observable` layer (events only); it has no Request-style token.
 
 ### Ablation
 
@@ -139,18 +178,41 @@ Deltas are variant − A0. A positive delta means the Core optimisation saves ga
 |---|---|---|
 | Abandoned Request strands storage and blocks reuse of the conversationId | Reproduced (`ResidualExposure.t.sol`) | Both BLADE and manual |
 | conversationId squatting by a third party blocks the honest request | Reproduced | Both; the squatted session stays isolated from the honest initiator |
-| Relay replay, CFP front-running and squatting, timestamp drift, Contract Net liveness | Core limitation tests at 4b60b86 (`data/E2/core-limitation-tests.log`, 17 PASS) | Architectural; relay unreachable in the measured wrappers (`trustedRelay == 0`) |
+| Relay replay, CFP front-running and squatting, timestamp drift, Contract Net liveness | Core limitation tests at 4b60b86 (`data/E2/core-limitation-tests.log`, 17 PASS; full suite `data/E2/core_tests.log`, 207 PASS) | Architectural; relay unreachable in the measured wrappers (`trustedRelay == 0`) |
 
 The Request fix rejects stale replies after a conversationId is reused. It does not eliminate all
 forms of replay: replay through a trusted relay and squatting remain.
 
-## Proposed optimisation (not implemented)
+## Nonce-packing study (S-NONCE; not E3, not the official Core)
 
-Pack a `uint72` nonce into the initiator's `Status` slot 0 and recompute the token instead of storing
-it. The estimated saving is about 20k gas per opening (one fresh slot on the initiator). Optionally,
-pre-initialising the nonce in the constructor moves the first-write cost (about 22.1k) to deployment.
-The risks are a `Status` ABI and layout change, one keccak per check, and extra complexity. The
-participant must still store the full token. This proposal awaits approval and changes nothing here.
+Isolated overlay of `revision/src/core-variants/nonce-packed/RequestAgent.sol` on Core 4b60b86.
+The public `requestStatus` ABI is unchanged (the initiator recomputes `replyWith`); the participant
+still stores the token. The per-session nonce is a `uint80` packed into the 10-byte padding of the
+initiator's first session slot. Measured only on the `nonce` matrix; Contract Net is bit-identical.
+
+| Quantity | Result |
+|---|---|
+| Complete Request interaction | −22,067 to −25,297 gas vs E2 (−11.8% on REQ-R1-P0) |
+| `startRequest` (first and subsequent) | −22,193 |
+| `agree` | −1,306 |
+| Terminal (empty payload) | −1,798 |
+| Terminal inform at 1024 B | **+1,432** (lost refund of the uncleared token slot) |
+| Deployment | **+35,251** initiator, **+30,907** participant |
+| Manual baseline | 0 difference (control) |
+| Contract Net | 0 difference |
+| Live initiator session slots | 1 (vs 2 in E2) + 1 persistent nonce |
+
+Core tests at the same fuzz seed: official E2 207/207; packed 206/207. The single failure is
+`Request.t.sol::test_corr_tokenAssignedByCoreAndDeliveredToPeer`, which peeks at
+`_request[id].replyWith` in storage (zero on the packed initiator). `requestStatus().replyWith`,
+correlation, replay, reuse, fuzz, invariants and the trusted-relay tests pass. Packed-specific
+tests cover the Core formula, a `uint80` exhaustion revert, and a **chain-id change during a live
+session**: packed recomputes with the new id and rejects the old token; official compares the stored
+token and still accepts. That is a real semantic difference.
+
+**Recommendation: do not adopt** in the official Core. Interaction savings are real but deployment
+grows, a 1024-byte terminal can cost more, the mapping layout and a new `RequestNonceExhausted`
+error change, and in-session chain-id behaviour diverges. E2 is unchanged.
 
 ## Integrity
 
