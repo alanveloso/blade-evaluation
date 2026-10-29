@@ -1,0 +1,7 @@
+# No PyPI packages. Agents use the Python 3.12 standard library plus Foundry.
+# Required local tools (already used by the BLADE evaluation artifact):
+#   python3 >= 3.10
+#   forge 1.7.1 (4072e48)
+#   anvil 1.7.1 (4072e48)
+#   cast  1.7.1 (4072e48)
+#   solc  0.8.26 (invoked by forge)
