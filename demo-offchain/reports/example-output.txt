@@ -1,0 +1,151 @@
+{
+  "core_path": "/home/alanveloso/C\u00f3digo/blade-integrado/blade",
+  "expected_commit": "4b60b86159e89baccd24a859ca62e7039a8c8be2",
+  "head": "4b60b86159e89baccd24a859ca62e7039a8c8be2",
+  "src_clean": true,
+  "dirty_paths": []
+}
+OK: official BLADE Core is unchanged at E2.
+
+No files changed, compilation skipped
+
+Ran 8 tests for test/OffchainDemo.t.sol:OffchainDemoTest
+[PASS] test_applicationFunctionsAreOperatorGated() (gas: 306662)
+[PASS] test_caseA_informInLaterTransaction() (gas: 343182)
+[PASS] test_caseB_refuseInLaterTransaction() (gas: 331652)
+[PASS] test_caseC_staleTokenAfterConversationIdReuse() (gas: 623224)
+[PASS] test_caseC_unauthorizedSenderLeavesState() (gas: 315863)
+[PASS] test_caseC_wrongTokenLeavesState() (gas: 324807)
+[PASS] test_identitiesRolesAndEvents() (gas: 339544)
+[PASS] test_requestDoesNotAutoReply() (gas: 305864)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 1.56ms (2.95ms CPU time)
+
+Ran 1 test suite in 7.27ms (1.56ms CPU time): 8 tests passed, 0 failed, 0 skipped (8 total tests)
+
+requester 0x5fbdb2315678afecb367f032d93f642f64180aa3
+participant 0xe7f1725e7734ce288f8367e1bb143e90bb3f0512
+
+--- requester log ---
+{"agent": "A", "contract": "0x5fbdb2315678afecb367f032d93f642f64180aa3", "event": "start", "pid": 59623, "policy": "request ACCEPT then REFUSE then open invalid-probe conversations", "unix_ts": 1793280674.2916093}
+{"agent": "A", "case": "A", "conversation_id": "0xe4984038ea75fb508baebaecdede0777de0df39135477d1bb73535d7bf439766", "event": "policy_decide_request", "payload": "0x01", "unix_ts": 1793280674.2917519}
+{"agent": "A", "block": 3, "case": "A", "conversation_id": "0xe4984038ea75fb508baebaecdede0777de0df39135477d1bb73535d7bf439766", "event": "request_sent", "peer": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512", "phase": 1, "role": 1, "token": "0x7ae71af87db9a49304dceaefa06b6e5b1230e9c82e9f9bca5792a005549bad31", "tx": "0xdef6212585f7f7fbc22275cbd74ecf883388b0e6eccf79ff3c337dc3ce7e541c", "unix_ts": 1793280674.3272324}
+{"agent": "A", "case": "A", "content": "0xc0ffee", "conversation_id": "0xe4984038ea75fb508baebaecdede0777de0df39135477d1bb73535d7bf439766", "correlation": "0x7ae71af87db9a49304dceaefa06b6e5b1230e9c82e9f9bca5792a005549bad31", "event": "outcome_observed", "outcome_block": 4, "performative": 4, "phase_after": 0, "unix_ts": 1793280674.565247}
+{"agent": "A", "case": "B", "conversation_id": "0xa57209aeb3d56c11c9acb295b5a15142e6dbb79cffa0be4b54f24d7ac7cf81e3", "event": "policy_decide_request", "payload": "0x00", "unix_ts": 1793280674.565382}
+{"agent": "A", "block": 5, "case": "B", "conversation_id": "0xa57209aeb3d56c11c9acb295b5a15142e6dbb79cffa0be4b54f24d7ac7cf81e3", "event": "request_sent", "peer": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512", "phase": 1, "role": 1, "token": "0xc2f840a4e960f95dbed60b53f190948e18b1f553d9052fa784feea83237aa29b", "tx": "0x97930d7774f3ad05dbdeb9443981914359483e79afa8aeb0f0f4a5e2ac9d5c93", "unix_ts": 1793280674.6027877}
+{"agent": "A", "case": "B", "content": "0xb1", "conversation_id": "0xa57209aeb3d56c11c9acb295b5a15142e6dbb79cffa0be4b54f24d7ac7cf81e3", "correlation": "0xc2f840a4e960f95dbed60b53f190948e18b1f553d9052fa784feea83237aa29b", "event": "outcome_observed", "outcome_block": 6, "performative": 2, "phase_after": 0, "unix_ts": 1793280674.835813}
+{"agent": "A", "case": "C-wrong", "conversation_id": "0xb56a7d6a28c1d854b5204f67055669f2c3b6443c6b56e86d6d5f551841b73328", "event": "policy_decide_request", "payload": "0x03", "unix_ts": 1793280674.8359342}
+{"agent": "A", "block": 7, "case": "C-wrong", "conversation_id": "0xb56a7d6a28c1d854b5204f67055669f2c3b6443c6b56e86d6d5f551841b73328", "event": "request_sent", "peer": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512", "phase": 1, "role": 1, "token": "0x1dbbae1e8a0e65527203366b5aebe25878ceef3491c57cabf07af07927c008d8", "tx": "0x6b0dae870f28c70fe6bde9ecd860af9cd7241603b49783995e94b5536d47e6ff", "unix_ts": 1793280674.8724313}
+{"agent": "A", "case": "C-wrong", "conversation_id": "0xb56a7d6a28c1d854b5204f67055669f2c3b6443c6b56e86d6d5f551841b73328", "event": "invalid_probe_window", "outcome_present": false, "phase": 1, "token": "0x1dbbae1e8a0e65527203366b5aebe25878ceef3491c57cabf07af07927c008d8", "unix_ts": 1793280676.1161344}
+{"agent": "A", "case": "C-stale", "conversation_id": "0xe4984038ea75fb508baebaecdede0777de0df39135477d1bb73535d7bf439766", "event": "policy_decide_request", "payload": "0x04", "unix_ts": 1793280676.1162794}
+{"agent": "A", "block": 8, "case": "C-stale", "conversation_id": "0xe4984038ea75fb508baebaecdede0777de0df39135477d1bb73535d7bf439766", "event": "request_sent", "peer": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512", "phase": 1, "role": 1, "token": "0x3362ec19ecc1858ae0b73e337049aeb311602614d35d6be715e4e32078c2f83a", "tx": "0x5157e54b7f382c25687f1632b4376bed532508323591660ce3e210595473ed9b", "unix_ts": 1793280676.152085}
+{"agent": "A", "case": "C-stale", "conversation_id": "0xe4984038ea75fb508baebaecdede0777de0df39135477d1bb73535d7bf439766", "event": "invalid_probe_window", "outcome_present": false, "phase": 1, "token": "0x3362ec19ecc1858ae0b73e337049aeb311602614d35d6be715e4e32078c2f83a", "unix_ts": 1793280677.397176}
+{"agent": "A", "event": "done", "unix_ts": 1793280677.3973083}
+
+--- provider log ---
+{"agent": "B", "contract": "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512", "event": "start", "pid": 59556, "policy": "ACCEPT->Inform, REFUSE->Refuse, 0x03->wrong token, 0x04->stale token", "unix_ts": 1793280673.8642137}
+{"agent": "B", "content": "0x01", "conversation_id": "0xe4984038ea75fb508baebaecdede0777de0df39135477d1bb73535d7bf439766", "decision": "inform", "event": "observed_request", "live_token": "0x7ae71af87db9a49304dceaefa06b6e5b1230e9c82e9f9bca5792a005549bad31", "note": "decision is off-chain and after the delivering transaction", "previous_token": null, "received_block": 3, "requester": "0x5FbDB2315678afecb367f032d93F642f64180aa3", "unix_ts": 1793280674.3677769}
+{"action": "inform", "agent": "B", "block": 4, "conversation_id": "0xe4984038ea75fb508baebaecdede0777de0df39135477d1bb73535d7bf439766", "event": "response_sent", "token_used": "0x7ae71af87db9a49304dceaefa06b6e5b1230e9c82e9f9bca5792a005549bad31", "tx": "0xc8df412b2dff668871f1e7b1268cd0be3c25a2512cbee896617cb26befcb890c", "unix_ts": 1793280674.3844724}
+{"agent": "B", "content": "0x00", "conversation_id": "0xa57209aeb3d56c11c9acb295b5a15142e6dbb79cffa0be4b54f24d7ac7cf81e3", "decision": "refuse", "event": "observed_request", "live_token": "0xc2f840a4e960f95dbed60b53f190948e18b1f553d9052fa784feea83237aa29b", "note": "decision is off-chain and after the delivering transaction", "previous_token": null, "received_block": 5, "requester": "0x5FbDB2315678afecb367f032d93F642f64180aa3", "unix_ts": 1793280674.643055}
+{"action": "refuse", "agent": "B", "block": 6, "conversation_id": "0xa57209aeb3d56c11c9acb295b5a15142e6dbb79cffa0be4b54f24d7ac7cf81e3", "event": "response_sent", "token_used": "0xc2f840a4e960f95dbed60b53f190948e18b1f553d9052fa784feea83237aa29b", "tx": "0xd48054280bdca772adfc6f931cdbb78bd12aee4f65f97604c8b84744e9144cc5", "unix_ts": 1793280674.6603103}
+{"agent": "B", "content": "0x03", "conversation_id": "0xb56a7d6a28c1d854b5204f67055669f2c3b6443c6b56e86d6d5f551841b73328", "decision": "invalid_wrong_token", "event": "observed_request", "live_token": "0x1dbbae1e8a0e65527203366b5aebe25878ceef3491c57cabf07af07927c008d8", "note": "decision is off-chain and after the delivering transaction", "previous_token": null, "received_block": 7, "requester": "0x5FbDB2315678afecb367f032d93F642f64180aa3", "unix_ts": 1793280674.9188275}
+{"action": "invalid_wrong_token", "agent": "B", "conversation_id": "0xb56a7d6a28c1d854b5204f67055669f2c3b6443c6b56e86d6d5f551841b73328", "event": "response_rejected_by_core", "live_token": "0x1dbbae1e8a0e65527203366b5aebe25878ceef3491c57cabf07af07927c008d8", "pending_still_present": true, "revert": "Error: Failed to estimate gas: server returned an error response: error code 3: execution reverted: custom error 0xb774f43b, data: \"0xb774f43b\": ReplyWithMismatch\n", "token_used": "0xdededededededededededededededededededededededededededededededede", "unix_ts": 1793280674.9620283}
+{"agent": "B", "content": "0x04", "conversation_id": "0xe4984038ea75fb508baebaecdede0777de0df39135477d1bb73535d7bf439766", "decision": "invalid_stale_token", "event": "observed_request", "live_token": "0x3362ec19ecc1858ae0b73e337049aeb311602614d35d6be715e4e32078c2f83a", "note": "decision is off-chain and after the delivering transaction", "previous_token": "0x7ae71af87db9a49304dceaefa06b6e5b1230e9c82e9f9bca5792a005549bad31", "received_block": 8, "requester": "0x5FbDB2315678afecb367f032d93F642f64180aa3", "unix_ts": 1793280676.3152928}
+{"action": "invalid_stale_token", "agent": "B", "conversation_id": "0xe4984038ea75fb508baebaecdede0777de0df39135477d1bb73535d7bf439766", "event": "response_rejected_by_core", "live_token": "0x3362ec19ecc1858ae0b73e337049aeb311602614d35d6be715e4e32078c2f83a", "pending_still_present": true, "revert": "Error: Failed to estimate gas: server returned an error response: error code 3: execution reverted: custom error 0xb774f43b, data: \"0xb774f43b\": ReplyWithMismatch\n", "token_used": "0x7ae71af87db9a49304dceaefa06b6e5b1230e9c82e9f9bca5792a005549bad31", "unix_ts": 1793280676.3507075}
+{"agent": "B", "event": "stop", "unix_ts": 1793280677.75542}
+
+--- probe log ---
+{"conversation_id": "0xb56a7d6a28c1d854b5204f67055669f2c3b6443c6b56e86d6d5f551841b73328", "from": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC", "outcome_present": false, "phase_after": 1, "phase_before": 1, "probe": "unauthorized_sender", "revert": "Error: Failed to estimate gas: server returned an error response: error code 3: execution reverted: custom error 0x693df6aa, data: \"0x693df6aa\": UnexpectedPeer\n", "state_unchanged": true, "token_after": "0x1dbbae1e8a0e65527203366b5aebe25878ceef3491c57cabf07af07927c008d8", "token_before": "0x1dbbae1e8a0e65527203366b5aebe25878ceef3491c57cabf07af07927c008d8", "unix_ts": 1793280677.5403998}
+
+--- final chain state ---
+{
+  "A": {
+    "requester": {
+      "phase": 1,
+      "role": 1,
+      "transportPeer": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      "logicalPeer": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "replyWith": "0x3362ec19ecc1858ae0b73e337049aeb311602614d35d6be715e4e32078c2f83a"
+    },
+    "participant": {
+      "phase": 1,
+      "role": 2,
+      "transportPeer": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      "logicalPeer": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "replyWith": "0x3362ec19ecc1858ae0b73e337049aeb311602614d35d6be715e4e32078c2f83a"
+    },
+    "pending": {
+      "present": true,
+      "requester": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      "replyWith": "0x3362ec19ecc1858ae0b73e337049aeb311602614d35d6be715e4e32078c2f83a",
+      "receivedBlock": 8,
+      "content": "0x04"
+    },
+    "outcome": {
+      "present": false,
+      "performative": 0,
+      "correlation": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "blockNumber": 0,
+      "content": "0x"
+    }
+  },
+  "B": {
+    "requester": {
+      "phase": 0,
+      "role": 0,
+      "transportPeer": "0x0000000000000000000000000000000000000000",
+      "logicalPeer": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "replyWith": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "participant": {
+      "phase": 0,
+      "role": 0,
+      "transportPeer": "0x0000000000000000000000000000000000000000",
+      "logicalPeer": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "replyWith": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "pending": {
+      "present": false,
+      "requester": "0x0000000000000000000000000000000000000000",
+      "replyWith": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "receivedBlock": 0,
+      "content": "0x"
+    },
+    "outcome": {
+      "present": true,
+      "performative": 2,
+      "correlation": "0xc2f840a4e960f95dbed60b53f190948e18b1f553d9052fa784feea83237aa29b",
+      "blockNumber": 6,
+      "content": "0xb1"
+    }
+  },
+  "C": {
+    "requester": {
+      "phase": 1,
+      "role": 1,
+      "transportPeer": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      "logicalPeer": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "replyWith": "0x1dbbae1e8a0e65527203366b5aebe25878ceef3491c57cabf07af07927c008d8"
+    },
+    "participant": {
+      "phase": 1,
+      "role": 2,
+      "transportPeer": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      "logicalPeer": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "replyWith": "0x1dbbae1e8a0e65527203366b5aebe25878ceef3491c57cabf07af07927c008d8"
+    },
+    "pending": {
+      "present": true,
+      "requester": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      "replyWith": "0x1dbbae1e8a0e65527203366b5aebe25878ceef3491c57cabf07af07927c008d8",
+      "receivedBlock": 7,
+      "content": "0x03"
+    },
+    "outcome": {
+      "present": false,
+      "performative": 0,
+      "correlation": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "blockNumber": 0,
+      "content": "0x"
+    }
+  }
+}

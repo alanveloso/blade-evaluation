@@ -1,0 +1,2 @@
+forge-std/=../../blade/lib/forge-std/src/
+blade/=../../blade/src/
