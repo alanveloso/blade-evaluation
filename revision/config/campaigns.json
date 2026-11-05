@@ -227,7 +227,8 @@
       },
       "ABL-E3": {
         "base": "E3",
-        "variant_rebase": "RequestAgent.sol"
+        "variant_rebase": null,
+        "variants_dir": "ablation/variants-e3"
       }
     },
     "variants": [

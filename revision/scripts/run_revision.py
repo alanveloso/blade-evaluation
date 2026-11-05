@@ -917,22 +917,39 @@ def mode_core_tests(camp_id: str) -> None:
 # Ablation
 # ---------------------------------------------------------------------------------------------
 
-def ablation_tree(variant: str, base_core: Path, rebase: str | None, dest: Path) -> Path:
-    src = ROOT / "ablation" / "variants" / variant
+def ablation_variants_root(spec: dict) -> Path:
+    """Default shared trees for E0–E2; ABL-E3 uses a dedicated E3-based tree set."""
+    rel = spec.get("variants_dir", "ablation/variants")
+    root = ROOT / rel
+    if not root.is_dir():
+        abort(f"ablation variants_dir missing: {root}")
+    return root
+
+
+def ablation_tree(variant: str, base_core: Path, rebase: str | None, dest: Path,
+                  variants_root: Path) -> Path:
+    src = variants_root / variant
+    if not src.is_dir():
+        abort(f"ablation variant missing: {src}")
     if variant == "A0" and not rebase:
+        # Still require A0 to match the campaign BLADE checkout when used as overlay source.
+        for f in src.glob("*.sol"):
+            core_f = base_core / "src" / "core" / f.name
+            if not core_f.is_file() or sha256_file(f) != sha256_file(core_f):
+                abort(f"A0 differs from BLADE at {f.name} (variants_root={variants_root})")
         return src
     dest.mkdir(parents=True, exist_ok=True)
     for f in src.glob("*.sol"):
         shutil.copyfile(f, dest / f.name)
     if rebase:
-        a0 = ROOT / "ablation" / "variants" / "A0" / rebase
+        a0 = variants_root / "A0" / rebase
         if sha256_file(src / rebase) != sha256_file(a0):
             abort(f"{variant} modifies {rebase}; cannot rebase")
         shutil.copyfile(base_core / "src" / "core" / rebase, dest / rebase)
     if variant == "A0":
         for f in dest.glob("*.sol"):
             if sha256_file(f) != sha256_file(base_core / "src" / "core" / f.name):
-                abort(f"rebased A0 differs from Core at {f.name}")
+                abort(f"rebased A0 differs from BLADE at {f.name}")
     return dest
 
 
@@ -965,13 +982,15 @@ def mode_ablation(abl_id: str) -> None:
         cells.update(acfg["historical_cells"])
     needed = {v: {tuple(c) for c in cells.get(v, [])} for v in acfg["variants"]}
     needed["A0"] = set().union(*needed.values())
+    variants_root = ablation_variants_root(spec)
     meta = {"ablation_id": abl_id, "base_campaign": spec["base"], "campaign": camp,
+            "variants_dir": str(variants_root.relative_to(ROOT)),
             "config_sha256": sha256_file(CFG_PATH), "runner_sha256": sha256_file(Path(__file__)),
             "evaluation_git": eval_git(), "historical_hashes_verified": hist, "toolchain": tc,
             "variants": {}}
     results = {}
     for v in acfg["variants"]:
-        tree = ablation_tree(v, core, spec["variant_rebase"], base / "trees" / v)
+        tree = ablation_tree(v, core, spec["variant_rebase"], base / "trees" / v, variants_root)
         proj = base / "projects" / v
         sources = prepare_project(proj, core, tree, None, core_sha=camp["core_sha"])
         compiler = forge_config_check(proj)

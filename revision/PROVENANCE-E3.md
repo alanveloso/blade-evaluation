@@ -9,7 +9,7 @@ those campaigns). Record both SHAs when promoting E3 evidence.
 | Evaluation branch | `feature/contract-net-generated-ids` |
 | Evaluation commit | set from `evaluation_git.head` in `outputs/revision/E3/meta.json` after a run |
 | Campaign | `E3` (`revision/config/campaigns.json`, profile `cn-generated`) |
-| Ablation | `ABL-E3` (needs ablation trees rebased onto the E3 BLADE tree) |
+| Ablation | `ABL-E3` (`ablation/variants-e3/`, A0 == blade `f9ebfd3` `src/core`) |
 
 `comparison/src/blade-app/BladeContractNet.sol` stays on the published `PUBLIC_MANIFEST` (E0–E2).
 E3 only overlays `revision/pinned/blade-app/BladeContractNet.generated-ids.sol` inside the isolated

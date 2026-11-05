@@ -1,0 +1,76 @@
+{
+  "campaign_id": "E3",
+  "profile": "cn-generated",
+  "definition": {
+    "description": "E3 Core (generated Contract Net conversation ids). As 'token', but ContractNetEquivalence is replaced by ContractNetEquivalenceRev; revision ports use the returned id on the BLADE side.",
+    "replace": {
+      "RequestEquivalence.t.sol": {
+        "by": "RequestEquivalenceRev.t.sol",
+        "reason": "Original continuations carry no correlation token; the corrected BLADE rejects them with ReplyWithMismatch."
+      },
+      "ParametricEquivalence.t.sol": {
+        "by": "ParametricEquivalenceRev.t.sol",
+        "reason": "Same 13 cells with token-aware Request continuations and generated-id BLADE Contract Net CFP."
+      },
+      "StoragePilot.t.sol": {
+        "by": "StorageRev.t.sol",
+        "reason": "Session slots must return to zero while allowing the persistent Request nonce slot; BLADE CN uses BLADE-assigned ids."
+      },
+      "ContractNetEquivalence.t.sol": {
+        "by": "ContractNetEquivalenceRev.t.sol",
+        "reason": "Original BLADE path passes an application conversationId; E3 BLADE assigns ids at CFP opening and rejects non-zero ids."
+      }
+    },
+    "env": {},
+    "not_applicable": [
+      {
+        "test": "comparison/test/RequestEquivalence.t.sol",
+        "reason": "Replaced by RequestEquivalenceRev.t.sol."
+      },
+      {
+        "test": "comparison/test/ParametricEquivalence.t.sol",
+        "reason": "Replaced by ParametricEquivalenceRev.t.sol."
+      },
+      {
+        "test": "comparison/test/StoragePilot.t.sol",
+        "reason": "Replaced by StorageRev.t.sol."
+      },
+      {
+        "test": "comparison/test/ContractNetEquivalence.t.sol",
+        "reason": "Replaced by ContractNetEquivalenceRev.t.sol for BLADE-assigned CN ids."
+      }
+    ]
+  },
+  "env": {},
+  "test_files": [
+    "comparison/test/revision/ContractNetEquivalenceRev.t.sol",
+    "comparison/test/revision/ParametricEquivalenceRev.t.sol",
+    "comparison/test/revision/PayloadEncodingEquivalence.t.sol",
+    "comparison/test/revision/RequestEquivalenceRev.t.sol",
+    "comparison/test/revision/ResidualExposure.t.sol",
+    "comparison/test/revision/StorageRev.t.sol"
+  ],
+  "core_sha": "f9ebfd36937abe66b35496ead25aa980e3c4b527",
+  "config_sha256": "f97ce5ea8e6e6bfd7093781f97a9abcb60a9ebf3cb9aa45b18984e5524787c31",
+  "runner_sha256": "e61c3b47595a4a3e5b1402d1575242b355dfd270b1cb0fe001d2214c0db2ec4d",
+  "sources_sha256": {
+    "comparison/src/blade-app/BladeContractNet.sol": "217842a4b98cbb3c7a06eaeb53138f826fefb80ba742621c265e736feb172d37",
+    "comparison/src/blade-app/BladeRequest.sol": "d635e2e5be3209c3a69f6aa6dca8e3a7f34150e922bd56c58337aeef854fca1d",
+    "comparison/src/manual/ManualContractNet.sol": "c558af3b5abd18efc46bc31618beee4f9222925988bd070bd76b80fd94630198",
+    "comparison/src/manual/ManualRequest.sol": "8278ecbb69446673db9da30e5754bcf8ad4562440c38443ac3cb1490bc9f6377",
+    "blade/core/Agent.sol": "45e44b36e54a09da71f979a4d280ed5c4c057cd74b23f6cc239bb050bcb5b7f1",
+    "blade/core/ContractNetLib.sol": "1ad1bb594fe02b082d475a4236eb3fab03091d1085f723ac63ee0e6f74b24a71",
+    "blade/core/ContractNetManager.sol": "b163d958aedd2eae80c5ea28e9d8f85f153b674b85a632bb0455f7a90c6c044a",
+    "blade/core/ContractNetParticipant.sol": "d17849fc6dae899230e420a1dd929681ecff57178d7a958089c81dbd83c44e59",
+    "blade/core/IAgent.sol": "3dbc2b2f03a37e4634a24676931c475b9a6c5d9a4e6a348b1aacd82a3f93403d",
+    "blade/core/Message.sol": "f81843039114dd925ee17bf3ae4fb66004c30689b443e0affc1e2cb482ac1b4b",
+    "blade/core/Performative.sol": "92e9746e33d3157e436932c4153ed4758cd24058b682a46ba9bbd0a2079c5c22",
+    "blade/core/Protocol.sol": "ca5eb6a50a8d89baf25cef5aa2fc73a235d3d29d98b0e14ece80693f179337b8",
+    "blade/core/RequestAgent.sol": "4a409c7caae76ee87c2a7b4901f4a861df8b8657202e92dddecf67502147d0af",
+    "blade/core/SubscribeAgent.sol": "41cebf344ce554759b6e31c7fab561adf09db9cc165a24ff4d401e084998f085"
+  },
+  "forge_exit": 0,
+  "summary": [
+    "Ran 6 test suites in 347.69ms (404.84ms CPU time): 48 tests passed, 0 failed, 0 skipped (48 total tests)"
+  ]
+}
