@@ -1,16 +1,32 @@
 # E3 provenance (Contract Net generated conversation ids)
 
 Additive to the published E0/E1/E2 package (`PUBLIC_MANIFEST.sha256` / `PROVENANCE.md` unchanged for
-those campaigns). Record both SHAs when promoting E3 evidence.
+those campaigns).
 
 | Item | Value |
 |---|---|
-| BLADE (E3) | `f9ebfd36937abe66b35496ead25aa980e3c4b527` (update after the blade feature commit) |
-| Evaluation branch | `feature/contract-net-generated-ids` |
-| Evaluation commit | set from `evaluation_git.head` in `outputs/revision/E3/meta.json` after a run |
-| Campaign | `E3` (`revision/config/campaigns.json`, profile `cn-generated`) |
-| Ablation | `ABL-E3` (`ablation/variants-e3/`, A0 == blade `f9ebfd3` `src/core`) |
+| BLADE | `f9ebfd36937abe66b35496ead25aa980e3c4b527` |
+| Evaluation (evidence commit) | `6d2997e268134ac38e0b108574fc199dbe92dc3f` (promote of `revision/data/E3` + `ABL-E3`) |
+| Campaign | `E3` — profile `cn-generated` in `revision/config/campaigns.json` |
+| Ablation | `ABL-E3` — trees in `ablation/variants-e3/` (A0 byte-identical to BLADE `src/core` at the pin above) |
+| Derived tables | `revision/results/` via `revision/scripts/analyze_revision.py` (includes E3 / ABL-E3) |
 
-`comparison/src/blade-app/BladeContractNet.sol` stays on the published `PUBLIC_MANIFEST` (E0–E2).
-E3 only overlays `revision/pinned/blade-app/BladeContractNet.generated-ids.sol` inside the isolated
-project. E2 event ablation overlays remain on `4b60b86159e89baccd24a859ca62e7039a8c8be2`.
+## Layout
+
+- Historical `comparison/src/blade-app/BladeContractNet.sol` remains on `PUBLIC_MANIFEST` (E0–E2).
+- E3 overlays `revision/pinned/blade-app/BladeContractNet.generated-ids.sol` only inside the isolated
+  runner project.
+- Promoted raw evidence: `revision/data/E3/`, `revision/data/ABL-E3/`.
+- E2 event ablation overlays stay on `4b60b86159e89baccd24a859ca62e7039a8c8be2`.
+
+## Reproduce
+
+```sh
+export BLADE_REPO=/path/to/blade   # checkout containing f9ebfd3…
+R=revision/scripts/run_revision.py
+python3 $R --mode tests --campaign E3
+python3 $R --mode campaign --campaign E3 --matrix diagnostic primary secondary
+python3 $R --mode ablation --campaign ABL-E3
+python3 revision/scripts/promote.py E3 ABL-E3
+(cd revision/scripts && python3 analyze_revision.py)
+```
