@@ -223,10 +223,11 @@ contract StorageRevTest is RevisionBase {
         _scratch(M);
         vm.record();
         uint64 by = uint64(block.timestamp + 10);
+        bytes32 cnId = CID;
         if (blade) {
-            BladeManager(M).cfp(parts, CID, by, "");
+            cnId = _bladeCfp(M, parts, CID, by, "");
             for (uint256 i = 0; i < n; i++) {
-                BladeCnParticipant(parts[i]).propose(_cfpInbound(CID, by, ""), M, "");
+                BladeCnParticipant(parts[i]).propose(_cfpInbound(cnId, by, ""), M, "");
             }
         } else {
             ManualManager(M).cfp(parts, CID, by, "");
@@ -239,7 +240,7 @@ contract StorageRevTest is RevisionBase {
         vm.warp(uint256(by) + 1);
         address[] memory none = new address[](0);
         if (blade) {
-            BladeManager(M).evaluate(CID, parts, none, none);
+            BladeManager(M).evaluate(cnId, parts, none, none);
         } else {
             ManualManager(M).evaluate(CID, parts, none, none);
         }
@@ -247,7 +248,7 @@ contract StorageRevTest is RevisionBase {
         Count memory afterEval = _count(M);
         for (uint256 i = 0; i < n; i++) {
             if (blade) {
-                BladeCnParticipant(parts[i]).inform(_acceptInbound(CID), M, "");
+                BladeCnParticipant(parts[i]).inform(_acceptInbound(cnId), M, "");
             } else {
                 ManualCnParticipant(parts[i]).inform(CID, "");
             }
