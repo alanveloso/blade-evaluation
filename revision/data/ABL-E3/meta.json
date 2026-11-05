@@ -1,0 +1,246 @@
+{
+  "ablation_id": "ABL-E3",
+  "base_campaign": "E3",
+  "campaign": {
+    "core_overlay": null,
+    "core_sha": "f9ebfd36937abe66b35496ead25aa980e3c4b527",
+    "expected_node_hardfork": "Cancun",
+    "hardfork": "cancun",
+    "manual_variant": null,
+    "payload_encoding": "minimal",
+    "role": "E2 plus BLADE-assigned Contract Net conversation ids at CFP opening. E3 - E2 isolates the CN id policy; manual baseline still uses application-chosen ids.",
+    "test_profile": "cn-generated"
+  },
+  "config_sha256": "2cf5ef61e82bea783bc245fb46708fb633e7adb2a7d6f8518b93b86c5353878e",
+  "evaluation_git": {
+    "dirty_paths": [
+      "revision/PROVENANCE-E3.md",
+      "revision/REVISION_MANIFEST.sha256",
+      "revision/config/campaigns.json",
+      "revision/scripts/run_revision.py",
+      "ablation/variants-e3/",
+      "revision.zip",
+      "revision/data/E3/",
+      "revision/evidence/",
+      "revision/scripts/generate_ablation_e3.py"
+    ],
+    "head": "dc8a0cdcbef81afd2a1039f8cbdc113a395073f8"
+  },
+  "historical_hashes_verified": {
+    "PUBLIC_MANIFEST.sha256": "e8d8c969fffbf2280236462cfa5bbbac44be26a869dbda077aaa43b42d3e923e",
+    "ablation/raw/ablation.json": "83bdf04595e7edb73c48b7dbd5dd7bbb2905461cefc2836279491d3dd54ddf8a",
+    "data/raw/primary.jsonl": "718675c92aa438e56a8dac7b1d065a36b05127bbeb417fdd4bde6bf9be6a02c1",
+    "data/raw/secondary.jsonl": "d1f91a336ee0e550ce305d3bfebdeaceba42ca604337bed5471cc2ca39d009b0"
+  },
+  "runner_sha256": "8eafb18eb2d594ae0df73cecd9abf84f28a42dd9db20177bf5506d5562e78769",
+  "toolchain": {
+    "anvil": {
+      "commit": "4072e48705af9d93e3c0f6e29e93b5e9a40caed8",
+      "raw": "anvil Version: 1.7.1\nCommit SHA: 4072e48705af9d93e3c0f6e29e93b5e9a40caed8\nBuild Timestamp: 2026-05-08T07:50:55.527285345Z (1778226655)\nBuild Profile: dist",
+      "version": "1.7.1"
+    },
+    "cast": {
+      "commit": "4072e48705af9d93e3c0f6e29e93b5e9a40caed8",
+      "raw": "cast Version: 1.7.1\nCommit SHA: 4072e48705af9d93e3c0f6e29e93b5e9a40caed8\nBuild Timestamp: 2026-05-08T07:50:55.527285345Z (1778226655)\nBuild Profile: dist",
+      "version": "1.7.1"
+    },
+    "forge": {
+      "commit": "4072e48705af9d93e3c0f6e29e93b5e9a40caed8",
+      "raw": "forge Version: 1.7.1\nCommit SHA: 4072e48705af9d93e3c0f6e29e93b5e9a40caed8\nBuild Timestamp: 2026-05-08T07:50:55.527285345Z (1778226655)\nBuild Profile: dist",
+      "version": "1.7.1"
+    },
+    "platform": "Linux-6.17.0-1033-oem-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "solc": {
+      "path": "/home/alanveloso/.local/share/svm/0.8.26/solc-0.8.26",
+      "raw": "solc, the solidity compiler commandline interface\nVersion: 0.8.26+commit.8a97fa7a.Linux.g++",
+      "sha256": "d5f23436f443edb85d8e76906d12f0a86ce0490e7663a9e608efeb7a93f149ef",
+      "version": "0.8.26"
+    }
+  },
+  "variants": {
+    "A0": {
+      "compiler": {
+        "evm_version": "cancun",
+        "optimizer": true,
+        "optimizer_runs": 200,
+        "solc": "0.8.26",
+        "via_ir": false
+      },
+      "sources_sha256": {
+        "blade/core/Agent.sol": "45e44b36e54a09da71f979a4d280ed5c4c057cd74b23f6cc239bb050bcb5b7f1",
+        "blade/core/ContractNetLib.sol": "1ad1bb594fe02b082d475a4236eb3fab03091d1085f723ac63ee0e6f74b24a71",
+        "blade/core/ContractNetManager.sol": "b163d958aedd2eae80c5ea28e9d8f85f153b674b85a632bb0455f7a90c6c044a",
+        "blade/core/ContractNetParticipant.sol": "d17849fc6dae899230e420a1dd929681ecff57178d7a958089c81dbd83c44e59",
+        "blade/core/IAgent.sol": "3dbc2b2f03a37e4634a24676931c475b9a6c5d9a4e6a348b1aacd82a3f93403d",
+        "blade/core/Message.sol": "f81843039114dd925ee17bf3ae4fb66004c30689b443e0affc1e2cb482ac1b4b",
+        "blade/core/Performative.sol": "92e9746e33d3157e436932c4153ed4758cd24058b682a46ba9bbd0a2079c5c22",
+        "blade/core/Protocol.sol": "ca5eb6a50a8d89baf25cef5aa2fc73a235d3d29d98b0e14ece80693f179337b8",
+        "blade/core/RequestAgent.sol": "4a409c7caae76ee87c2a7b4901f4a861df8b8657202e92dddecf67502147d0af",
+        "blade/core/SubscribeAgent.sol": "41cebf344ce554759b6e31c7fab561adf09db9cc165a24ff4d401e084998f085",
+        "comparison/src/blade-app/BladeContractNet.sol": "217842a4b98cbb3c7a06eaeb53138f826fefb80ba742621c265e736feb172d37",
+        "comparison/src/blade-app/BladeRequest.sol": "d635e2e5be3209c3a69f6aa6dca8e3a7f34150e922bd56c58337aeef854fca1d",
+        "comparison/src/manual/ManualContractNet.sol": "c558af3b5abd18efc46bc31618beee4f9222925988bd070bd76b80fd94630198",
+        "comparison/src/manual/ManualRequest.sol": "8278ecbb69446673db9da30e5754bcf8ad4562440c38443ac3cb1490bc9f6377"
+      },
+      "tree": "/home/alanveloso/C\u00f3digo/blade-integrado/blade-evaluation/ablation/variants-e3/A0"
+    },
+    "A1": {
+      "compiler": {
+        "evm_version": "cancun",
+        "optimizer": true,
+        "optimizer_runs": 200,
+        "solc": "0.8.26",
+        "via_ir": false
+      },
+      "sources_sha256": {
+        "blade/core/Agent.sol": "dcfd16fd4cbda027e312504a8d46085cee4d5950f5b72d760a3e03a2ee8dc295",
+        "blade/core/ContractNetLib.sol": "1ad1bb594fe02b082d475a4236eb3fab03091d1085f723ac63ee0e6f74b24a71",
+        "blade/core/ContractNetManager.sol": "b163d958aedd2eae80c5ea28e9d8f85f153b674b85a632bb0455f7a90c6c044a",
+        "blade/core/ContractNetParticipant.sol": "d17849fc6dae899230e420a1dd929681ecff57178d7a958089c81dbd83c44e59",
+        "blade/core/IAgent.sol": "3dbc2b2f03a37e4634a24676931c475b9a6c5d9a4e6a348b1aacd82a3f93403d",
+        "blade/core/Message.sol": "f81843039114dd925ee17bf3ae4fb66004c30689b443e0affc1e2cb482ac1b4b",
+        "blade/core/Performative.sol": "92e9746e33d3157e436932c4153ed4758cd24058b682a46ba9bbd0a2079c5c22",
+        "blade/core/Protocol.sol": "ca5eb6a50a8d89baf25cef5aa2fc73a235d3d29d98b0e14ece80693f179337b8",
+        "blade/core/RequestAgent.sol": "4a409c7caae76ee87c2a7b4901f4a861df8b8657202e92dddecf67502147d0af",
+        "blade/core/SubscribeAgent.sol": "41cebf344ce554759b6e31c7fab561adf09db9cc165a24ff4d401e084998f085",
+        "comparison/src/blade-app/BladeContractNet.sol": "217842a4b98cbb3c7a06eaeb53138f826fefb80ba742621c265e736feb172d37",
+        "comparison/src/blade-app/BladeRequest.sol": "d635e2e5be3209c3a69f6aa6dca8e3a7f34150e922bd56c58337aeef854fca1d",
+        "comparison/src/manual/ManualContractNet.sol": "c558af3b5abd18efc46bc31618beee4f9222925988bd070bd76b80fd94630198",
+        "comparison/src/manual/ManualRequest.sol": "8278ecbb69446673db9da30e5754bcf8ad4562440c38443ac3cb1490bc9f6377"
+      },
+      "tree": "/home/alanveloso/C\u00f3digo/blade-integrado/blade-evaluation/outputs/revision/ABL-E3/trees/A1"
+    },
+    "A2": {
+      "compiler": {
+        "evm_version": "cancun",
+        "optimizer": true,
+        "optimizer_runs": 200,
+        "solc": "0.8.26",
+        "via_ir": false
+      },
+      "sources_sha256": {
+        "blade/core/Agent.sol": "d868c8865cba73b7af019de3d1ad1208f3dbe1350b2679b52d65d8c68209fe9c",
+        "blade/core/ContractNetLib.sol": "1ad1bb594fe02b082d475a4236eb3fab03091d1085f723ac63ee0e6f74b24a71",
+        "blade/core/ContractNetManager.sol": "b163d958aedd2eae80c5ea28e9d8f85f153b674b85a632bb0455f7a90c6c044a",
+        "blade/core/ContractNetParticipant.sol": "f8c2b7854516a91f94f2fefd9160b5d752f0a776c48f5a1c4a55d40142e0ff42",
+        "blade/core/IAgent.sol": "3dbc2b2f03a37e4634a24676931c475b9a6c5d9a4e6a348b1aacd82a3f93403d",
+        "blade/core/Message.sol": "f81843039114dd925ee17bf3ae4fb66004c30689b443e0affc1e2cb482ac1b4b",
+        "blade/core/Performative.sol": "92e9746e33d3157e436932c4153ed4758cd24058b682a46ba9bbd0a2079c5c22",
+        "blade/core/Protocol.sol": "ca5eb6a50a8d89baf25cef5aa2fc73a235d3d29d98b0e14ece80693f179337b8",
+        "blade/core/RequestAgent.sol": "4a409c7caae76ee87c2a7b4901f4a861df8b8657202e92dddecf67502147d0af",
+        "blade/core/SubscribeAgent.sol": "41cebf344ce554759b6e31c7fab561adf09db9cc165a24ff4d401e084998f085",
+        "comparison/src/blade-app/BladeContractNet.sol": "217842a4b98cbb3c7a06eaeb53138f826fefb80ba742621c265e736feb172d37",
+        "comparison/src/blade-app/BladeRequest.sol": "d635e2e5be3209c3a69f6aa6dca8e3a7f34150e922bd56c58337aeef854fca1d",
+        "comparison/src/manual/ManualContractNet.sol": "c558af3b5abd18efc46bc31618beee4f9222925988bd070bd76b80fd94630198",
+        "comparison/src/manual/ManualRequest.sol": "8278ecbb69446673db9da30e5754bcf8ad4562440c38443ac3cb1490bc9f6377"
+      },
+      "tree": "/home/alanveloso/C\u00f3digo/blade-integrado/blade-evaluation/outputs/revision/ABL-E3/trees/A2"
+    },
+    "A3": {
+      "compiler": {
+        "evm_version": "cancun",
+        "optimizer": true,
+        "optimizer_runs": 200,
+        "solc": "0.8.26",
+        "via_ir": false
+      },
+      "sources_sha256": {
+        "blade/core/Agent.sol": "45e44b36e54a09da71f979a4d280ed5c4c057cd74b23f6cc239bb050bcb5b7f1",
+        "blade/core/ContractNetLib.sol": "7afb462d382b596617af076284e5e5dff9f2fd358379ea74d82e66a08abded04",
+        "blade/core/ContractNetManager.sol": "6b58f428be8de9d33ceafa7124c930d92fbceb002d844bd3512fe4c98bf7210f",
+        "blade/core/ContractNetParticipant.sol": "d17849fc6dae899230e420a1dd929681ecff57178d7a958089c81dbd83c44e59",
+        "blade/core/IAgent.sol": "3dbc2b2f03a37e4634a24676931c475b9a6c5d9a4e6a348b1aacd82a3f93403d",
+        "blade/core/Message.sol": "f81843039114dd925ee17bf3ae4fb66004c30689b443e0affc1e2cb482ac1b4b",
+        "blade/core/Performative.sol": "92e9746e33d3157e436932c4153ed4758cd24058b682a46ba9bbd0a2079c5c22",
+        "blade/core/Protocol.sol": "ca5eb6a50a8d89baf25cef5aa2fc73a235d3d29d98b0e14ece80693f179337b8",
+        "blade/core/RequestAgent.sol": "4a409c7caae76ee87c2a7b4901f4a861df8b8657202e92dddecf67502147d0af",
+        "blade/core/SubscribeAgent.sol": "41cebf344ce554759b6e31c7fab561adf09db9cc165a24ff4d401e084998f085",
+        "comparison/src/blade-app/BladeContractNet.sol": "217842a4b98cbb3c7a06eaeb53138f826fefb80ba742621c265e736feb172d37",
+        "comparison/src/blade-app/BladeRequest.sol": "d635e2e5be3209c3a69f6aa6dca8e3a7f34150e922bd56c58337aeef854fca1d",
+        "comparison/src/manual/ManualContractNet.sol": "c558af3b5abd18efc46bc31618beee4f9222925988bd070bd76b80fd94630198",
+        "comparison/src/manual/ManualRequest.sol": "8278ecbb69446673db9da30e5754bcf8ad4562440c38443ac3cb1490bc9f6377"
+      },
+      "tree": "/home/alanveloso/C\u00f3digo/blade-integrado/blade-evaluation/outputs/revision/ABL-E3/trees/A3"
+    },
+    "A34": {
+      "compiler": {
+        "evm_version": "cancun",
+        "optimizer": true,
+        "optimizer_runs": 200,
+        "solc": "0.8.26",
+        "via_ir": false
+      },
+      "sources_sha256": {
+        "blade/core/Agent.sol": "45e44b36e54a09da71f979a4d280ed5c4c057cd74b23f6cc239bb050bcb5b7f1",
+        "blade/core/ContractNetLib.sol": "7afb462d382b596617af076284e5e5dff9f2fd358379ea74d82e66a08abded04",
+        "blade/core/ContractNetManager.sol": "7fc36637d1030b2b7982df2602cd08e63350d62c5b21cc45a6e299632601ef91",
+        "blade/core/ContractNetParticipant.sol": "d17849fc6dae899230e420a1dd929681ecff57178d7a958089c81dbd83c44e59",
+        "blade/core/IAgent.sol": "3dbc2b2f03a37e4634a24676931c475b9a6c5d9a4e6a348b1aacd82a3f93403d",
+        "blade/core/Message.sol": "f81843039114dd925ee17bf3ae4fb66004c30689b443e0affc1e2cb482ac1b4b",
+        "blade/core/Performative.sol": "92e9746e33d3157e436932c4153ed4758cd24058b682a46ba9bbd0a2079c5c22",
+        "blade/core/Protocol.sol": "ca5eb6a50a8d89baf25cef5aa2fc73a235d3d29d98b0e14ece80693f179337b8",
+        "blade/core/RequestAgent.sol": "4a409c7caae76ee87c2a7b4901f4a861df8b8657202e92dddecf67502147d0af",
+        "blade/core/SubscribeAgent.sol": "41cebf344ce554759b6e31c7fab561adf09db9cc165a24ff4d401e084998f085",
+        "comparison/src/blade-app/BladeContractNet.sol": "217842a4b98cbb3c7a06eaeb53138f826fefb80ba742621c265e736feb172d37",
+        "comparison/src/blade-app/BladeRequest.sol": "d635e2e5be3209c3a69f6aa6dca8e3a7f34150e922bd56c58337aeef854fca1d",
+        "comparison/src/manual/ManualContractNet.sol": "c558af3b5abd18efc46bc31618beee4f9222925988bd070bd76b80fd94630198",
+        "comparison/src/manual/ManualRequest.sol": "8278ecbb69446673db9da30e5754bcf8ad4562440c38443ac3cb1490bc9f6377"
+      },
+      "tree": "/home/alanveloso/C\u00f3digo/blade-integrado/blade-evaluation/outputs/revision/ABL-E3/trees/A34"
+    },
+    "A4": {
+      "compiler": {
+        "evm_version": "cancun",
+        "optimizer": true,
+        "optimizer_runs": 200,
+        "solc": "0.8.26",
+        "via_ir": false
+      },
+      "sources_sha256": {
+        "blade/core/Agent.sol": "45e44b36e54a09da71f979a4d280ed5c4c057cd74b23f6cc239bb050bcb5b7f1",
+        "blade/core/ContractNetLib.sol": "1ad1bb594fe02b082d475a4236eb3fab03091d1085f723ac63ee0e6f74b24a71",
+        "blade/core/ContractNetManager.sol": "c8001c03d26cd2b011c0407eb1d40a43513ffb90afff357856e6d4d556f6612d",
+        "blade/core/ContractNetParticipant.sol": "d17849fc6dae899230e420a1dd929681ecff57178d7a958089c81dbd83c44e59",
+        "blade/core/IAgent.sol": "3dbc2b2f03a37e4634a24676931c475b9a6c5d9a4e6a348b1aacd82a3f93403d",
+        "blade/core/Message.sol": "f81843039114dd925ee17bf3ae4fb66004c30689b443e0affc1e2cb482ac1b4b",
+        "blade/core/Performative.sol": "92e9746e33d3157e436932c4153ed4758cd24058b682a46ba9bbd0a2079c5c22",
+        "blade/core/Protocol.sol": "ca5eb6a50a8d89baf25cef5aa2fc73a235d3d29d98b0e14ece80693f179337b8",
+        "blade/core/RequestAgent.sol": "4a409c7caae76ee87c2a7b4901f4a861df8b8657202e92dddecf67502147d0af",
+        "blade/core/SubscribeAgent.sol": "41cebf344ce554759b6e31c7fab561adf09db9cc165a24ff4d401e084998f085",
+        "comparison/src/blade-app/BladeContractNet.sol": "217842a4b98cbb3c7a06eaeb53138f826fefb80ba742621c265e736feb172d37",
+        "comparison/src/blade-app/BladeRequest.sol": "d635e2e5be3209c3a69f6aa6dca8e3a7f34150e922bd56c58337aeef854fca1d",
+        "comparison/src/manual/ManualContractNet.sol": "c558af3b5abd18efc46bc31618beee4f9222925988bd070bd76b80fd94630198",
+        "comparison/src/manual/ManualRequest.sol": "8278ecbb69446673db9da30e5754bcf8ad4562440c38443ac3cb1490bc9f6377"
+      },
+      "tree": "/home/alanveloso/C\u00f3digo/blade-integrado/blade-evaluation/outputs/revision/ABL-E3/trees/A4"
+    },
+    "A5": {
+      "compiler": {
+        "evm_version": "cancun",
+        "optimizer": true,
+        "optimizer_runs": 200,
+        "solc": "0.8.26",
+        "via_ir": false
+      },
+      "sources_sha256": {
+        "blade/core/Agent.sol": "0a844e800831077ebcfe82fd417b56b3dac6dd91afc459383e0f44b34fc9a535",
+        "blade/core/ContractNetLib.sol": "7afb462d382b596617af076284e5e5dff9f2fd358379ea74d82e66a08abded04",
+        "blade/core/ContractNetManager.sol": "7fc36637d1030b2b7982df2602cd08e63350d62c5b21cc45a6e299632601ef91",
+        "blade/core/ContractNetParticipant.sol": "f8c2b7854516a91f94f2fefd9160b5d752f0a776c48f5a1c4a55d40142e0ff42",
+        "blade/core/IAgent.sol": "3dbc2b2f03a37e4634a24676931c475b9a6c5d9a4e6a348b1aacd82a3f93403d",
+        "blade/core/Message.sol": "f81843039114dd925ee17bf3ae4fb66004c30689b443e0affc1e2cb482ac1b4b",
+        "blade/core/Performative.sol": "92e9746e33d3157e436932c4153ed4758cd24058b682a46ba9bbd0a2079c5c22",
+        "blade/core/Protocol.sol": "ca5eb6a50a8d89baf25cef5aa2fc73a235d3d29d98b0e14ece80693f179337b8",
+        "blade/core/RequestAgent.sol": "4a409c7caae76ee87c2a7b4901f4a861df8b8657202e92dddecf67502147d0af",
+        "blade/core/SubscribeAgent.sol": "41cebf344ce554759b6e31c7fab561adf09db9cc165a24ff4d401e084998f085",
+        "comparison/src/blade-app/BladeContractNet.sol": "217842a4b98cbb3c7a06eaeb53138f826fefb80ba742621c265e736feb172d37",
+        "comparison/src/blade-app/BladeRequest.sol": "d635e2e5be3209c3a69f6aa6dca8e3a7f34150e922bd56c58337aeef854fca1d",
+        "comparison/src/manual/ManualContractNet.sol": "c558af3b5abd18efc46bc31618beee4f9222925988bd070bd76b80fd94630198",
+        "comparison/src/manual/ManualRequest.sol": "8278ecbb69446673db9da30e5754bcf8ad4562440c38443ac3cb1490bc9f6377"
+      },
+      "tree": "/home/alanveloso/C\u00f3digo/blade-integrado/blade-evaluation/outputs/revision/ABL-E3/trees/A5"
+    }
+  },
+  "variants_dir": "ablation/variants-e3"
+}
