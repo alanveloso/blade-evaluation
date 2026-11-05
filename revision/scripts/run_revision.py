@@ -55,6 +55,11 @@ PROTO_REQ = 1
 PROTO_CN = 2
 MSG = "(uint8,uint8,bytes32,bytes32,bytes32,uint64,bytes32,bytes)"
 PRAGUE_PROBE = "0x000000000000000000000000000000000000000b"  # BLS12_G1ADD, Prague+
+E3_CORE_SHA = "f9ebfd36937abe66b35496ead25aa980e3c4b527"
+# Historical comparison/src/blade-app/BladeContractNet.sol stays on PUBLIC_MANIFEST (E0…E2).
+# E3 swaps in the generated-id application wrapper only inside the isolated project.
+E3_BLADE_CN = ROOT / "revision" / "pinned" / "blade-app" / "BladeContractNet.generated-ids.sol"
+_CONVERSATION_OPENED_TOPIC: str | None = None
 
 
 def abort(msg: str) -> None:
@@ -204,13 +209,43 @@ def test_profile(name: str) -> dict:
     return profiles[name]
 
 
+def core_assigns_cn_ids(core_sha: str) -> bool:
+    return core_sha == E3_CORE_SHA
+
+
+def conversation_opened_topic() -> str:
+    global _CONVERSATION_OPENED_TOPIC
+    if _CONVERSATION_OPENED_TOPIC is None:
+        _CONVERSATION_OPENED_TOPIC = run([CAST, "keccak", "ConversationOpened(bytes32)"]).stdout.strip().lower()
+    return _CONVERSATION_OPENED_TOPIC
+
+
+def cn_id_from_cfp(rec: dict, manager: str) -> str:
+    mgr = manager.lower()
+    topic = conversation_opened_topic()
+    for log in rec.get("logs", []):
+        if log.get("address", "").lower() != mgr:
+            continue
+        topics = [t.lower() for t in log.get("topics", [])]
+        if topics and topics[0] == topic:
+            cid = topics[1]
+            return cid if cid.startswith("0x") else "0x" + cid
+    raise RuntimeError(f"ConversationOpened not found for manager {manager}")
+
+
 def prepare_project(dest: Path, core: Path, overlay: Path | None, manual_variant,
                     with_tests: bool = False, variant_tests: list[str] | None = None,
-                    profile: dict | None = None) -> dict:
+                    profile: dict | None = None, core_sha: str | None = None) -> dict:
     if dest.exists():
         shutil.rmtree(dest)
     app = dest / "comparison" / "src"
     shutil.copytree(ROOT / "comparison" / "src" / "blade-app", app / "blade-app")
+    # Do not mutate the published comparison/ tree. E3 overlays the new CN wrapper in the
+    # isolated project only; E0/E0R/E1/E2 keep the PUBLIC_MANIFEST BladeContractNet.sol.
+    if core_sha and core_assigns_cn_ids(core_sha):
+        if not E3_BLADE_CN.is_file():
+            abort(f"missing E3 BladeContractNet pin at {E3_BLADE_CN}")
+        shutil.copyfile(E3_BLADE_CN, app / "blade-app" / "BladeContractNet.sol")
     shutil.copytree(ROOT / "comparison" / "src" / "manual", app / "manual")
     for layer in variant_layers(manual_variant):
         vdir = MANUAL_VARIANTS / layer
@@ -528,7 +563,11 @@ def cn_txs(ctx: Ctx, scenario: str, n_part: int, n: int, cid: str, impl: str) ->
     M = dM["_deployed"]
     parts = [d["_deployed"] for d in dPs]
     set_next_ts(DEADLINE["chain_ref_ts"])
-    cfp = send(M, "cfp(address[],bytes32,uint64,bytes)", "[" + ",".join(parts) + "]", cid, str(by), p)
+    if blade and core_assigns_cn_ids(ctx.camp["core_sha"]):
+        cfp = send(M, "cfp(address[],uint64,bytes)", "[" + ",".join(parts) + "]", str(by), p)
+        cid = cn_id_from_cfp(cfp, M)
+    else:
+        cfp = send(M, "cfp(address[],bytes32,uint64,bytes)", "[" + ",".join(parts) + "]", cid, str(by), p)
     txs.append(("cfp", cfp, False))
     blk = json.loads(run([CAST, "block", cfp["blockNumber"], "--rpc-url", RPC, "--json"]).stdout)
     ts = int(blk["timestamp"], 16) if isinstance(blk["timestamp"], str) else int(blk["timestamp"])
@@ -702,7 +741,8 @@ def setup_campaign(camp_id: str, tests: bool = False, profile_name: str | None =
     overlay = core_overlay(camp, core, base)
     proj = base / ("test-project" if tests else "project")
     sources = prepare_project(proj, core, overlay, camp.get("manual_variant"), with_tests=tests,
-                              variant_tests=camp.get("variant_tests"), profile=profile)
+                              variant_tests=camp.get("variant_tests"), profile=profile,
+                              core_sha=camp["core_sha"])
     compiler = forge_config_check(proj)
     build(proj)
     meta = {
@@ -933,7 +973,7 @@ def mode_ablation(abl_id: str) -> None:
     for v in acfg["variants"]:
         tree = ablation_tree(v, core, spec["variant_rebase"], base / "trees" / v)
         proj = base / "projects" / v
-        sources = prepare_project(proj, core, tree, None)
+        sources = prepare_project(proj, core, tree, None, core_sha=camp["core_sha"])
         compiler = forge_config_check(proj)
         build(proj)
         meta["variants"][v] = {"tree": str(tree), "sources_sha256": sources, "compiler": compiler}

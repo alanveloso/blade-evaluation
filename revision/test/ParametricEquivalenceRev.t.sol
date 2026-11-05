@@ -17,8 +17,8 @@ import {RequestPhase} from "blade/core/RequestAgent.sol";
 import {ContractNetLib} from "blade/core/ContractNetLib.sol";
 
 /// @dev Revision of comparison/test/ParametricEquivalence.t.sol (unchanged for E0/E1). Same 13 cells and
-/// state assertions. Differences, all required by the corrected Core or the revised methodology:
-/// - BLADE continuations carry the Core-assigned token (`_token`, zero on E1) and no inbound payload.
+/// state assertions. Differences, all required by the corrected BLADE or the revised methodology:
+/// - BLADE continuations carry the BLADE-assigned token (`_token`, zero on E1) and no inbound payload.
 /// - Payload delivery is asserted on the recorded `handle` call data for BLADE and on the callback call
 ///   data for the manual baseline (stronger than the original "last Received log" check: every
 ///   recipient, exactly once). `Received` contents are checked as well unless the profile declares the
@@ -105,27 +105,27 @@ contract ParametricEquivalenceRevTest is RevisionBase {
         uint64 byB = uint64(block.timestamp + 10);
         vm.recordLogs();
         vm.startStateDiffRecording();
-        bM.cfp(bP, CID, byB, payload);
+        bytes32 bCid = _bladeCfp(address(bM), bP, CID, byB, payload);
         Vm.AccountAccess[] memory acc = vm.stopAndReturnStateDiff();
         _assertReceived(_receivedContents(), n, payload, "cfp");
         for (uint256 i = 0; i < n; i++) {
             _assertDeliveredOnce(_handledContents(acc, bP[i]), payload, "cfp");
-            assertEq(BladeCnParticipant(bP[i]).session(CID).phase, ContractNetLib.PART_CFPED);
-            BladeCnParticipant(bP[i]).propose(_cfpInbound(CID, byB, ""), address(bM), payload);
+            assertEq(BladeCnParticipant(bP[i]).session(bCid).phase, ContractNetLib.PART_CFPED);
+            BladeCnParticipant(bP[i]).propose(_cfpInbound(bCid, byB, ""), address(bM), payload);
         }
         vm.warp(uint256(byB) + 1);
-        bM.evaluate(CID, bP, _empty(), _empty());
+        bM.evaluate(bCid, bP, _empty(), _empty());
         for (uint256 i = 0; i < n; i++) {
             vm.recordLogs();
             vm.startStateDiffRecording();
-            BladeCnParticipant(bP[i]).inform(_acceptInbound(CID), address(bM), payload);
+            BladeCnParticipant(bP[i]).inform(_acceptInbound(bCid), address(bM), payload);
             acc = vm.stopAndReturnStateDiff();
             _assertDeliveredOnce(_handledContents(acc, address(bM)), payload, "inform");
             _assertReceived(_receivedContents(), 1, payload, "inform");
-            assertEq(BladeCnParticipant(bP[i]).session(CID).phase, ContractNetLib.PART_NONE);
+            assertEq(BladeCnParticipant(bP[i]).session(bCid).phase, ContractNetLib.PART_NONE);
         }
-        assertEq(bM.conversation(CID).live, 0);
-        assertEq(bM.conversation(CID).invited, 0);
+        assertEq(bM.conversation(bCid).live, 0);
+        assertEq(bM.conversation(bCid).invited, 0);
 
         ManualManager mM = new ManualManager();
         address[] memory mP = new address[](n);

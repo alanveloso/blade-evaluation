@@ -12,9 +12,10 @@ and `scripts/verify_artifact.sh` still passes.
 | E0 | fbf266f | Anvil default (`latest` = Bpo1) | legacy (re-sent) | submitted | Submitted results (`data/raw`, untouched) |
 | E0R | fbf266f | Anvil default | legacy | submitted | Replay of E0 through the revision runner |
 | E1H | fbf266f | Cancun (explicit) | legacy | submitted | Isolates the hardfork effect |
-| E1 | fbf266f | Cancun | minimal | submitted | Original Core, corrected methodology |
+| E1 | fbf266f | Cancun | minimal | submitted | Original BLADE, corrected methodology |
 | E2 | 4b60b86 | Cancun | minimal | submitted | Corrected Core, corrected methodology |
-| E2-EV-NORECV / -NOPHASE / -NONE | 4b60b86 with `emit`s stripped | Cancun | minimal | submitted | Event cost (measurement-only Cores) |
+| E3 | 55fe5d2 | Cancun | minimal | submitted | E2 + BLADE-assigned Contract Net conversation ids |
+| E2-EV-NORECV / -NOPHASE / -NONE | 4b60b86 with `emit`s stripped | Cancun | minimal | submitted | Event cost (measurement-only Cores; unchanged on E3) |
 | E2-MOBS | 4b60b86 | Cancun | minimal | `observable` | Manual with BLADE-identical events |
 | E2-MCORR | 4b60b86 | Cancun | minimal | `correlated` | Manual with the E2 correlation guarantee |
 | E2-MCOBS | 4b60b86 | Cancun | minimal | `observable` + `correlated-observable` | Manual with both |
@@ -23,8 +24,12 @@ and `scripts/verify_artifact.sh` still passes.
 
 Core commits (`git@github.com:alanveloso/blade.git`):
 `fbf266f5a9304af3b4541ed82a5d814a6afda5cc` is the submitted Core;
-`4b60b86159e89baccd24a859ca62e7039a8c8be2` is the corrected Core. Its Solidity sources are identical
+`4b60b86159e89baccd24a859ca62e7039a8c8be2` is the corrected BLADE. Its Solidity sources are identical
 to `baeae00`, which additionally contained an accidentally nested `blade/` directory.
+`f9ebfd36937abe66b35496ead25aa980e3c4b527` is the E3 BLADE checkout (generated Contract Net ids on
+top of E2); replace with the feature commit SHA after you commit on `blade`.
+Event ablation overlays under `variants/events/` remain pinned to E2 (`4b60b86`); E3 adds primary
+campaign and `ABL-E3` only (ABL-E3 still needs ablation trees rebased onto that BLADE tree).
 
 Divergences from the original revision plan:
 
@@ -44,6 +49,9 @@ effective hardfork, toolchain versions and source hashes). Validated outputs are
 ```sh
 R=revision/scripts/run_revision.py
 python3 $R --mode tests     --campaign E2          # profile `token` (default for E2)
+python3 $R --mode tests     --campaign E3          # profile `cn-generated`
+python3 $R --mode campaign  --campaign E3
+python3 $R --mode ablation  --campaign ABL-E3
 python3 $R --mode tests     --campaign E1          # profile `historical` (originals + revision ports)
 python3 $R --mode core-tests --campaign E2         # Core suite + revision/test-core
 python3 $R --mode preflight --campaign E2          # hardfork, chain and determinism checks
@@ -74,9 +82,10 @@ Historical tests in `comparison/test/` are never modified. Each campaign selects
 |---|---|---|
 | `historical` | E0R, E1H, E1 | Original Request/Parametric/Storage/ContractNet plus all revision tests |
 | `token` | E2, E2-EV-NOPHASE, baselines, S-NONCE | Originals that cannot express the token are replaced by complete ports (`RequestEquivalenceRev`, `ParametricEquivalenceRev`, `StorageRev`); `ContractNetEquivalence` unchanged |
+| `cn-generated` | E3 | As `token`, plus `ContractNetEquivalenceRev` (BLADE-assigned CN ids on the BLADE side) |
 | `token-no-received` | E2-EV-NORECV, E2-EV-NONE | As `token`, plus `REVISION_EXPECT_RECEIVED=false`: payload delivery is asserted on recorded `handle` calldata; `Received` logs must be absent |
 
-`ParametricEquivalenceRev` keeps the 13 original cells and state assertions, carries the Core-assigned
+`ParametricEquivalenceRev` keeps the 13 original cells and state assertions, carries the BLADE-assigned
 token, and requires the N=8 cell to pass (the original may skip on resource exhaustion).
 `StorageRev` keeps the three probes and requires session slots to return to zero while allowing the
 persistent nonce slot.
@@ -172,16 +181,21 @@ Deltas are variant − A0. A positive delta means the Core optimisation saves ga
   interaction (A34 − A3 − A4) is 0 gas on every HALF cell and ±1 gas on REJ, so the two effects are
   additive.
 
-## Residual limitations (Contract Net not modified)
+## Residual limitations (unchanged by E2/E3)
+
+**Closed by E3 (not residual):** BLADE-assigned Contract Net `conversationId` at CFP opening; stale
+Propose/Inform from a prior CN instance do not attach to a new opening. That former E2 gap is gone
+on the BLADE side of E3 and is not listed below.
+
+What remains is outside those two fixes (Request token in E2; CN ids in E3):
 
 | Limitation | Status | Scope |
 |---|---|---|
 | Abandoned Request strands storage and blocks reuse of the conversationId | Reproduced (`ResidualExposure.t.sol`) | Both BLADE and manual |
-| conversationId squatting by a third party blocks the honest request | Reproduced | Both; the squatted session stays isolated from the honest initiator |
-| Relay replay, CFP front-running and squatting, timestamp drift, Contract Net liveness | Core limitation tests at 4b60b86 (`data/E2/core-limitation-tests.log`, 17 PASS; full suite `data/E2/core_tests.log`, 207 PASS) | Architectural; relay unreachable in the measured wrappers (`trustedRelay == 0`) |
+| Request conversationId squatting by a third party blocks the honest request | Reproduced | Both; the squatted session stays isolated from the honest initiator |
+| Relay replay of closed Requests; proposal front-running / confidentiality; timestamp drift; CN progress if peers refuse decision delivery | Still architectural | Measured wrappers use `trustedRelay == 0`; see `docs/SECURITY.md` in BLADE |
 
-The Request fix rejects stale replies after a conversationId is reused. It does not eliminate all
-forms of replay: replay through a trusted relay and squatting remain.
+Manual CN baselines in E3 still use application-chosen ids on purpose (comparability control).
 
 ## Nonce-packing study (S-NONCE; not E3, not the official Core)
 

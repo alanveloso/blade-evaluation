@@ -71,6 +71,25 @@ abstract contract RevisionBase is Test {
         m.conversationId = cid;
     }
 
+    /// @dev Opens a BLADE Contract Net CFP using the generated-id ABI when present, otherwise the legacy
+    /// application-chosen `legacyCid` (E2 and earlier Cores).
+    function _bladeCfp(address manager, address[] memory participants, bytes32 legacyCid, uint64 replyBy, bytes memory content)
+        internal
+        returns (bytes32 conversationId)
+    {
+        bytes4 gen = bytes4(keccak256("cfp(address[],uint64,bytes)"));
+        (bool ok, bytes memory ret) = manager.call(abi.encodeWithSelector(gen, participants, replyBy, content));
+        if (ok && ret.length >= 32) {
+            conversationId = abi.decode(ret, (bytes32));
+            require(conversationId != bytes32(0), "assigned id");
+            return conversationId;
+        }
+        bytes4 leg = bytes4(keccak256("cfp(address[],bytes32,uint64,bytes)"));
+        (ok,) = manager.call(abi.encodeWithSelector(leg, participants, legacyCid, replyBy, content));
+        require(ok, "blade cfp");
+        return legacyCid;
+    }
+
     function _logsDigest() internal returns (bytes32) {
         Vm.Log[] memory logs = vm.getRecordedLogs();
         return keccak256(abi.encode(logs));
