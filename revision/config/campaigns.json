@@ -47,7 +47,7 @@
       "test_profile": "historical"
     },
     "E1H": {
-      "role": "Original Core, explicit Cancun, legacy payload encoding. E1H - E0 isolates the hardfork correction.",
+      "role": "Original BLADE, explicit Cancun, legacy payload encoding. E1H - E0 isolates the hardfork correction.",
       "core_sha": "fbf266f5a9304af3b4541ed82a5d814a6afda5cc",
       "hardfork": "cancun",
       "expected_node_hardfork": "Cancun",
@@ -57,7 +57,7 @@
       "test_profile": "historical"
     },
     "E1": {
-      "role": "Original Core with the corrected methodology (explicit Cancun, no redundant inbound payload). E1 - E1H isolates the payload correction.",
+      "role": "Original BLADE with the corrected methodology (explicit Cancun, no redundant inbound payload). E1 - E1H isolates the payload correction.",
       "core_sha": "fbf266f5a9304af3b4541ed82a5d814a6afda5cc",
       "hardfork": "cancun",
       "expected_node_hardfork": "Cancun",
@@ -75,6 +75,16 @@
       "core_overlay": null,
       "manual_variant": null,
       "test_profile": "token"
+    },
+    "E3": {
+      "role": "E2 plus BLADE-assigned Contract Net conversation ids at CFP opening. E3 - E2 isolates the CN id policy; manual baseline still uses application-chosen ids.",
+      "core_sha": "f9ebfd36937abe66b35496ead25aa980e3c4b527",
+      "hardfork": "cancun",
+      "expected_node_hardfork": "Cancun",
+      "payload_encoding": "minimal",
+      "core_overlay": null,
+      "manual_variant": null,
+      "test_profile": "cn-generated"
     },
     "E2-EV-NORECV": {
       "role": "Experimental counterfactual (not a BLADE release): E2 Core without the Agent.Received emission.",
@@ -213,6 +223,10 @@
       },
       "ABL-E2": {
         "base": "E2",
+        "variant_rebase": "RequestAgent.sol"
+      },
+      "ABL-E3": {
+        "base": "E3",
         "variant_rebase": "RequestAgent.sol"
       }
     },
@@ -596,7 +610,7 @@
       "replace": {
         "RequestEquivalence.t.sol": {
           "by": "RequestEquivalenceRev.t.sol",
-          "reason": "Original continuations carry no correlation token; the corrected Core rejects them with ReplyWithMismatch. The port keeps all 10 original tests (same state assertions), reads the Core-assigned token, and adds test_staleInboundAfterReuse and test_tokenOnlyWhenCoreAssigns. test_invalid_wrongPeer now sends the correct token so the rejection is attributable to the peer check (selector asserted)."
+          "reason": "Original continuations carry no correlation token; the corrected BLADE rejects them with ReplyWithMismatch. The port keeps all 10 original tests (same state assertions), reads the BLADE-assigned token, and adds test_staleInboundAfterReuse and test_tokenOnlyWhenBladeAssigns. test_invalid_wrongPeer now sends the correct token so the rejection is attributable to the peer check (selector asserted)."
         },
         "ParametricEquivalence.t.sol": {
           "by": "ParametricEquivalenceRev.t.sol",
@@ -604,7 +618,7 @@
         },
         "StoragePilot.t.sol": {
           "by": "StorageRev.t.sol",
-          "reason": "The original requires zero non-zero slots at the terminal message; the corrected Core keeps one persistent nonce slot at the initiator by design. The port keeps the three probes (R3 payloads, active K with isolation, CN A N=2), requires session slots to return to zero, live sessions to be non-empty, the persistent slot to be unchanged by the terminal message, and no payload in storage."
+          "reason": "The original requires zero non-zero slots at the terminal message; the corrected BLADE keeps one persistent nonce slot at the initiator by design. The port keeps the three probes (R3 payloads, active K with isolation, CN A N=2), requires session slots to return to zero, live sessions to be non-empty, the persistent slot to be unchanged by the terminal message, and no payload in storage."
         }
       },
       "env": {},
@@ -623,12 +637,52 @@
         }
       ]
     },
+    "cn-generated": {
+      "description": "E3 Core (generated Contract Net conversation ids). As 'token', but ContractNetEquivalence is replaced by ContractNetEquivalenceRev; revision ports use the returned id on the BLADE side.",
+      "replace": {
+        "RequestEquivalence.t.sol": {
+          "by": "RequestEquivalenceRev.t.sol",
+          "reason": "Original continuations carry no correlation token; the corrected BLADE rejects them with ReplyWithMismatch."
+        },
+        "ParametricEquivalence.t.sol": {
+          "by": "ParametricEquivalenceRev.t.sol",
+          "reason": "Same 13 cells with token-aware Request continuations and generated-id BLADE Contract Net CFP."
+        },
+        "StoragePilot.t.sol": {
+          "by": "StorageRev.t.sol",
+          "reason": "Session slots must return to zero while allowing the persistent Request nonce slot; BLADE CN uses BLADE-assigned ids."
+        },
+        "ContractNetEquivalence.t.sol": {
+          "by": "ContractNetEquivalenceRev.t.sol",
+          "reason": "Original BLADE path passes an application conversationId; E3 BLADE assigns ids at CFP opening and rejects non-zero ids."
+        }
+      },
+      "env": {},
+      "not_applicable": [
+        {
+          "test": "comparison/test/RequestEquivalence.t.sol",
+          "reason": "Replaced by RequestEquivalenceRev.t.sol."
+        },
+        {
+          "test": "comparison/test/ParametricEquivalence.t.sol",
+          "reason": "Replaced by ParametricEquivalenceRev.t.sol."
+        },
+        {
+          "test": "comparison/test/StoragePilot.t.sol",
+          "reason": "Replaced by StorageRev.t.sol."
+        },
+        {
+          "test": "comparison/test/ContractNetEquivalence.t.sol",
+          "reason": "Replaced by ContractNetEquivalenceRev.t.sol for BLADE-assigned CN ids."
+        }
+      ]
+    },
     "token-no-received": {
       "description": "Measurement-only Cores without the Received emission. As 'token', but Received contents are replaced by an assertion that no Received log exists; payload delivery is still asserted on call data.",
       "replace": {
         "RequestEquivalence.t.sol": {
           "by": "RequestEquivalenceRev.t.sol",
-          "reason": "Original continuations carry no correlation token; the corrected Core rejects them with ReplyWithMismatch. The port keeps all 10 original tests (same state assertions), reads the Core-assigned token, and adds test_staleInboundAfterReuse and test_tokenOnlyWhenCoreAssigns. test_invalid_wrongPeer now sends the correct token so the rejection is attributable to the peer check (selector asserted)."
+          "reason": "Original continuations carry no correlation token; the corrected BLADE rejects them with ReplyWithMismatch. The port keeps all 10 original tests (same state assertions), reads the BLADE-assigned token, and adds test_staleInboundAfterReuse and test_tokenOnlyWhenBladeAssigns. test_invalid_wrongPeer now sends the correct token so the rejection is attributable to the peer check (selector asserted)."
         },
         "ParametricEquivalence.t.sol": {
           "by": "ParametricEquivalenceRev.t.sol",
@@ -636,7 +690,7 @@
         },
         "StoragePilot.t.sol": {
           "by": "StorageRev.t.sol",
-          "reason": "The original requires zero non-zero slots at the terminal message; the corrected Core keeps one persistent nonce slot at the initiator by design. The port keeps the three probes (R3 payloads, active K with isolation, CN A N=2), requires session slots to return to zero, live sessions to be non-empty, the persistent slot to be unchanged by the terminal message, and no payload in storage."
+          "reason": "The original requires zero non-zero slots at the terminal message; the corrected BLADE keeps one persistent nonce slot at the initiator by design. The port keeps the three probes (R3 payloads, active K with isolation, CN A N=2), requires session slots to return to zero, live sessions to be non-empty, the persistent slot to be unchanged by the terminal message, and no payload in storage."
         }
       },
       "env": {

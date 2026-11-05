@@ -118,8 +118,8 @@ contract PayloadEncodingEquivalenceTest is RevisionBase {
         parts[0] = address(c0);
         parts[1] = address(c1);
         uint64 by = uint64(block.timestamp + 10);
-        bM.cfp(parts, CID, by, p);
-        Message memory cfp = _cfpInbound(CID, by, inboundContent);
+        bytes32 cnId = _bladeCfp(address(bM), parts, CID, by, p);
+        Message memory cfp = _cfpInbound(cnId, by, inboundContent);
         vm.recordLogs();
         c0.propose(cfp, address(bM), p);
         address[] memory acc;
@@ -133,9 +133,9 @@ contract PayloadEncodingEquivalenceTest is RevisionBase {
         }
         vm.warp(uint256(by) + 1);
         address[] memory none = new address[](0);
-        bM.evaluate(CID, acc, none, none);
+        bM.evaluate(cnId, acc, none, none);
         for (uint256 i = 0; i < acc.length; i++) {
-            BladeCnParticipant(acc[i]).inform(_acceptInbound(CID), address(bM), p);
+            BladeCnParticipant(acc[i]).inform(_acceptInbound(cnId), address(bM), p);
         }
         return keccak256(
             abi.encode(
